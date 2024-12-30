@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="logo"> <a routerLink="/landingPage">Resume Builder</a></div>
+  <ul class="nav-links" [ngClass]="{ 'nav-active': isMenuOpen }">
+    <li><a routerLink="/landingPage">Home</a></li>
+    <!-- <li><a routerLink="/resumeTemplates">Templates</a></li> -->
+    
+    <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+      <li><a routerLink="" (click)="logOut()"> LogOut</a></li>
+    </ng-container>
+    <ng-template #notLoggedIn>
+      <li> 
+        <a routerLink="/resumes"> Profile</a>
+      </li>
+    </ng-template>
+    
+    <!-- <li><a routerLink="/resumes"> Profile </a></li>
+    <li><a routerLink="" (click)="logOut()"> Logout </a></li> -->
+  </ul>
+  <div class="burger" (click)="toggleMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</nav>

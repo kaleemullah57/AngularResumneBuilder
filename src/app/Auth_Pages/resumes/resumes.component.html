@@ -1,0 +1,637 @@
+<div class="sidebar" [class.open]="isSidebarOpen">
+  <!-- Toggle Button -->
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    {{ isSidebarOpen ? 'Close Menu' : 'Open Menu' }}
+  </button>
+
+  <!-- Sidebar Content -->
+  <div class="sidebar-content">
+    <button (click)="onLogout()">Logout</button>
+    <button routerLink="/resumes">Total Resumes</button>
+    <button routerLink="/dashboard"> Dashboard </button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Dropdown Section -->
+<!-- <div class="dropdown-container">
+  <h1>Your Resumes</h1>
+  <p>Manage and view all of your resumes in one place.</p>
+  <label for="cvFormat" class="dropdown-label">Select CV Format:</label>
+  <select id="cvFormat" [(ngModel)]="selectedFormat" (change)="onChangeFormat()" class="dropdown-select">
+    <option *ngFor="let format of format" [value]="format.value">{{ format.label }}</option>
+  </select>
+</div> -->
+
+
+
+<!-- Error Message Section -->
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+
+
+<!-- Resumes Section -->
+<div class="formats-of-resumes">
+  <!-- <button class="button" (click)="scrollLeft()">&lt;</button> -->
+
+  <div *ngIf="currentIndex === 0">
+    <!-- <div *ngIf="resumes.length > 0" class="resumes-grid"> -->
+    <div *ngFor="let resume of resumes" class="resume-card">
+      <button class="left-button" (click)="scrollLeft()">&lt;</button>
+      <button class="right-button" (click)="scrollRight()"> &gt;</button>
+      <!-- Personal Info Section -->
+      <div class="personal-info">
+        <button (click)="deleteResumes(resume.personalRecord.personalRecordId)">Delete Resume</button>
+        <h2>{{ resume.personalRecord.name }}</h2>
+        <img *ngIf="resume.personalRecord.imagePath" [src]="resume.personalRecord.imagePath" alt="Profile Image"
+          class="profile-image" />
+        <p><strong>Email:</strong> {{ resume.personalRecord.email }} || <strong>Phone:</strong> {{
+          resume.personalRecord.phone }}</p>
+        <p></p>
+        <p><strong>Address:</strong> {{ resume.personalRecord.address }}</p>
+        <p><strong>Intro:</strong> {{ resume.personalRecord.intro }}</p>
+      </div>
+
+      <!-- Education Section -->
+      <div class="section">
+        <h3>Education</h3>
+        <ul *ngFor="let education of resume.educations">
+          <li>
+            <strong>{{ education.degree }}</strong>
+            at {{ education.institute }}
+            ({{ education.yearOfCompletion }})
+          </li>
+          <div class="button-class">
+            <button (click)="editEducation(education)"> Edit Education </button>
+          </div>
+        </ul>
+      </div>
+
+      <!-- Extra Education Section -->
+      <div class="section">
+        <h3>Extra Education</h3>
+        <ul *ngFor="let extraEducation of resume.extraEducations">
+          <li >
+            <strong>{{ extraEducation.exEduDegree }}</strong>
+            at {{ extraEducation.exEduInstitute }}
+            ({{ extraEducation.exEduYearOfCompletion }})
+          </li>
+          <div class="button-class">
+            <button (click)="editExtraEducation(extraEducation)"> Edit Extra Education  </button>
+          </div>
+        </ul>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="section">
+        <h3>Experience</h3>
+        <ul *ngFor="let experience of resume.experience">
+          <li *ngFor="let experience of resume.experience">
+            <strong>{{ experience.jobTitle }}</strong>
+            in {{ experience.location }}
+            with {{ experience.yearsOfExperience }} years of experience
+          </li>
+          <div class="button-class">
+            <button (click)="editExperienceRecord(experience)"> Edit Experience </button>
+          </div>
+        </ul>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="section">
+        <h3>Skills</h3>
+        <ul *ngFor="let skill of resume.skills">
+          <li *ngFor="let skill of resume.skills">
+            <strong>{{ skill.skillName }}</strong> - Efficiency: {{ skill.efficiency }}
+          </li>
+          <div class="button-class">
+            <button (click)="editSkillsRecords(skill)"> Edit Skills </button>
+          </div>
+        </ul>
+      </div>
+
+      <!-- Languages Section -->
+      <div class="section">
+        <h3>Languages</h3>
+        <ul *ngFor="let language of resume.languages">
+          <li >
+            {{ language.languageName }}
+          </li>
+          <div class="button-class">
+            <button (click)="editLanguageRecord(language)"> Edit languages </button>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <!-- </div> -->
+  </div>
+  <!-- No Resumes Available Message -->
+  <div *ngIf="resumes.length === 0" class="no-resumes-message">
+    No resumes available.
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <!--  Simple  Resume Template  -->
+  <div *ngIf="currentIndex === 1" class="simple">
+    <!-- <div *ngIf="resumes.length > 0" class="resume-container"> -->
+    <div *ngFor="let resue of resumes" class="resume-item">
+
+      <button class="left-button" (click)="scrollLeft()">&lt;</button>
+      <button class="right-button" (click)="scrollRight()"> &gt;</button>
+
+      <header class="resume-header">
+        <div class="header-left">
+          <!-- <button type="button"  (click)="deleteResumes(resue.personalRecord.personalRecordId)"> Delete  </button> -->
+          <h1> {{ resue.personalRecord.name }} </h1>
+          <p>
+            {{ resue.personalRecord.intro }}
+          </p>
+        </div>
+        <div class="header-right">
+          <p> {{ resue.personalRecord.address }} </p>
+          <p> {{ resue.personalRecord.phone }} </p>
+          <p>{{ resue.personalRecord.email }}</p>
+        </div>
+      </header>
+
+      <main class="resume-content">
+        <section class="main-content">
+          <h2> Qualifications</h2>
+          <ul *ngFor="let edu of resue.educations">
+            <li>
+              <h3> {{ edu.degree }} </h3>
+              <p class="main-container-ul-li-p"> || Institute : {{ edu.institute }} || Year Of Completion : {{
+                edu.yearOfCompletion }} ||</p>
+
+
+              <div class="button-class">
+                <button (click)="editEducation(edu)"> Edit Education </button>
+                <button type="button" (click)="deleteEducationRecord(edu)"> Delete Education </button>
+              </div>
+            </li>
+
+          </ul>
+
+
+          <h2>Other Education</h2>
+          <article *ngFor="let extra of resue.extraEducations">
+            <h3> {{ extra.exEduDegree }} </h3>
+            <h4 class="main-container-ul-li-p"> || Institute : {{ extra.exEduInstitute }} || Year Of Completion : {{
+              extra.exEduYearOfCompletion }} ||</h4>
+            <div class="button-class">
+              <button (click)="editExtraEducation(extra)"> Edit Extra Education </button>
+            </div>
+          </article>
+
+
+          <h2>Experience</h2>
+          <article *ngFor="let exp of resue.experience">
+            <h3> {{ exp.jobTitle }} </h3>
+            <h4 class="main-container-ul-li-p"> || Location : {{ exp.location }} || Total Experience : {{
+              exp.yearsOfExperience }} ||</h4>
+            
+            <div class="button-class">
+              <button type="button" (click)="editExperienceRecord(exp)"> Edit Experience</button>
+            </div>
+          </article>
+
+          <article *ngFor="let skill of resue.skills">
+            <h2>Skills</h2>
+            <h3> {{ skill.skillName }} </h3>
+            <h4 class="main-container-ul-li-p">|| Efficiency : {{ skill.efficiency }} || </h4>
+            
+            <div class="button-class">
+              <button type="button" (click)="editSkillsRecords(skill)"> Edit Skill Details </button>
+            </div>
+          </article>
+
+          <article>
+            <h2> Languages </h2>
+            <ul *ngFor="let language of resue.languages">
+              <li>
+                <h3> || {{ language.languageName }} || </h3>
+                
+              </li>
+              <div class="button-class">
+                <button type="button" (click)="editLanguageRecord(language)"> Edit Language Details </button>
+              </div>
+            </ul>
+
+          </article>
+          <div class="button-class">
+            <button type="button" (click)="deleteResumes(resue.personalRecord.personalRecordId)"> Delete Resume
+            </button>
+          </div>
+        </section>
+      </main>
+
+    </div>
+
+    <!-- </div> -->
+  </div>
+  <!-- No Resumes Available Message -->
+  <div *ngIf="resumes.length === 0" class="no-resumes-message">
+    No resumes available.
+  </div>
+  <!-- <button type="button" (click)="scrollRight()"> &gt;</button> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div *ngIf="currentIndex === 2">
+    <div class="resume" *ngFor="let resue of resumes">
+      <button class="left-button" (click)="scrollLeft()">&lt;</button>
+      <button class="right-button" (click)="scrollRight()"> &gt;</button>
+      <div class="header">
+        <h1> {{ resue.personalRecord.name }} </h1>
+        <p> {{ resue.personalRecord.intro }} </p>
+      </div>
+
+      <div class="contact-info">
+        <div>
+          <p><strong>Contact :</strong> {{ resue.personalRecord.phone }} </p>
+          <p><strong>Email :</strong> {{ resue.personalRecord.email }} </p>
+          <p><strong>Address :</strong> {{ resue.personalRecord.address }} </p>
+
+        </div>
+      </div>
+
+      <!-- Experience Record -->
+      <h2> Experience Record </h2>
+      <div class="section" *ngFor="let exp of resue.experience">
+
+        <div class="parent-section">
+          <h3 class="h3-heading"> {{ exp.jobTitle }} </h3>
+          <p> {{ exp.location }}
+          </p>
+        </div>
+        <div class="child-section">
+          <p> {{ exp.yearsOfExperience }} </p>
+          <div class="button-class">
+            
+            <button (click)="editExperienceRecord(exp)"> update Experience </button>
+          </div>
+        </div>
+
+      </div>
+
+      <h2> KEY SKILLS & TECHNOLOGIES </h2>
+      <div class="section" *ngFor="let skill of resue.skills">
+        <div class="parent-section">
+          <h3 class="h3-heading"> {{ skill.skillName }} </h3>
+        </div>
+        <div class="child-section2">
+          <ul>
+            <li> {{ skill.efficiency }} </li>
+            <div class="button-class">
+              
+              <button (click)="editSkillsRecords(skill)"> update SKills </button>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+      <h2> Academics </h2>
+      <div class="section" *ngFor="let edu of resue.educations">
+        <div class="parent-section">
+          <h3 class="h3-heading"> {{ edu.degree }} </h3>
+        </div>
+        <div class="child-section2">
+          <ul>
+            <li> {{ edu.institute }} </li>
+            <li> {{ edu.yearOfCompletion }} </li>
+            <div class="button-class">
+              
+              <button (click)="editEducation(edu)"> Edit Education </button>
+            </div>
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+      <h2> Other Education </h2>
+      <div class="section" *ngFor="let ext of resue.extraEducations">
+        <div class="parent-section">
+          <h3 class="h3-heading"> {{ ext.exEduDegree }} </h3>
+        </div>
+        <div class="child-section2">
+          <ul>
+            <li> {{ ext.exEduInstitute }} </li>
+            <li> {{ ext.exEduYearOfCompletion }} </li>
+            <div class="button-class">
+              <button (click)="editExtraEducation(ext)"> Edit Education </button>
+            </div>
+            
+          </ul>
+        </div>
+      </div>
+
+
+
+
+
+      <h2> Language Record </h2>
+      <div class="section" *ngFor="let language of resue.languages">
+        <div class="parent-section">
+          <p> {{ language.languageName }} </p>
+            <div class="button-class">
+              <button (click)="editLanguageRecord(language)"> Edit Language </button>
+            </div>      
+        </div>
+      </div>
+      <div class="button-class">
+        <button type="button" (click)="deleteResumes(resue.personalRecord.personalRecordId)"> Delete Resume
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div *ngFor="let resume of resumes">
+  <div *ngFor="let education of resume.educations">
+    <!-- Display form when editing -->
+    <div *ngIf="selectedEducationId === education.educationId" class="modal-container">
+      <div class="modal-content">
+        <h3>Update Education</h3>
+        <form (ngSubmit)="submitUpdate()">
+          <label for="degree">Degree:</label>
+          <input id="degree" [(ngModel)]="updatedEducation.degree" name="degree" required />
+
+          <label for="institute">Institute:</label>
+          <input id="institute" [(ngModel)]="updatedEducation.institute" name="institute" required />
+
+          <label for="yearOfCompletion">Year of Completion:</label>
+          <input id="yearOfCompletion" [(ngModel)]="updatedEducation.yearOfCompletion" name="yearOfCompletion"
+            required />
+
+          <button type="submit">Save</button>
+          <button type="button" (click)="cancelEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div *ngFor="let resume of resumes">
+  <div *ngFor="let extra of resume.extraEducations">
+    <!-- Display form when editing -->
+    <div *ngIf="selectedExtraEducationRecordId === extra.exEducationId" class="modal-container">
+      <div class="modal-content">
+        <h3>Update Extra Education Record </h3>
+        <form (ngSubmit)="submitExtraEducationRecord()">
+          <label for="exEduDegree">exEduDegree:</label>
+          <input id="exEduDegree" [(ngModel)]="updateExEducationModel.exEduDegree" name="exEduDegree" required />
+
+          <label for="exEduInstitute">exEduInstitute:</label>
+          <input id="exEduInstitute" [(ngModel)]="updateExEducationModel.exEduInstitute" name="exEduInstitute"
+            required />
+
+          <label for="exEduYearOfCompletion">exEduYearOfCompletion:</label>
+          <input id="exEduYearOfCompletion" [(ngModel)]="updateExEducationModel.exEduYearOfCompletion"
+            name="exEduYearOfCompletion" required />
+
+          <button type="submit">Save</button>
+          <button type="button" (click)="cancelExtraEducationEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div *ngFor="let resume of resumes">
+  <div *ngFor="let exp of resume.experience">
+    <!-- Display form when editing -->
+    <div *ngIf="SelectedExperienceRecordId === exp.experienceId" class="modal-container">
+      <div class="modal-content">
+        <h3>Update Experience </h3>
+        <form (ngSubmit)="submitExperienceRecord()">
+          <label for="jobTitle">jobTitle:</label>
+          <input id="jobTitle" [(ngModel)]="updateExperience.jobTitle" name="jobTitle" required />
+
+          <label for="location">location:</label>
+          <input id="location" [(ngModel)]="updateExperience.location" name="location" required />
+
+          <label for="yearsOfExperience">yearsOfExperience:</label>
+          <input id="yearsOfExperience" [(ngModel)]="updateExperience.yearsOfExperience" name="yearsOfExperience"
+            required />
+
+          <button type="submit">Save</button>
+          <button type="button" (click)="cancelExperienceEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  Update SKills Records -->
+<div *ngFor="let resume of resumes">
+  <div *ngFor="let skill of resume.skills">
+    <!-- Display form when editing -->
+    <div *ngIf="SelectedSkillsRecordId === skill.skillId" class="modal-container">
+      <div class="modal-content">
+        <h3>Update Skills Details </h3>
+        <form (ngSubmit)="submitSkillsRecord()">
+          <label for="skillName">Skill Name:</label>
+          <input id="skillName" [(ngModel)]="updateSkillRecord.skillName" name="skillName" required />
+
+          <label for="efficiency">Efficiency :</label>
+          <input id="efficiency" [(ngModel)]="updateSkillRecord.efficiency" name="efficiency" required />
+          <button type="submit">Save</button>
+          <button type="button" (click)="cancelSkillsEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div *ngFor="let resume of resumes">
+  <div *ngFor="let language of resume.languages">
+    <!-- Display form when editing -->
+    <div *ngIf="selectedLanguageRecordId === language.languageId" class="modal-container">
+      <div class="modal-content">
+        <h3>Update Languages Details </h3>
+        <form (ngSubmit)="submitLanguageRecord()">
+          <label for="languageName"> Language Name :</label>
+          <input id="languageName" [(ngModel)]="updateLanguageModel.languageName" name="languageName" required />
+          <button type="submit">Save</button>
+          <button type="button" (click)="cancelLanguageEdit()">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>

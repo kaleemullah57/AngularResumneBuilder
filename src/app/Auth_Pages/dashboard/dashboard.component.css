@@ -1,0 +1,449 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px; /* Default width for PC */
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar > button > p{
+  color: white;
+}
+
+.sidebar .toggle-btn {
+  position: absolute;
+  top: 80px;
+  right: -108px;
+  /* background-color: #34495e; */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1100;
+}
+
+.sidebar .sidebar-content button {
+  background-color: #34495e;
+  color: white;
+  border: none;
+  padding: 15px;
+  margin: 5px 20px;
+  text-align: left;
+  border-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow:
+  inset 0 -3em 3em rgb(0 200 0 / 30%),
+  0 0 0 1px white,
+  0.3em 0.3em 1em rgb(200 0 0 / 60%);
+}
+
+.sidebar .sidebar-content button:hover {
+  background-color: #1abc9c;
+}
+
+.main-content {
+  margin-left: 0;
+  transition: margin-left 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.sidebar.open + .main-content {
+  margin-left: 250px; /* Shift content for sidebar in PC */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Reduce width for tablets */
+  }
+
+  .sidebar .toggle-btn {
+    right: -40px;
+
+  }
+
+  .sidebar.open + .main-content {
+    margin-left: 200px; /* Adjust margin for tablets */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%; /* Full-width for mobile */
+    height: auto; /* Adjust for dropdown menu */
+    left: 38%;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.open {
+    transform: translateY(0);
+  }
+
+  .sidebar .toggle-btn {
+    top: auto;
+    bottom: -50px; /* Place toggle at the bottom for mobile */
+    left: 30%;
+    transform: translateX(-50%);
+  }
+
+  .main-content {
+    margin-left: 0; /* No margin for mobile */
+    padding: 10px;
+  }
+
+  .sidebar .sidebar-content button {
+    padding: 10px;
+    font-size: 12px; /* Smaller buttons for mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Welcome Section */
+.welcome-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  height: 50vh;
+  box-shadow:
+  inset 0 -3em 3em rgb(0 200 0 / 30%),
+  0 0 0 2px white,
+  0.3em 0.3em 1em rgb(200 0 0 / 60%);
+}
+
+.welcome-text h2 {
+  font-size: 2rem;
+  color: #34495e;
+  margin: 0;
+}
+
+.resume-picture img {
+  max-width: 250px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.resume-picture {
+  flex-shrink: 0;
+  width: 30%;
+}
+
+
+/* Intro Section */
+.intro-section {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow:
+  inset 0 -3em 3em rgb(0 200 0 / 30%),
+  0 0 0 2px white,
+  0.3em 0.3em 1em rgb(200 0 0 / 60%);
+}
+
+.intro-section h3 {
+  font-size: 1.8rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.intro-section p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+/* Success Message Styles */
+.success-message {
+  position: fixed;        /* Position it at the top of the screen */
+  top: 0;                 /* Place it at the very top */
+  left: 50%;              /* Center it horizontally */
+  transform: translateX(-50%); /* Offset by 50% of its own width to center it */
+  background-color: #4CAF50; /* Green background to indicate success */
+  color: white;           /* White text color */
+  padding: 15px 30px;     /* Some padding around the text */
+  font-size: 18px;        /* Adjust the font size */
+  font-weight: bold;      /* Make the text bold */
+  border-radius: 5px;     /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 9999;          /* Ensure it's on top of other content */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for hiding */
+}
+
+.success-message p {
+  margin: 0; /* Remove default margin from the paragraph */
+}
+
+/* For responsive mobile views, adjust the text size */
+@media (max-width: 768px) {
+  .success-message {
+    font-size: 16px; /* Smaller text on mobile */
+    padding: 12px 25px; /* Adjust padding for smaller screens */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+form {
+  width: 70%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow:
+  inset 0 -3em 3em rgb(0 200 0 / 30%),
+  0 0 0 2px white,
+  0.3em 0.3em 1em rgb(200 0 0 / 60%);
+}
+
+h3 {
+  color: #333;
+  margin-top: 20px;
+}
+
+div {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow:
+  inset 0 -3em 3em rgb(0 200 0 / 30%),
+  0 0 0 2px white,
+  0.3em 0.3em 1em rgb(200 0 0 / 60%);
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

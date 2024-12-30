@@ -1,0 +1,54 @@
+<div class="registration-container">
+    <div *ngIf="!registrationSuccess" class="form-container">
+      <h2>Register</h2>
+      <!-- Registration Form -->
+      <form (ngSubmit)=" registerUser()" 
+      class="registration-form">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="users.username"
+            name="username"
+            required
+            placeholder="Enter your username"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="users.email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="users.password"
+            name="password"
+            required
+            placeholder="Enter your password"
+          />
+        </div>
+        <button type="submit" class="btn-register">Register</button>
+        <p class="login-link">
+          Already have an account? <a routerLink="/login">Login here</a>
+        </p>
+      </form>
+    </div>
+    <div *ngIf="registrationSuccess" class="success-container">
+      <!-- Success Message -->
+      <p>You have been registered successfully!</p>
+      <p>Redirecting to the login page...</p>
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>
+  

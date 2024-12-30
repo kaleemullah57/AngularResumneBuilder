@@ -1,0 +1,270 @@
+<!-- Sidebar -->
+<div class="sidebar" [class.open]="isSidebarOpen">
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    {{ isSidebarOpen ? 'Close Menu' : 'Open Menu' }}
+  </button>
+  <div class="sidebar-content">
+    <button (click)="onLogout()">Logout</button>
+    <button routerLink="/resumes">Total Resumes</button>
+    <button (click)="toggleForm()">{{ isFormVisible ? 'Hide Resume Form' : 'Create Resume' }}</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Success Message -->
+<div *ngIf="formSubmitted" class="success-message">
+  <p>Your resume has been submitted successfully!</p>
+</div>
+
+<!-- Form Section -->
+<div *ngIf="isFormVisible">
+
+  <form (ngSubmit)="addResume()" #resumeForm="ngForm">
+
+    <!-- Personal Record -->
+    <h3>Personal Information</h3>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="personalRecords.name" name="name" required #name="ngModel" />
+      <div *ngIf="name.invalid && name.touched" class="error-message">Name is required!</div>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" [(ngModel)]="personalRecords.email" name="email" required #email="ngModel" />
+      <div *ngIf="email.invalid && email.touched" class="error-message">Valid email is required!</div>
+    </div>
+
+    <div>
+      <label for="phone">Phone:</label>
+      <input id="phone" [(ngModel)]="personalRecords.phone" name="phone" #phone="ngModel" />
+      <div *ngIf="phone.invalid && phone.touched" class="error-message">Phone number is required!</div>
+    </div>
+
+    <div>
+      <label for="address">Address:</label>
+      <input id="address" [(ngModel)]="personalRecords.address" name="address" #address="ngModel" />
+      <div *ngIf="address.invalid && address.touched" class="error-message">Address is required!</div>
+    </div>
+
+    <div>
+      <label for="intro">Introduction:</label>
+      <textarea id="intro" [(ngModel)]="personalRecords.intro" name="intro" required #intro="ngModel"></textarea>
+      <div *ngIf="intro.invalid && intro.touched" class="error-message">Introduction is required!</div>
+    </div>
+    <div>
+      <label for="intro">Picture:</label>
+      <textarea id="imagePath" [(ngModel)]="personalRecords.imagePath" name="imagePath" required
+        #imagePath="ngModel"></textarea>
+      <div *ngIf="imagePath.invalid && intro.touched" class="error-message">Image Path is required!</div>
+    </div>
+
+    <!-- Education Records -->
+    <h3>Education Information</h3>
+    <div *ngFor="let education of educationRecords; let i = index">
+      <h4>Education {{i + 1}}</h4>
+      <div>
+        <label for="degree">Degree:</label>
+        <input id="degree" [(ngModel)]="education.degree" name="degree{{i}}" required #degree="ngModel" />
+        <div *ngIf="degree.invalid && degree.touched" class="error-message">Degree is required!</div>
+      </div>
+
+      <div>
+        <label for="institute">Institute:</label>
+        <input id="institute" [(ngModel)]="education.institute" name="institute{{i}}" required #institute="ngModel" />
+        <div *ngIf="institute.invalid && institute.touched" class="error-message">Institute is required!</div>
+      </div>
+
+      <div>
+        <label for="yearOfCompletion">Year of Completion:</label>
+        <input id="yearOfCompletion" [(ngModel)]="education.yearOfCompletion" name="yearOfCompletion{{i}}" required
+          #yearOfCompletion="ngModel" />
+        <div *ngIf="yearOfCompletion.invalid && yearOfCompletion.touched" class="error-message">Year of Completion is
+          required!</div>
+      </div>
+      <button type="button" (click)="removeEducationField(i)"> Remove Education Fields </button>
+    </div>
+    <button type="button" (click)="addEducation()"> Add More Education Fields </button>
+
+    <!-- Extra Education Records -->
+    <h3>Extra Education Information</h3>
+    <div *ngFor="let extraEducation of extraEducations; let i = index">
+      <h4>Extra Education {{i + 1}}</h4>
+      <div>
+        <label for="exEduDegree">Degree:</label>
+        <input id="exEduDegree" [(ngModel)]="extraEducation.exEduDegree" name="exEduDegree{{i}}" required
+          #exEduDegree="ngModel" />
+        <div *ngIf="exEduDegree.invalid && exEduDegree.touched" class="error-message">Degree is required!</div>
+      </div>
+
+      <div>
+        <label for="exEduInstitute">Institute:</label>
+        <input id="exEduInstitute" [(ngModel)]="extraEducation.exEduInstitute" name="exEduInstitute{{i}}" required
+          #exEduInstitute="ngModel" />
+        <div *ngIf="exEduInstitute.invalid && exEduInstitute.touched" class="error-message">Institute is required!</div>
+      </div>
+
+      <div>
+        <label for="exEduYearOfCompletion">Year of Completion:</label>
+        <input id="exEduYearOfCompletion" [(ngModel)]="extraEducation.exEduYearOfCompletion"
+          name="exEduYearOfCompletion{{i}}" required #exEduYearOfCompletion="ngModel" />
+        <div *ngIf="exEduYearOfCompletion.invalid && exEduYearOfCompletion.touched" class="error-message">Year of
+          Completion is required!</div>
+      </div>
+      <button type="button" (click)="removeExtraEducation(i)"> Remove Extra Education Fields </button>
+    </div>
+    <button type="button" (click)="addExtraEducation()"> Add ExtraEducation Fields </button>
+
+    <!-- Experience Records -->
+    <h3>Experience Information</h3>
+    <div *ngFor="let experience of experienceRecords; let i = index">
+      <h4>Experience {{i + 1}}</h4>
+      <div>
+        <label for="jobTitle">Job Title:</label>
+        <input id="jobTitle" [(ngModel)]="experience.jobTitle" name="jobTitle{{i}}" required #jobTitle="ngModel" />
+        <div *ngIf="jobTitle.invalid && jobTitle.touched" class="error-message">Job Title is required!</div>
+      </div>
+
+      <div>
+        <label for="location">Location:</label>
+        <input id="location" [(ngModel)]="experience.location" name="location{{i}}" required #location="ngModel" />
+        <div *ngIf="location.invalid && location.touched" class="error-message">Location is required!</div>
+      </div>
+
+      <div>
+        <label for="yearsOfExperience">Years of Experience:</label>
+        <input id="yearsOfExperience" [(ngModel)]="experience.yearsOfExperience" name="yearsOfExperience{{i}}" required
+          #yearsOfExperience="ngModel" />
+        <div *ngIf="yearsOfExperience.invalid && yearsOfExperience.touched" class="error-message">Years of Experience is
+          required!</div>
+      </div>
+      <button type="button" (click)="removeExperienceRecord(i)"> Remove Experience Fields </button>
+    </div>
+    <button type="button" (click)="addExperienceRecord()"> Add Experience Fields </button>
+
+    <!-- Skills Records -->
+    <h3>Skills Information</h3>
+    <div *ngFor="let skill of skillsRecords; let i = index">
+      <h4>Skill {{i + 1}}</h4>
+      <div>
+        <label for="skillName">Skill Name:</label>
+        <input id="skillName" [(ngModel)]="skill.skillName" name="skillName{{i}}" required #skillName="ngModel" />
+        <div *ngIf="skillName.invalid && skillName.touched" class="error-message">Skill Name is required!</div>
+      </div>
+
+      <div>
+        <label for="efficiency">Efficiency:</label>
+        <input id="efficiency" [(ngModel)]="skill.efficiency" name="efficiency{{i}}" required #efficiency="ngModel" />
+        <div *ngIf="efficiency.invalid && efficiency.touched" class="error-message">Efficiency is required!</div>
+      </div>
+      <button type="button" (click)="removeSkillsRecord(i)"> Remove Skills Fields </button>
+    </div>
+    <button type="button" (click)="addSkillsRecord()"> Add Skills Fields </button>
+
+    <!-- Language Records -->
+    <h3>Language Information</h3>
+    <div *ngFor="let language of languageRecords; let i = index">
+      <h4>Language {{i + 1}}</h4>
+      <div>
+        <label for="languageName">Language Name:</label>
+        <input id="languageName" [(ngModel)]="language.languageName" name="languageName{{i}}" required
+          #languageName="ngModel" />
+        <div *ngIf="languageName.invalid && languageName.touched" class="error-message">Language Name is required!</div>
+      </div>
+      <button type="button" (click)="removeLanguageRecord(i)"> Remove Language Fields </button>
+    </div>
+    <button type="button" (click)="addLanguageRecord()"> Add Language Fields </button>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="!resumeForm.valid">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<router-outlet></router-outlet>
