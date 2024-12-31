@@ -23,6 +23,9 @@ import { User } from '../../Auth_Folders/Auth_Model/user';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+goToPreviousStep() {
+throw new Error('Method not implemented.');
+}
 
   personalRecords: PersonalRecordModel = {
     personalRecordId: 0,
@@ -80,12 +83,14 @@ export class DashboardComponent {
 
   errorMessage: string | null = null;
   formSubmitted: boolean = false;
-  currentSection: string = 'education'; // default section is 'education';
-  isFormVisible : boolean = false;
+  // currentSection: string = 'education'; // default section is 'education';
+  // closeFormm:boolean = false;
+  // isFormVisible : boolean = false;
 
 
   isSidebarOpen: boolean = false;
 
+  currentStep :number = 1;
 
 
 
@@ -93,16 +98,29 @@ export class DashboardComponent {
 
   constructor(private _authService: AuthService)  { }
   
-
-
-   // Section visibility states
-   showSection(section: string) {
-    this.currentSection = section;
+  goToNextStep():void{
+    if(this.currentStep < 6){
+      this.currentStep++;
+    }
   }
 
-  showForm(){
-    this.currentSection;
+  goToBackStep(){
+    if(this.currentStep > 1){
+      this.currentStep--;
+    }
   }
+
+
+
+
+  //  // Section visibility states
+  //  showSection(section: string) {
+  //   this.currentSection = section;
+  // }
+
+  // showForm(){
+  //   this.currentSection;
+  // }
   
 // Toggle Sidebar 
   toggleSidebar(): void {
@@ -111,12 +129,13 @@ export class DashboardComponent {
 
 
   // Display Create resume form
-  DisplayForm(){
-    this.isFormVisible = true;
-  }
-  toggleForm(){
-    this.isFormVisible = !this.isFormVisible;
-  }
+  // DisplayForm(){
+  //   this.isFormVisible = true;
+  // }
+  // toggleForm(){
+  //   this.isFormVisible = !this.isFormVisible;
+  // }
+
 
 
 
