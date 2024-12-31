@@ -39,13 +39,15 @@ export class AuthService {
   private getAllRegisteredUsersUrl = "https://localhost:7299/api/FinalResume/GetAllRegisteredUsers";
   constructor(private http: HttpClient, private route: Router) { }
 
+
+  // Register User.
   register(user: User): Observable<any> {
     return this.http.post<any>(`${this.userAPIUrl}`, user);
   }
 
 
 
-
+// Login Section
   login(email: string, password: string): Observable<FinalResume[]> {
     const loginData = { email, password };
     console.log(email, password);
@@ -53,13 +55,15 @@ export class AuthService {
   }
 
 
-
+// Logout LogedIn User
   logout(): void {
     localStorage.removeItem("jwtToken");
     this.route.navigate(['/login']);
   }
 
 
+
+  // Count, Get All Registered Users
   getAllRegisteredUsers():Observable<number>{
     const token = localStorage.getItem('jwtToken');
     if(!token){
@@ -75,7 +79,7 @@ export class AuthService {
 
 
 
-
+// Add Full Resume After Login
   addData(finalResume: FinalResume): Observable<FinalResume> {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
@@ -189,7 +193,7 @@ export class AuthService {
 
 
 
-
+// Get Total Resume of LogedIn User.
   getAllResumes(): Observable<FinalResume[]> {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
@@ -202,7 +206,7 @@ export class AuthService {
   }
 
 
-
+// Delete Resume After LogedIn.
   deleteResume(personalRecordId: number): Observable<any> {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
@@ -219,7 +223,7 @@ export class AuthService {
   }
 
 
-
+// Delete Education Record when user is loggedIn.
   deleteEducationRecordOnly(personalRecordId : number, educationId : number){
     const token = localStorage.getItem('jwtToken');
     if (!token) {

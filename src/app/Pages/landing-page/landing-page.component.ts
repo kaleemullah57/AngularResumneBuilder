@@ -18,7 +18,10 @@ export class LandingPageComponent implements OnInit {
   // count users. 
   registeredUsers : number = 0
 
+
+  // Left Right Moving
   currentIndex :number = 0;
+
   constructor(private _authService:AuthService){}
   ngOnInit(): void {
     
@@ -38,7 +41,7 @@ export class LandingPageComponent implements OnInit {
   }
 
 
-
+// Total Registered Users 
   getRegisteredUsers():void{
     this._authService.getAllRegisteredUsers().subscribe({
       next: (number) => {
