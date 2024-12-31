@@ -35,6 +35,8 @@ export class AuthService {
 
   private deleteEducationRecord = "https://localhost:7299/api/FinalResume/DeleteOnlyEducationRecord"
 
+
+  private getAllRegisteredUsersUrl = "https://localhost:7299/api/FinalResume/GetAllRegisteredUsers";
   constructor(private http: HttpClient, private route: Router) { }
 
   register(user: User): Observable<any> {
@@ -57,6 +59,17 @@ export class AuthService {
     this.route.navigate(['/login']);
   }
 
+
+  getAllRegisteredUsers():Observable<number>{
+    const token = localStorage.getItem('jwtToken');
+    if(!token){
+      throw new Error("First to register Your Self");
+    } 
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<number>(this.getAllRegisteredUsersUrl, {headers:headers});
+  }
 
 
 

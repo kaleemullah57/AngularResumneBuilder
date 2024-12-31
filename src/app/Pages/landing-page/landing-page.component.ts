@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FinalResume } from '../../Models/final-resume';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../Auth_Folders/Auth_Model/user';
+import { AuthService } from '../../Auth_Service/auth.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -11,9 +13,17 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
+
+  // count users. 
+  registeredUsers : number = 0
 
   currentIndex :number = 0;
+  constructor(private _authService:AuthService){}
+  ngOnInit(): void {
+    
+    this.getRegisteredUsers();
+  }
   resumeFormats : string[] = ['format1', 'format2'];
   scrollLeft():void{
     if(this.currentIndex > 0){
@@ -27,6 +37,19 @@ export class LandingPageComponent {
     }
   }
 
+
+
+  getRegisteredUsers():void{
+    this._authService.getAllRegisteredUsers().subscribe({
+      next: (number) => {
+        this.registeredUsers = number;
+        // alert("Data is Fetched Successfully");
+      },
+      error(err) {
+        alert("Something is going wrong in the get all registerd Users");
+      },
+    })
+  }
 
   // scrollLeft(): void{
   //   const container = document.querySelector('.formats-of-resumes') as HTMLElement;
