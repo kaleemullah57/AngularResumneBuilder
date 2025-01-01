@@ -5,10 +5,10 @@
   </button>
 
   <!-- Sidebar Content -->
-  <div class="sidebar-content">
-    <button (click)="onLogout()">Logout</button>
+  <div>
+    <button class="button-33" role="button" (click)="onLogout()">Logout</button>
     <!-- <button routerLink="/resumes">Total Resumes</button> -->
-    <button routerLink="/dashboard"> Create Resume </button>
+    <button class="button-33" role="button" routerLink="/dashboard"> Create Resume </button>
   </div>
 </div>
 
@@ -78,12 +78,14 @@
   <div *ngIf="currentIndex === 0">
     <!-- <div *ngIf="resumes.length > 0" class="resumes-grid"> -->
     <div *ngFor="let resume of resumes" class="resume-card">
-      <button class="left-button" (click)="scrollLeft()">&lt;</button>
-      <button class="right-button" (click)="scrollRight()"> &gt;</button>
+      <div class="buttons-div">
+        <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
+        <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+      </div>
       <!-- Personal Info Section -->
       <div class="personal-info">
-        <button (click)="deleteResumes(resume.personalRecord.personalRecordId)"
-          style="background-color: red; color:wheat;">Delete Resume</button>
+        <button (click)="deleteResumes(resume.personalRecord.personalRecordId)" class="button-33" role="button">Delete
+          Resume</button>
         <h2>{{ resume.personalRecord.name }}</h2>
         <img *ngIf="resume.personalRecord.imagePath" [src]="resume.personalRecord.imagePath" alt="Profile Image"
           class="profile-image" />
@@ -104,7 +106,7 @@
             ({{ education.yearOfCompletion }})
           </li>
           <div class="button-class">
-            <button (click)="editEducation(education)"> Edit Education </button>
+            <button class="button-33" role="button" (click)="editEducation(education)"> Edit Education </button>
           </div>
         </ul>
       </div>
@@ -119,7 +121,8 @@
             ({{ extraEducation.exEduYearOfCompletion }})
           </li>
           <div class="button-class">
-            <button (click)="editExtraEducation(extraEducation)"> Edit Extra Education </button>
+            <button class="button-33" role="button" (click)="editExtraEducation(extraEducation)"> Edit Extra Education
+            </button>
           </div>
         </ul>
       </div>
@@ -134,7 +137,8 @@
             with {{ experience.yearsOfExperience }} years of experience
           </li>
           <div class="button-class">
-            <button (click)="editExperienceRecord(experience)"> Edit Experience </button>
+            <button class="button-33" role="button" (click)="editExperienceRecord(experience)"> Edit Experience
+            </button>
           </div>
         </ul>
       </div>
@@ -147,7 +151,7 @@
             <strong>{{ skill.skillName }}</strong> - Efficiency: {{ skill.efficiency }}
           </li>
           <div class="button-class">
-            <button (click)="editSkillsRecords(skill)"> Edit Skills </button>
+            <button class="button-33" role="button" (click)="editSkillsRecords(skill)"> Edit Skills </button>
           </div>
         </ul>
       </div>
@@ -160,7 +164,7 @@
             {{ language.languageName }}
           </li>
           <div class="button-class">
-            <button (click)="editLanguageRecord(language)"> Edit languages </button>
+            <button class="button-33" role="button" (click)="editLanguageRecord(language)"> Edit languages </button>
           </div>
         </ul>
       </div>
@@ -186,9 +190,10 @@
     <!-- <div *ngIf="resumes.length > 0" class="resume-container"> -->
     <div *ngFor="let resue of resumes" class="resume-item">
 
-      <button class="left-button" (click)="scrollLeft()">&lt;</button>
-      <button class="right-button" (click)="scrollRight()"> &gt;</button>
-
+      <div class="buttons-div">
+        <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
+        <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+      </div>
       <header class="resume-header">
         <div class="header-left">
           <!-- <button type="button"  (click)="deleteResumes(resue.personalRecord.personalRecordId)"> Delete  </button> -->
@@ -215,8 +220,9 @@
 
 
               <div class="button-class">
-                <button (click)="editEducation(edu)"> Edit Education </button>
-                <button type="button" (click)="deleteEducationRecord(edu)"> Delete Education </button>
+                <button class="button-33" role="button" (click)="editEducation(edu)"> Edit Education </button>
+                <button class="button-33" role="button" type="button" (click)="deleteEducationRecord(edu)"> Delete
+                  Education </button>
               </div>
             </li>
 
@@ -229,7 +235,8 @@
             <h4 class="main-container-ul-li-p"> || Institute : {{ extra.exEduInstitute }} || Year Of Completion : {{
               extra.exEduYearOfCompletion }} ||</h4>
             <div class="button-class">
-              <button (click)="editExtraEducation(extra)"> Edit Extra Education </button>
+              <button class="button-33" role="button" (click)="editExtraEducation(extra)"> Edit Extra Education
+              </button>
             </div>
           </article>
 
@@ -241,7 +248,8 @@
               exp.yearsOfExperience }} ||</h4>
 
             <div class="button-class">
-              <button type="button" (click)="editExperienceRecord(exp)"> Edit Experience</button>
+              <button class="button-33" role="button" type="button" (click)="editExperienceRecord(exp)"> Edit
+                Experience</button>
             </div>
           </article>
 
@@ -251,7 +259,8 @@
             <h4 class="main-container-ul-li-p">|| Efficiency : {{ skill.efficiency }} || </h4>
 
             <div class="button-class">
-              <button type="button" (click)="editSkillsRecords(skill)"> Edit Skill Details </button>
+              <button class="button-33" role="button" type="button" (click)="editSkillsRecords(skill)"> Edit Skill
+                Details </button>
             </div>
           </article>
 
@@ -263,13 +272,15 @@
 
               </li>
               <div class="button-class">
-                <button type="button" (click)="editLanguageRecord(language)"> Edit Language Details </button>
+                <button class="button-33" role="button" type="button" (click)="editLanguageRecord(language)"> Edit
+                  Language Details </button>
               </div>
             </ul>
 
           </article>
           <div class="button-class">
-            <button type="button" (click)="deleteResumes(resue.personalRecord.personalRecordId)"
+            <button class="button-33" role="button" type="button"
+              (click)="deleteResumes(resue.personalRecord.personalRecordId)"
               style="background-color: red; color:wheat;"> Delete Resume
             </button>
           </div>
@@ -300,8 +311,10 @@
 
 <div *ngIf="currentIndex === 2">
   <div class="resume" *ngFor="let resue of resumes">
-    <button class="left-button" (click)="scrollLeft()">&lt;</button>
-    <button class="right-button" (click)="scrollRight()"> &gt;</button>
+    <div class="buttons-div">
+      <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
+      <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+    </div>
     <div class="header">
       <h1> {{ resue.personalRecord.name }} </h1>
       <p> {{ resue.personalRecord.intro }} </p>
@@ -329,7 +342,7 @@
         <p> {{ exp.yearsOfExperience }} </p>
         <div class="button-class">
 
-          <button (click)="editExperienceRecord(exp)"> update Experience </button>
+          <button class="button-33" role="button" (click)="editExperienceRecord(exp)"> update Experience </button>
         </div>
       </div>
 
@@ -345,7 +358,7 @@
           <li> {{ skill.efficiency }} </li>
           <div class="button-class">
 
-            <button (click)="editSkillsRecords(skill)"> update SKills </button>
+            <button class="button-33" role="button" (click)="editSkillsRecords(skill)"> update SKills </button>
           </div>
         </ul>
       </div>
@@ -362,7 +375,7 @@
           <li> {{ edu.yearOfCompletion }} </li>
           <div class="button-class">
 
-            <button (click)="editEducation(edu)"> Edit Education </button>
+            <button class="button-33" role="button" (click)="editEducation(edu)"> Edit Education </button>
           </div>
         </ul>
       </div>
@@ -382,7 +395,7 @@
           <li> {{ ext.exEduInstitute }} </li>
           <li> {{ ext.exEduYearOfCompletion }} </li>
           <div class="button-class">
-            <button (click)="editExtraEducation(ext)"> Edit Education </button>
+            <button class="button-33" role="button" (click)="editExtraEducation(ext)"> Edit Education </button>
           </div>
 
         </ul>
@@ -398,13 +411,14 @@
       <div class="parent-section">
         <p> {{ language.languageName }} </p>
         <div class="button-class">
-          <button (click)="editLanguageRecord(language)"> Edit Language </button>
+          <button class="button-33" role="button" (click)="editLanguageRecord(language)"> Edit Language </button>
         </div>
       </div>
     </div>
     <div class="button-class">
-      <button type="button" (click)="deleteResumes(resue.personalRecord.personalRecordId)"
-        style="background-color: red; color:wheat;"> Delete Resume
+      <button class="button-33" role="button" type="button"
+        (click)="deleteResumes(resue.personalRecord.personalRecordId)" style="background-color: red; color:wheat;">
+        Delete Resume
       </button>
     </div>
   </div>

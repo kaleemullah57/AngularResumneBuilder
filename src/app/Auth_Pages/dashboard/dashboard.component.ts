@@ -23,9 +23,7 @@ import { User } from '../../Auth_Folders/Auth_Model/user';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-goToPreviousStep() {
-throw new Error('Method not implemented.');
-}
+
 
   personalRecords: PersonalRecordModel = {
     personalRecordId: 0,
@@ -84,8 +82,8 @@ throw new Error('Method not implemented.');
   errorMessage: string | null = null;
   formSubmitted: boolean = false;
   // currentSection: string = 'education'; // default section is 'education';
-  // closeFormm:boolean = false;
-  // isFormVisible : boolean = false;
+  closeFormm:boolean = false;
+  isFormVisible : boolean = false;
 
 
   isSidebarOpen: boolean = false;
@@ -129,12 +127,12 @@ throw new Error('Method not implemented.');
 
 
   // Display Create resume form
-  // DisplayForm(){
-  //   this.isFormVisible = true;
-  // }
-  // toggleForm(){
-  //   this.isFormVisible = !this.isFormVisible;
-  // }
+  DisplayForm(){
+    this.isFormVisible = true;
+  }
+  toggleForm(){
+    this.isFormVisible = !this.isFormVisible;
+  }
 
 
 
@@ -169,6 +167,7 @@ throw new Error('Method not implemented.');
       console.log("Data has been added", response);
       this.formSubmitted = true;
       this.resetForm();
+      
       setTimeout(() => {
         this.formSubmitted = false;
       }, 2000);
