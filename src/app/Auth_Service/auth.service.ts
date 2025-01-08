@@ -34,7 +34,7 @@ export class AuthService {
 
 
   private deleteEducationRecord = "https://localhost:7299/api/FinalResume/DeleteOnlyEducationRecord"
-
+  private deleteExtraEducationRecord = "https://localhost:7299/api/FinalResume/DeleteExtraEducationRecordById"
 
   private getAllRegisteredUsersUrl = "https://localhost:7299/api/FinalResume/GetAllRegisteredUsers";
   constructor(private http: HttpClient, private route: Router) { }
@@ -234,5 +234,19 @@ export class AuthService {
     });
     const url = `${this.deleteEducationRecord}/${personalRecordId}/${educationId}`;
     return this.http.delete(url, { headers });
+  }
+
+
+  // Delete Extra Education Record when use is loggedIn
+  deleteExtraEducationRecordById(personalRecordId: number, exEducationId : number){
+    const token = localStorage.getItem('jwtToken');
+    if(!token){
+      throw new Error("User is Not LoggedIn");
+    }
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const url = `${this.deleteExtraEducationRecord}/${personalRecordId}/${exEducationId}`;
+    return this.http.delete(url, {headers});
   }
 }

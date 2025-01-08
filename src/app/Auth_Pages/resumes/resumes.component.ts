@@ -361,6 +361,24 @@ export class ResumesComponent implements OnInit {
     }
   }
 
+  // Delete Extra Education Record By Id
+  deleteExtraEducationRecordById(extraEducation:any){
+    if(confirm("Are you Sure you want to delete this record")){
+      const personalRecordId = extraEducation.personalRecordId;
+      const exEducationId = extraEducation.exEducationId;
+      this._authService.deleteExtraEducationRecordById(personalRecordId, exEducationId).subscribe(
+        (data) => {
+          console.log("Extra Education Record is deleted Successfully", data);
+          this.getAllResumes();
+        },
+        (error) => {
+          alert("Something is going wrong with Extra Education Record while Record Deleting");
+          console.log("Something is going wrong with Extra Education Record while Record Deleting")
+        }
+      )
+    }
+  }
+
   onLogout(): void {
     this._authService.logout();
     alert("User logout successfully");
