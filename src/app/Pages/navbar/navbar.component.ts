@@ -14,7 +14,11 @@ import { AuthService } from '../../Auth_Service/auth.service';
 export class NavbarComponent implements OnInit{
   isMenuOpen: boolean = false;
   isLoggedIn : boolean = false;
-  constructor(private _authservice:AuthService){}
+  constructor(public _authservice:AuthService){}
+
+
+
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -23,6 +27,7 @@ export class NavbarComponent implements OnInit{
   ngOnInit() {
     this.isLoggedIn = !!localStorage.getItem('authToken'); // Check if the user is logged in
   }
+
   logOut(){
     this._authservice.logout();
     this.isLoggedIn = false;

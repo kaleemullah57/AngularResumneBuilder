@@ -16,33 +16,52 @@ import { AuthService } from '../../Auth_Service/auth.service';
 export class LandingPageComponent implements OnInit {
 
   // count users. 
-  registeredUsers : number = 0
+  registeredUsers: number = 0
 
 
   // Left Right Moving
-  currentIndex :number = 0;
+  currentIndex: number = 0;
 
-  constructor(private _authService:AuthService){}
+  currentIndexForNumbers: number = 0;
+
+
+  constructor(private _authService: AuthService) { }
   ngOnInit(): void {
-    
+
     this.getRegisteredUsers();
+    this.startCounting();
   }
-  resumeFormats : string[] = ['format1', 'format2'];
-  scrollLeft():void{
-    if(this.currentIndex > 0){
+
+  startCounting(): void {
+    const interval = 25;
+    const target = 100;
+    const increment = 1;
+
+    const timer = setInterval(() => {
+      this.currentIndexForNumbers += increment;
+      if (this.currentIndexForNumbers >= target) {
+        clearInterval(timer);
+      }
+    }, interval
+    )
+  }
+
+  resumeFormats: string[] = ['format1', 'format2', 'format3'];
+  scrollLeft(): void {
+    if (this.currentIndex > 0) {
       this.currentIndex--;
     }
   }
 
-  scrollRight():void{
-    if(this.currentIndex< this.resumeFormats.length -1){
+  scrollRight(): void {
+    if (this.currentIndex < this.resumeFormats.length - 1) {
       this.currentIndex++;
     }
   }
 
 
-// Total Registered Users 
-  getRegisteredUsers():void{
+  // Total Registered Users 
+  getRegisteredUsers(): void {
     this._authService.getAllRegisteredUsers().subscribe({
       next: (number) => {
         this.registeredUsers = number;

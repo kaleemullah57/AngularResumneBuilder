@@ -256,9 +256,9 @@ body {
   margin-top: 100px;
 
 
-  /* display: flex; */
+  /* display: flex; 
 
-/* } */
+}
 
 .arrow {
   position: absolute;
@@ -294,15 +294,23 @@ body {
 
 /* Resume Card */
 
+
+.formats-of-resumes {
+  width: 100%;
+  margin-top: 10px;
+
+}
+
 .formats-of-resumes .resume-card {
-  background: white;
+  /* background: white; */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 1200px;
-  margin: 60px auto;
+  margin: 40px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px 40px;
+  padding: 20px 0px;
+  background-color: rgb(236, 236, 236);
 }
 
 .resume-card:hover {
@@ -329,7 +337,9 @@ body {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  margin-top: 60px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  margin-left: 10px;
 }
 .button-left:hover{
   box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
@@ -372,6 +382,9 @@ body {
 .personal-info {
   text-align: center;
   margin-bottom: 20px;
+  background-color: rgb(230, 227, 227);
+  padding: 20px 40px;
+  color: black;
 }
 
 .personal-info>p {
@@ -437,6 +450,24 @@ ul li {
 
 
 
+/*  Download Buttons CSS */
+.resume-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 800px;
+  margin: auto;
+  text-align: left;
+}
+
+
+
+button:hover{
+  background-color: red;
+
+}
+
+
 
 
 
@@ -474,7 +505,7 @@ ul li {
   width: 1200px;
   margin: 60px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px 40px;
+  padding: 0px 0px;
 }
 
 .resume-item .left-button {
@@ -494,6 +525,7 @@ ul li {
   justify-content: space-between;
   /* border-bottom: 2px solid #e0e0e0; */
   padding-bottom: 15px;
+  padding: 20px 40px;
   margin-bottom: 10px;
   /* background-color: gray; */
   width: 100%;
@@ -551,6 +583,7 @@ ul li {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 20px 40px;
 }
 
 .main-content {
@@ -559,7 +592,7 @@ ul li {
 
 /* Section Titles */
 .resume-content h2 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #34495e;
   margin-bottom: 10px;
   border-bottom: 2px solid #e0e0e0;
@@ -654,6 +687,11 @@ article ul {
 
   .sidebar {
     margin-top: 20px;
+    /* margin-left: 142px; */
+  }
+  .sidebar .toggle-btn{
+    margin:  -28px 0px 0px 142px;
+    width: 200px;
   }
 }
 
@@ -692,13 +730,18 @@ article ul {
 
 .resume {
   background: white;
-  padding: 20px;
+  /* padding: 20px; */
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 1200px;
   margin: 60px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px 40px;
+  /* padding: 20px 40px; */
+}
+.resume h2{
+  padding-left: 20px;
+  margin-bottom: 10px;
+  background-color:  rgb(140, 140, 167);
 }
 
 .resume .left-button {
@@ -741,15 +784,27 @@ article ul {
   justify-content: center;
 }
 
+
+h2{
+  margin-top: 1rem;
+  margin-bottom: -0.5rem;
+  /* background-color: red; */
+  font-size: 25px;
+}
 .section {
   margin: 0px 0;
   padding: 0px 40px;
+  background-color: rgb(206, 206, 206);
 
 }
 
 .section .parent-section {
   display: flex;
   margin-left: 50px;
+  /* background-color: gray; */
+  align-items: center;
+
+
 }
 
 .section .parent-section .h3-heading {
@@ -759,7 +814,10 @@ article ul {
 }
 
 .section .parent-section p {
-
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: black;
   margin-left: 50px;
 }
 

@@ -9,6 +9,7 @@
     <button class="button-33" role="button" (click)="onLogout()">Logout</button>
     <!-- <button routerLink="/resumes">Total Resumes</button> -->
     <button class="button-33" role="button" routerLink="/dashboard"> Create Resume </button>
+
   </div>
 </div>
 
@@ -75,9 +76,9 @@
 <div class="formats-of-resumes">
   <!-- <button class="button" (click)="scrollLeft()">&lt;</button> -->
 
-  <div *ngIf="currentIndex === 0">
+  <div *ngIf="currentIndex === 0" id="resume-content">
     <!-- <div *ngIf="resumes.length > 0" class="resumes-grid"> -->
-    <div *ngFor="let resume of resumes" class="resume-card">
+    <div *ngFor="let resume of resumes; let i = index" class="resume-card" [id]="'resume-' + i">
       <div class="buttons-div">
         <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
         <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
@@ -96,58 +97,31 @@
         <p><strong>Intro:</strong> {{ resume.personalRecord.intro }}</p>
       </div>
 
-      <!-- Education Section -->
-      <div class="section">
-        <h3>Education</h3>
-        <ul *ngFor="let education of resume.educations">
-          <li>
-            <strong>{{ education.degree }}</strong>
-            at {{ education.institute }}
-            ({{ education.yearOfCompletion }})
-          </li>
-          <div class="button-class">
-            <button class="button-33" role="button" (click)="editEducation(education)"> Edit Education </button>
-          </div>
-        </ul>
-      </div>
 
-      <!-- Extra Education Section -->
-      <div class="section">
-        <h3>Extra Education</h3>
-        <ul *ngFor="let extraEducation of resume.extraEducations">
-          <li>
-            <strong>{{ extraEducation.exEduDegree }}</strong>
-            at {{ extraEducation.exEduInstitute }}
-            ({{ extraEducation.exEduYearOfCompletion }})
-          </li>
-          <div class="button-class">
-            <button class="button-33" role="button" (click)="editExtraEducation(extraEducation)"> Edit Extra Education</button>
-            <button class="button-33" (click)="deleteExtraEducationRecordById(extraEducation)"> Delete Extra Education Record </button>
-          </div>
-        </ul>
-      </div>
+
 
       <!-- Experience Section -->
       <div class="section">
-        <h3>Experience</h3>
-        <ul *ngFor="let experience of resume.experience">
-          <li *ngFor="let experience of resume.experience">
-            <strong>{{ experience.jobTitle }}</strong>
-            in {{ experience.location }}
-            with {{ experience.yearsOfExperience }} years of experience
+        <h3 *ngIf="resume.experience.length > 0">Experience</h3>
+        <ul *ngFor="let exp of resume.experience">
+          <li>
+            <strong>{{ exp.jobTitle }}</strong>
+            in {{ exp.location }}
+            with {{ exp.yearsOfExperience }} years of experience
           </li>
           <div class="button-class">
-            <button class="button-33" role="button" (click)="editExperienceRecord(experience)"> Edit Experience
+            <button class="button-33" role="button" (click)="editExperienceRecord(exp)"> Edit Experience
             </button>
+            <button class="button-33" (click)="deleteExperienceRecordById(exp)"> Delete Experience Record </button>
           </div>
         </ul>
       </div>
 
       <!-- Skills Section -->
       <div class="section">
-        <h3>Skills</h3>
+        <h3 *ngIf="resume.skills.length > 0">Skills</h3>
         <ul *ngFor="let skill of resume.skills">
-          <li *ngFor="let skill of resume.skills">
+          <li>
             <strong>{{ skill.skillName }}</strong> - Efficiency: {{ skill.efficiency }}
           </li>
           <div class="button-class">
@@ -156,20 +130,71 @@
         </ul>
       </div>
 
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Education Section -->
+      <div class="section">
+        <h3 *ngIf="resume.educations.length > 0">ducation</h3>
+        <ul *ngFor="let education of resume.educations">
+          <li>
+            <strong>{{ education.degree }}</strong>
+            at {{ education.institute }}
+            ({{ education.yearOfCompletion }})
+          </li>
+          <div class="button-class">
+            <button class="button-33" role="button" (click)="editEducation(education)"> Edit Education </button>
+            <button class="button-33" role="button" (click)="deleteEducationRecord(education)"> Delete Education Record
+            </button>
+          </div>
+        </ul>
+      </div>
+
+      <!-- Extra Education Section -->
+      <div class="section">
+        <h3 *ngIf="resume.extraEducations.length > 0">Extra Education</h3>
+        <ul *ngFor="let extraEducation of resume.extraEducations">
+          <li>
+            <strong>{{ extraEducation.exEduDegree }}</strong>
+            at {{ extraEducation.exEduInstitute }}
+            ({{ extraEducation.exEduYearOfCompletion }})
+          </li>
+          <div class="button-class">
+            <button class="button-33" role="button" (click)="editExtraEducation(extraEducation)"> Edit Extra
+              Education</button>
+            <button class="button-33" (click)="deleteExtraEducationRecordById(extraEducation)"> Delete Extra Education
+              Record </button>
+          </div>
+        </ul>
+      </div>
+
+
       <!-- Languages Section -->
       <div class="section">
-        <h3>Languages</h3>
+        <h3 *ngIf="resume.languages.length > 0">Languages</h3>
         <ul *ngFor="let language of resume.languages">
           <li>
             {{ language.languageName }}
           </li>
           <div class="button-class">
             <button class="button-33" role="button" (click)="editLanguageRecord(language)"> Edit languages </button>
+            <!-- <button (click)="deleteedu"></button> -->
           </div>
         </ul>
       </div>
+      <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
+      <button (click)="downloadPNG(i)"> Donwload PNG </button>
     </div>
     <!-- </div> -->
+
   </div>
   <!-- No Resumes Available Message -->
   <div *ngIf="resumes.length === 0" class="no-resumes-message">
@@ -188,7 +213,7 @@
   <!--  Simple  Resume Template  -->
   <div *ngIf="currentIndex === 1" class="simple">
     <!-- <div *ngIf="resumes.length > 0" class="resume-container"> -->
-    <div *ngFor="let resue of resumes" class="resume-item">
+    <div *ngFor="let resue of resumes; let i = index" class="resume-item" id="resume-content" [id]="'resume-' + i">
 
       <div class="buttons-div">
         <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
@@ -211,7 +236,7 @@
 
       <main class="resume-content">
         <section class="main-content">
-          <h2> Qualifications</h2>
+          <h2 *ngIf="resue.educations.length > 0"> Qualifications</h2>
           <ul *ngFor="let edu of resue.educations">
             <li>
               <h3> {{ edu.degree }} </h3>
@@ -229,7 +254,7 @@
           </ul>
 
 
-          <h2>Other Education</h2>
+          <h2 *ngIf="resue.extraEducations.length > 0">Other Education</h2>
           <article *ngFor="let extra of resue.extraEducations">
             <h3> {{ extra.exEduDegree }} </h3>
             <h4 class="main-container-ul-li-p"> || Institute : {{ extra.exEduInstitute }} || Year Of Completion : {{
@@ -237,11 +262,12 @@
             <div class="button-class">
               <button class="button-33" role="button" (click)="editExtraEducation(extra)"> Edit Extra Education
               </button>
+              <button class="button-33" role="button" (click)="deleteExtraEducationRecordById(extra)"> Delete Extra Education Record </button>
             </div>
           </article>
 
 
-          <h2>Experience</h2>
+          <h2 *ngIf="resue.experience.length > 0">Experience</h2>
           <article *ngFor="let exp of resue.experience">
             <h3> {{ exp.jobTitle }} </h3>
             <h4 class="main-container-ul-li-p"> || Location : {{ exp.location }} || Total Experience : {{
@@ -250,11 +276,14 @@
             <div class="button-class">
               <button class="button-33" role="button" type="button" (click)="editExperienceRecord(exp)"> Edit
                 Experience</button>
+                <button class="button-33" role="button" click="deleteExperienceRecordById(exp)"> Delete Experience Record
+                </button>
             </div>
+            
           </article>
 
           <article *ngFor="let skill of resue.skills">
-            <h2>Skills</h2>
+            <h2 *ngIf="resue.skills">Skills</h2>
             <h3> {{ skill.skillName }} </h3>
             <h4 class="main-container-ul-li-p">|| Efficiency : {{ skill.efficiency }} || </h4>
 
@@ -264,18 +293,15 @@
             </div>
           </article>
 
-          <article>
-            <h2> Languages </h2>
-            <ul *ngFor="let language of resue.languages">
-              <li>
-                <h3> || {{ language.languageName }} || </h3>
+          <article *ngFor="let language of resue.languages">
+            <h2 *ngIf="resue.languages.length > 0"> Languages </h2>
 
-              </li>
-              <div class="button-class">
-                <button class="button-33" role="button" type="button" (click)="editLanguageRecord(language)"> Edit
-                  Language Details </button>
-              </div>
-            </ul>
+            <h3> || {{ language.languageName }} || </h3>
+            <div class="button-class">
+              <button class="button-33" role="button" type="button" (click)="editLanguageRecord(language)"> Edit Skill
+                Details </button>
+            </div>
+
 
           </article>
           <div class="button-class">
@@ -286,7 +312,8 @@
           </div>
         </section>
       </main>
-
+      <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
+      <button (click)="downloadPNG(i)"> Donwload PNG </button>
     </div>
 
   </div>
@@ -310,7 +337,7 @@
 
 
 <div *ngIf="currentIndex === 2">
-  <div class="resume" *ngFor="let resue of resumes">
+  <div class="resume" *ngFor="let resue of resumes; let i = index" id="resume-content" [id]="'resume-' + i">
     <div class="buttons-div">
       <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
       <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
@@ -330,7 +357,7 @@
     </div>
 
     <!-- Experience Record -->
-    <h2> Experience Record </h2>
+    <h2 *ngIf="resue.experience.length > 0"> Experience Record </h2>
     <div class="section" *ngFor="let exp of resue.experience">
 
       <div class="parent-section">
@@ -343,12 +370,14 @@
         <div class="button-class">
 
           <button class="button-33" role="button" (click)="editExperienceRecord(exp)"> update Experience </button>
+          <button class="button-33" role="button" click="deleteExperienceRecordById(exp)"> Delete Experience Record
+          </button>
         </div>
       </div>
 
     </div>
 
-    <h2> KEY SKILLS & TECHNOLOGIES </h2>
+    <h2 *ngIf="resue.skills.length > 0"> KEY SKILLS & TECHNOLOGIES </h2>
     <div class="section" *ngFor="let skill of resue.skills">
       <div class="parent-section">
         <h3 class="h3-heading"> {{ skill.skillName }} </h3>
@@ -364,7 +393,7 @@
       </div>
     </div>
 
-    <h2> Academics </h2>
+    <h2 *ngIf="resue.educations.length > 0"> Academics </h2>
     <div class="section" *ngFor="let edu of resue.educations">
       <div class="parent-section">
         <h3 class="h3-heading"> {{ edu.degree }} </h3>
@@ -376,6 +405,7 @@
           <div class="button-class">
 
             <button class="button-33" role="button" (click)="editEducation(edu)"> Edit Education </button>
+            <button class="button-33" role="button" (click)="deleteEducationRecord(edu)"> Delete Acadamic Record </button>
           </div>
         </ul>
       </div>
@@ -385,7 +415,7 @@
 
 
 
-    <h2> Other Education </h2>
+    <h2 *ngIf="resue.extraEducations.length > 0"> Other Education </h2>
     <div class="section" *ngFor="let ext of resue.extraEducations">
       <div class="parent-section">
         <h3 class="h3-heading"> {{ ext.exEduDegree }} </h3>
@@ -396,6 +426,7 @@
           <li> {{ ext.exEduYearOfCompletion }} </li>
           <div class="button-class">
             <button class="button-33" role="button" (click)="editExtraEducation(ext)"> Edit Education </button>
+            <button class="button-33" role="button" (click)="deleteExtraEducationRecordById(ext)">Delete Extra Education </button>
           </div>
 
         </ul>
@@ -404,23 +435,33 @@
 
 
 
+    <h2 *ngIf="resue.languages.length > 0"> Language Record </h2>
+    <div class="section" *ngFor="let laguage of resue.languages">
+
+      <div class="child-section2">
+        <ul>
+          <li> {{ laguage.languageName }}
+
+            <div class="button-class">
+              <button class="button-33" role="button" (click)="editLanguageRecord(laguage)"> Edit Language </button>
+            </div>
+          </li>
 
 
-    <h2> Language Record </h2>
-    <div class="section" *ngFor="let language of resue.languages">
-      <div class="parent-section">
-        <p> {{ language.languageName }} </p>
-        <div class="button-class">
-          <button class="button-33" role="button" (click)="editLanguageRecord(language)"> Edit Language </button>
-        </div>
+        </ul>
       </div>
     </div>
+
+
+
     <div class="button-class">
       <button class="button-33" role="button" type="button"
         (click)="deleteResumes(resue.personalRecord.personalRecordId)" style="background-color: red; color:wheat;">
         Delete Resume
       </button>
     </div>
+    <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
+    <button (click)="downloadPNG(i)"> Donwload PNG </button>
   </div>
 </div>
 <!-- </div> -->

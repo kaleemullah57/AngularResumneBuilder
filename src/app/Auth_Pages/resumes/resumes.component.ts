@@ -11,6 +11,18 @@ import { error } from 'console';
 import { SkillsRecordModel } from '../../Models/skills-record-model';
 import { LanguageRecordModel } from '../../Models/language-record-model';
 
+
+
+
+
+// download Resume Imports
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import { Document, Packer, Paragraph, TextRun } from 'docx';
+import { saveAs } from 'file-saver';
+
+
+
 @Component({
   selector: 'app-resumes',
   standalone: true,
@@ -41,8 +53,8 @@ export class ResumesComponent implements OnInit {
 
 
   // Update Extra Education Record
-  selectedExtraEducationRecordId : number | null = null;
-  updateExEducationModel : ExtraEducationModel = {
+  selectedExtraEducationRecordId: number | null = null;
+  updateExEducationModel: ExtraEducationModel = {
     exEducationId: 0,
     exEduDegree: '',
     exEduInstitute: '',
@@ -68,8 +80,8 @@ export class ResumesComponent implements OnInit {
 
 
   // Update Skills Record
-  SelectedSkillsRecordId  : number | null = null;
-  updateSkillRecord : SkillsRecordModel = {
+  SelectedSkillsRecordId: number | null = null;
+  updateSkillRecord: SkillsRecordModel = {
     skillId: 0,
     skillName: '',
     efficiency: '',
@@ -81,8 +93,8 @@ export class ResumesComponent implements OnInit {
 
 
 
-  selectedLanguageRecordId : number | null = null;
-  updateLanguageModel : LanguageRecordModel = {
+  selectedLanguageRecordId: number | null = null;
+  updateLanguageModel: LanguageRecordModel = {
     languageId: 0,
     languageName: '',
     personalRecordId: 0,
@@ -134,15 +146,15 @@ export class ResumesComponent implements OnInit {
 
 
   // Edit Extra Education Record
-  editExtraEducation (extra: ExtraEducationModel){
+  editExtraEducation(extra: ExtraEducationModel) {
     this.selectedExtraEducationRecordId = extra.exEducationId;
-    this.updateExEducationModel = {...extra};
+    this.updateExEducationModel = { ...extra };
   }
 
-  submitExtraEducationRecord(){
-    const {exEducationId, personalRecordId} = this.updateExEducationModel;
+  submitExtraEducationRecord() {
+    const { exEducationId, personalRecordId } = this.updateExEducationModel;
     this._authService.updateExtraEducation(exEducationId, personalRecordId, this.updateExEducationModel).subscribe(
-      (data)=>{
+      (data) => {
         console.log("Your Data is Updated Successfully", data);
         this.selectedExtraEducationRecordId = null;
         this.getAllResumes();
@@ -152,14 +164,14 @@ export class ResumesComponent implements OnInit {
     )
   }
 
-  cancelExtraEducationEdit(){
+  cancelExtraEducationEdit() {
     this.selectedExtraEducationRecordId = null;
     this.updateExEducationModel = {
-      exEducationId : 0,
-      exEduDegree : '',
-      exEduInstitute : '',
-      exEduYearOfCompletion : '',
-      personalRecordId : 0,
+      exEducationId: 0,
+      exEduDegree: '',
+      exEduInstitute: '',
+      exEduYearOfCompletion: '',
+      personalRecordId: 0,
       id: 0
     }
   }
@@ -167,9 +179,9 @@ export class ResumesComponent implements OnInit {
 
 
   // Edit Experience Record
-  editExperienceRecord(exp : ExperienceRecordModel){
-    this.SelectedExperienceRecordId  = exp.experienceId;
-    this.updateExperience = {...exp};
+  editExperienceRecord(exp: ExperienceRecordModel) {
+    this.SelectedExperienceRecordId = exp.experienceId;
+    this.updateExperience = { ...exp };
   }
 
   submitExperienceRecord() {
@@ -186,15 +198,15 @@ export class ResumesComponent implements OnInit {
       }
     );
   }
-  cancelExperienceEdit(){
+  cancelExperienceEdit() {
     this.SelectedExperienceRecordId = null;
     this.updateExperience = {
-      experienceId : 0,
-      jobTitle : '',
-      location : '',
-      yearsOfExperience : '',
-      personalRecordId : 0,
-      id : 0
+      experienceId: 0,
+      jobTitle: '',
+      location: '',
+      yearsOfExperience: '',
+      personalRecordId: 0,
+      id: 0
     }
   }
 
@@ -204,33 +216,33 @@ export class ResumesComponent implements OnInit {
 
 
   // Edit Skills Records 
-  editSkillsRecords (skill : SkillsRecordModel){
+  editSkillsRecords(skill: SkillsRecordModel) {
     this.SelectedSkillsRecordId = skill.skillId;
-    this.updateSkillRecord = {...skill};
+    this.updateSkillRecord = { ...skill };
   };
 
-  submitSkillsRecord(){
-    const {skillId, personalRecordId} = this.updateSkillRecord;
+  submitSkillsRecord() {
+    const { skillId, personalRecordId } = this.updateSkillRecord;
     this._authService.updateSkillsRecord(skillId, personalRecordId, this.updateSkillRecord).subscribe(
-      (data)=>{
+      (data) => {
         console.log("Your Data is Updated Successfully", data);
         this.SelectedSkillsRecordId = null;
         this.getAllResumes();
-      }, (error)=> {
+      }, (error) => {
         console.log("Error Occured during Skills Update API Fetching", error);
       }
     )
   }
 
-  cancelSkillsEdit(){
+  cancelSkillsEdit() {
     this.SelectedSkillsRecordId = null;
     this.updateSkillRecord = {
-      skillId : 0,
-      skillName : '',
-      efficiency : '',
-      personalRecordId : 0,
-      id : 0
-    } 
+      skillId: 0,
+      skillName: '',
+      efficiency: '',
+      personalRecordId: 0,
+      id: 0
+    }
   }
 
 
@@ -240,31 +252,31 @@ export class ResumesComponent implements OnInit {
 
   // Update Language Record
 
-  editLanguageRecord(language : LanguageRecordModel){
+  editLanguageRecord(language: LanguageRecordModel) {
     this.selectedLanguageRecordId = language.languageId;
-    this.updateLanguageModel = {...language};
+    this.updateLanguageModel = { ...language };
   }
 
-  submitLanguageRecord(){
-    const { languageId , personalRecordId} = this.updateLanguageModel;
+  submitLanguageRecord() {
+    const { languageId, personalRecordId } = this.updateLanguageModel;
     this._authService.updateLanguageRecord(languageId, personalRecordId, this.updateLanguageModel).subscribe(
-      (data)=>{
+      (data) => {
         console.log("Your Record is Updated Successfully", data);
         this.selectedLanguageRecordId = null;
         this.getAllResumes();
-      }, (error)=> {
+      }, (error) => {
         console.log("Error Occured during update languge API Fetching", error);
       }
     )
   }
 
-  cancelLanguageEdit(){
+  cancelLanguageEdit() {
     this.selectedLanguageRecordId = null;
     this.updateLanguageModel = {
-      languageId : 0,
-      languageName : '',
-      personalRecordId : 0,
-      id : 0
+      languageId: 0,
+      languageName: '',
+      personalRecordId: 0,
+      id: 0
     }
   }
 
@@ -282,8 +294,8 @@ export class ResumesComponent implements OnInit {
 
 
 
-  currentIndex : number = 0;
-  totalResumes : number = 3;
+  currentIndex: number = 0;
+  totalResumes: number = 3;
   scrollLeft() {
     if (this.currentIndex > 0) {
       this.currentIndex--;
@@ -345,11 +357,11 @@ export class ResumesComponent implements OnInit {
 
 
   // Delete Education Record Only
-  deleteEducationRecord(edu:any) {
+  deleteEducationRecord(edu: any) {
     if (confirm("Are you sure you want to delete this education record")) {
       const personalRecordId = edu.personalRecordId;
       const educationId = edu.educationId;
-     
+
       this._authService.deleteEducationRecordOnly(personalRecordId, educationId).subscribe(
         (data) => {
           console.log("Your data is deleted successfully", data);
@@ -362,8 +374,8 @@ export class ResumesComponent implements OnInit {
   }
 
   // Delete Extra Education Record By Id
-  deleteExtraEducationRecordById(extraEducation:any){
-    if(confirm("Are you Sure you want to delete this record")){
+  deleteExtraEducationRecordById(extraEducation: any) {
+    if (confirm("Are you Sure you want to delete this record")) {
       const personalRecordId = extraEducation.personalRecordId;
       const exEducationId = extraEducation.exEducationId;
       this._authService.deleteExtraEducationRecordById(personalRecordId, exEducationId).subscribe(
@@ -371,11 +383,29 @@ export class ResumesComponent implements OnInit {
           console.log("Extra Education Record is deleted Successfully", data);
           this.getAllResumes();
         },
-        (error) => {
+        () => {
           alert("Something is going wrong with Extra Education Record while Record Deleting");
           console.log("Something is going wrong with Extra Education Record while Record Deleting")
         }
       )
+    }
+  }
+
+
+
+  // Delete Experience Record By Id
+  deleteExperienceRecordById(exp : any){
+    if(confirm ("Are you sure you want to delete this record")){
+      const personalRecordId = exp.personalRecordId;
+      const experienceId = exp.experienceId;
+      this._authService.deleteExperienceRecordById(personalRecordId, experienceId).subscribe(
+        (data) => {
+          console.log("Your data is deleted successfully", data);
+          this.getAllResumes();
+        }, (error) => {
+          alert("Something is going wrong with Deleting Experience Record ");
+          console.log("Something is going wrong with Deleting Experience Record", error.errorMessage)
+        })
     }
   }
 
@@ -384,4 +414,73 @@ export class ResumesComponent implements OnInit {
     alert("User logout successfully");
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Download PDF
+  // Method to download as PDF
+  async downloadPDF(index: number) {
+    const content = document.getElementById(`resume-${index}`); // Use specific resume ID
+  if (content) {
+    const canvas = await html2canvas(content);
+    const imgData = canvas.toDataURL('image/png');
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save(`resume_${index + 1}.pdf`); // Dynamic file name
+  } else {
+    console.error('Resume content not found!');
+  }
+  }
+
+
+
+
+  // Method to download as PNG
+  async downloadPNG(index : number) {
+    const content = document.getElementById(`resume-${index}`); // Use specific resume ID
+  if (content) {
+    const canvas = await html2canvas(content);
+    const imgData = canvas.toDataURL('image/png');
+    
+    // Create a link element for downloading
+    const link = document.createElement('a');
+    link.href = imgData;
+    link.download = `resume_${index + 1}.png`; // Dynamic file name
+    link.click();
+  } else {
+    console.error('Resume content not found!');
+  }
+  }
+
+
 }
+
+

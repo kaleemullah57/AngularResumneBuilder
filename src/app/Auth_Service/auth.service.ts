@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../Auth_Folders/Auth_Model/user';
 import { error } from 'console';
 import { FinalResume } from '../Models/final-resume';
@@ -18,8 +18,8 @@ import { LanguageRecordModel } from '../Models/language-record-model';
 export class AuthService {
   private userAPIUrl = "https://localhost:7299/api/Auth/register";
   private userLoginAPIUrl = "https://localhost:7299/api/Auth/login";
-
-
+  private loggedIn = false; // Simulate login status (replace with actual logic)
+ 
   private getAllResumesURL = "https://localhost:7299/api/FinalResume/GetAllDataOfLoggedIn";
   private addResumeUrl = "https://localhost:7299/api/FinalResume/AddResume"
   private deleteResumeUrl = "https://localhost:7299/api/FinalResume/DeleteRecords"
@@ -33,8 +33,9 @@ export class AuthService {
 
 
 
-  private deleteEducationRecord = "https://localhost:7299/api/FinalResume/DeleteOnlyEducationRecord"
-  private deleteExtraEducationRecord = "https://localhost:7299/api/FinalResume/DeleteExtraEducationRecordById"
+  private deleteEducationRecord = "https://localhost:7299/api/FinalResume/DeleteOnlyEducationRecord";
+  private deleteExtraEducationRecord = "https://localhost:7299/api/FinalResume/DeleteExtraEducationRecordById";
+  private deleteExperienceRecordByIdUrl = "https://localhost:7299/api/FinalResume/DeleteExperinceRecordById";
 
   private getAllRegisteredUsersUrl = "https://localhost:7299/api/FinalResume/GetAllRegisteredUsers";
   constructor(private http: HttpClient, private route: Router) { }
@@ -53,6 +54,14 @@ export class AuthService {
     console.log(email, password);
     return this.http.post<FinalResume[]>(this.userLoginAPIUrl, loginData);
   }
+
+
+
+
+
+  
+
+
 
 
 // Logout LogedIn User
@@ -247,6 +256,20 @@ export class AuthService {
       'Authorization': `Bearer ${token}`
     });
     const url = `${this.deleteExtraEducationRecord}/${personalRecordId}/${exEducationId}`;
+    return this.http.delete(url, {headers});
+  }
+
+
+  // Delete Experience Record By Id
+  deleteExperienceRecordById(personalRecordId:number, experienceId : number){
+    const token = localStorage.getItem('jwtToken');
+    if(!token){
+      throw new Error("User is Not LoggedIn");
+    }
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const url = `${this.deleteExperienceRecordByIdUrl}/${personalRecordId}/${experienceId}`;
     return this.http.delete(url, {headers});
   }
 }
