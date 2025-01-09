@@ -50,6 +50,7 @@ export class LandingPageComponent implements OnInit {
       },
       error(err) {
         alert("Something is going wrong in the get all registerd Users");
+        console.log("Error Occured during Getting All Users", err);
       },
     })
   }

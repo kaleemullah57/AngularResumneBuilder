@@ -1,476 +1,177 @@
-/*  Toggle Button Css */
-/* Container for the dropdown */
-.dropdown-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 20px 0;
-  font-family: 'Arial', sans-serif;
-  margin-left: 40%;
-  padding-top: 50px;
-}
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 20%;
+  }
+  20%{
+    background-position: 20% 50%;
+  }
 
-/* Styling for the label */
-.dropdown-label {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 8px;
-}
+  50% {
+    background-position: 100% 50%;
+  }
 
-/* Styling for the select dropdown */
-.dropdown-select {
-  width: 100%;
-  max-width: 300px;
-  padding: 10px 15px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background-color: #fff;
-  appearance: none; /* Hides default browser dropdown arrow */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%23999' d='M0 0l5 5 5-5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 12px;
-  cursor: pointer;
-}
-
-/* On hover and focus */
-.dropdown-select:hover,
-.dropdown-select:focus {
-  border-color: #4387ee;
-  box-shadow: 0 0 4px rgba(67, 135, 238, 0.5);
-}
-
-/* For smaller screens */
-@media (max-width: 768px) {
-  .dropdown-select {
-      width: 100%;
+  100% {
+    background-position: 0% 50%;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .formats-of-resumes {
-  display: flex;
+  width: 100%;
+  max-width: 100%;
+  display: grid;
   align-items: center;
   justify-content: center;
-  position: relative;
+  /* background: linear-gradient(135deg, rgb(31, 57, 58), rgb(10, 25, 27), rgb(44, 83, 85)); */
+  background: linear-gradient(135deg,
+      rgb(31, 57, 58),
+      rgb(44, 83, 85),
+      rgb(25, 98, 101),
+      rgb(9, 40, 43),
+      rgb(72, 128, 131),
+      rgb(15, 62, 65),
+      rgb(40, 120, 123));
+  background-size: 300% 300%;
+  animation: gradientAnimation 20s ease infinite;
+
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px;
+
+
+
+
+
+
+/*  Left Right Buttons  */
+.buttons-div {
+  background-color: rgb(22, 62, 63);
+}
+
+.button-left {
+  background-color: rgb(86, 86, 146);
+  /* margin-left: 92%; */
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
   cursor: pointer;
-}
-
-.arrow.prev {
-  left: 10px;
-}
-
-.arrow.next {
-  right: 10px;
-}
-
-
-
-/*  Resume Settings */
-.resume-container {
-    width: 80%;
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    border-radius: 8px;
-  }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid #eaeaea;
-    padding-bottom: 20px;
-  }
-  
-  .profile-picture {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  
-  .header-info h1 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  .header-info h2 {
-    margin: 5px 0;
-    font-size: 18px;
-    color: #666;
-  }
-  
-  .header-info p {
-    margin: 5px 0;
-  }
-  
-  .profile-link {
-    display: inline-block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .profile-link:hover {
-    text-decoration: underline;
-  }
-  
-  .content {
-    display: flex;
-    margin-top: 20px;
-  }
-  
-  .sidebar {
-    width: 30%;
-    padding-right: 20px;
-    border-right: 2px solid #eaeaea;
-  }
-  
-  .sidebar h3 {
-    margin-top: 0;
-    font-size: 16px;
-    color: #007bff;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    margin: 5px 0;
-  }
-  
-  .main {
-    width: 70%;
-    padding-left: 20px;
-  }
-  
-  .main section {
-    margin-bottom: 20px;
-  }
-  
-  .main section h3 {
-    margin-bottom: 10px;
-    color: #007bff;
-  }
-  
-  .main section h4 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .main section ul {
-    list-style: disc;
-    padding-left: 20px;
-  }
-  
-  .main section ul li {
-    margin: 5px 0;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /*  Education Format */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  .resume-container {
-    max-width: 900px;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .resume-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #f7f7f7;
-  }
-  
-  .header-left {
-    width: 70%;
-  }
-  
-  .header-left h1 {
-    margin: 0;
-    font-size: 28px;
-    color: #444;
-  }
-  
-  .header-left h2 {
-    margin: 10px 0;
-    font-size: 18px;
-    color: #777;
-  }
-  
-  .header-left p {
-    margin: 0;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-  
-  .header-right img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-  
-  .resume-content {
-    display: flex;
-    padding: 20px;
-  }
-  
-  .main-content {
-    width: 65%;
-  }
-  
-  .main-content h2 {
-    border-bottom: 2px solid #eaeaea;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .main-content article {
-    margin-bottom: 20px;
-  }
-  
-  .main-content h3 {
-    font-size: 16px;
-    color: #333;
-    margin: 0;
-  }
-  
-  .main-content h4 {
-    font-size: 14px;
-    color: #777;
-    margin: 5px 0;
-  }
-  
-  .main-content ul {
-    padding-left: 20px;
-    margin: 10px 0 0;
-  }
-  
-  .main-content ul li {
-    margin-bottom: 5px;
-    font-size: 14px;
-  }
-  
-  .sidebar {
-    width: 35%;
-    padding-left: 20px;
-    border-left: 2px solid #eaeaea;
-  }
-  
-  .sidebar h2 {
-    border-bottom: 2px solid #eaeaea;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-  }
-  
-  .sidebar p,
-  .sidebar ul li {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  /* General Responsive Adjustments */
-@media (max-width: 1024px) { /* Tablet devices */
-.dropdown-container {
-  margin-left: 20%;
-  padding-top: 20px;
-}
-
-.resume-container {
-  width: 90%;
-  margin: 10px auto;
-  padding: 15px;
-}
-
-.header {
-  flex-direction: column;
-  align-items: flex-start;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
   text-align: center;
-}
-
-.profile-picture {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 10px;
-}
-
-.header-info h1 {
-  font-size: 20px;
-}
-
-.header-info h2 {
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
   font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 10px 0px 10px 10px;
 }
 
-.content {
-  flex-direction: column;
+.button-left:hover {
+  box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+  transform: scale(1.05) rotate(0deg);
+  color: wheat;
+  background-color: red;
 }
 
-.sidebar {
-  width: 100%;
-  padding-right: 0;
-  border-right: none;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #eaeaea;
+.button-right {
+  background-color: rgb(86, 86, 146);
+  margin-left: 90%;
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 10px;
 }
 
-.main {
-  width: 100%;
-  padding-left: 0;
-}
-}
-
-@media (max-width: 768px) { /* Mobile devices */
-/* Dropdown adjustments */
-.dropdown-container {
-  margin-left: 5%;
-  width: 90%;
+.button-right:hover {
+  box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+  transform: scale(1.05) rotate(0deg);
+  color: wheat;
+  background-color: red;
 }
 
-.dropdown-select {
-  max-width: 100%;
-}
 
-/* Resume container adjustments */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Education Format */
+
+
 .resume-container {
-  width: 95%;
-  margin: 10px auto;
-  padding: 10px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  /* padding-top: 20px; */
+  align-items: center;
 }
 
 .resume-header {
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(28, 79, 80);
+  color: wheat;
 }
 
 .header-left {
-  width: 100%;
+  width: 70%;
 }
 
 .header-left h1 {
-  font-size: 22px;
+  margin: 0;
+  font-size: 28px;
+  /* color: #fdfdfd; */
 }
 
 .header-left h2 {
+  margin: 10px 0;
+  font-size: 18px;
+  /* color: #ffffff; */
+}
+
+.header-left p {
+  margin: 0;
   font-size: 14px;
-  margin: 8px 0;
+  line-height: 1.6;
+  /* color: white; */
 }
 
 .header-right img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .resume-content {
-  flex-direction: column;
+  display: flex;
+  padding: 20px;
 }
 
 .main-content {
@@ -478,141 +179,285 @@
 }
 
 .main-content h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+
+.main-content article {
+  margin-bottom: 20px;
 }
 
 .main-content h3 {
-  font-size: 14px;
+  font-size: 16px;
+  color: #333;
+  margin: 0;
 }
 
 .main-content h4 {
-  font-size: 12px;
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
+
+.main-content ul {
+  padding-left: 20px;
+  margin: 10px 0 0;
+}
+
+.main-content ul li {
+  margin-bottom: 5px;
+  font-size: 14px;
 }
 
 .sidebar {
-  width: 100%;
-  border-left: none;
-  padding-left: 0;
-  margin-top: 20px;
-  border-top: 2px solid #eaeaea;
+  width: 35%;
+  padding-left: 20px;
+  border-left: 2px solid #eaeaea;
+  background-color: rgb(28, 79, 80);
+  margin-top: -20px;
+  margin-right: -20px;
+  color: white;
+  border-radius: 3px;
 }
 
 .sidebar h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  border-bottom: 2px solid #eaeaea;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .sidebar p,
 .sidebar ul li {
-  font-size: 12px;
-}
-}
-
-/* Additional Styles for Small Mobile Screens */
-@media (max-width: 480px) { /* Small mobile devices */
-.header-info h1 {
-  font-size: 18px;
-}
-
-.header-info h2 {
   font-size: 14px;
-}
-
-.profile-picture {
-  width: 60px;
-  height: 60px;
-}
-
-.dropdown-container {
-  margin-left: 0;
-}
-
-.dropdown-label {
-  font-size: 1.2rem;
-}
-
-.dropdown-select {
-  padding: 8px 10px;
-  font-size: 0.9rem;
-  background-position: right 8px center;
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-/* Reviews Section */
-.reviews-section {
-  text-align: center;
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  margin-top: 60px;
-}
-
-.reviews-container-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.reviews-container {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 20px;
-  padding: 10px 0;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-.reviews-container::-webkit-scrollbar {
-  display: none;
-}
-
-.review {
-  flex: 0 0 240px;
-  background: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  scroll-snap-align: start;
-  text-align: left;
-}
-
-.review-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   margin-bottom: 10px;
 }
 
-.review-header img {
+
+
+
+
+/* General Responsive Adjustments */
+@media (max-width: 1024px) {
+  /* Tablet devices */
+
+
+  .resume-container {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+
+
+  .header-info h1 {
+    font-size: 20px;
+  }
+
+  .header-info h2 {
+    font-size: 16px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eaeaea;
+  }
+
+  .main {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+
+
+
+
+
+@media (max-width : 1008px) {
+  /* Mobile devices */
+  /*  Left Right Buttons Settings */
+
+  .buttons-div {
+    width: 100%;
+  }
+
+  .button-left {
+    margin-left: 10px;
+  }
+
+  .button-right {
+    margin-left: 88%;
+  }
+}
+
+@media (max-width : 940px) {
+  .button-right {
+    margin-left: 80%;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  /* Mobile devices */
+  /*  Left Right Buttons Settings */
+
+  .buttons-div {
+    width: 100%;
+  }
+
+  .button-left {
+    margin-left: 10px;
+  }
+
+  .button-right {
+    margin-left: 78%;
+  }
+
+  /* Resume container adjustments */
+
+  .resume-container {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .resume-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-left {
+    width: 100%;
+  }
+
+  .header-left h1 {
+    font-size: 25px;
+    color: white;
+  }
+
+  .header-left h2 {
+    font-size: 14px;
+    margin: 8px 0;
+    color: white;
+  }
+
+  /* .header-right img {
   width: 80px;
+  height: 80px;
+} */
+
+  .resume-content {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 0%;
+  }
+
+  .main-content {
+    width: 100%;
+    /* background-color: red; */
+    margin-top: -20px;
+    padding: 40px 0px 20px 0px;
+  }
+
+  .main-content h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+  }
+
+  .main-content h3 {
+    font-size: 14px;
+    padding-left: 18px;
+  }
+
+  .main-content h4 {
+    font-size: 12px;
+    padding-left: 18px;
+  }
+
+  .main-content ul {
+    padding-left: 40px;
+  }
+
+
+
+
+
+
+  .sidebar {
+    color: black;
+    padding-top: 20px;
+    background-color: white;
+    border-top: 2px solid #030303;
+  }
+
+  .sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    /* background-color: red; */
+  }
+
+  .sidebar p,
+  li {
+    font-size: 12px;
+    padding-left: 20px;
+  }
+
+  .sidebar ul {
+    color: black;
+    padding-left: 20px;
+  }
 }
 
-.review-header span {
-  font-size: 0.9rem;
-  color: #777;
+
+@media (max-width : 520px) {
+  .button-right {
+    margin-left: 70%;
+  }
 }
 
-.review p {
-  font-size: 1rem;
-  color: #555;
-  margin: 5px 0;
+/* Additional Styles for Small Mobile Screens */
+@media (max-width: 480px) {
+
+  /* Small mobile devices */
+  .header-info h1 {
+    font-size: 18px;
+  }
+
+  .header-info h2 {
+    font-size: 14px;
+  }
+
+
+
+
 }
 
-.review small {
-  font-size: 0.8rem;
-  color: #aaa;
-}
+
+
+
+
+
+
+
+
 
 .arrow {
   width: 40px;
@@ -625,79 +470,4 @@
 .arrow:hover {
   color: white;
   box-shadow: 2px 1px 2px gray;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) { /* Tablet devices */
-  .hero-section {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-  }
-
-  .hero-content {
-    max-width: 100%;
-    padding: 20px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-image {
-    max-width: 100%;
-  }
-
-  .reviews-container {
-    gap: 15px;
-  }
-}
-
-@media (max-width: 768px) { /* Mobile devices */
-  .hero-content {
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-content > .cta-button {
-    align-items: center;
-    justify-content: center;
-    margin-left: 21%;
-  }
-
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-
-  .steps-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .brands-logos img {
-    max-width: 80px;
-  }
-
-  .about-content p {
-    font-size: 1rem;
-    padding: 0 20px;
-  }
-
-  .reviews-container {
-    gap: 10px;
-  }
-}
-
-@media (max-width: 480px) { /* Small mobile devices */
-  .hero-content h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .reviews-container {
-    gap: 5px;
-  }
 }
