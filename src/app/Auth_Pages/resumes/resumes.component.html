@@ -262,7 +262,8 @@
             <div class="button-class">
               <button class="button-33" role="button" (click)="editExtraEducation(extra)"> Edit Extra Education
               </button>
-              <button class="button-33" role="button" (click)="deleteExtraEducationRecordById(extra)"> Delete Extra Education Record </button>
+              <button class="button-33" role="button" (click)="deleteExtraEducationRecordById(extra)"> Delete Extra
+                Education Record </button>
             </div>
           </article>
 
@@ -276,10 +277,10 @@
             <div class="button-class">
               <button class="button-33" role="button" type="button" (click)="editExperienceRecord(exp)"> Edit
                 Experience</button>
-                <button class="button-33" role="button" click="deleteExperienceRecordById(exp)"> Delete Experience Record
-                </button>
+              <button class="button-33" role="button" click="deleteExperienceRecordById(exp)"> Delete Experience Record
+              </button>
             </div>
-            
+
           </article>
 
           <article *ngFor="let skill of resue.skills">
@@ -304,25 +305,20 @@
 
 
           </article>
-          <div class="button-class">
-            <button class="button-33" role="button" type="button"
-              (click)="deleteResumes(resue.personalRecord.personalRecordId)"
-              style="background-color: red; color:wheat;"> Delete Resume
-            </button>
-          </div>
+          <!-- <div class="button-class">
+           
+          </div> -->
         </section>
       </main>
       <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
       <button (click)="downloadPNG(i)"> Donwload PNG </button>
+      <button class="button-33" role="button" type="button"
+      (click)="deleteResumes(resue.personalRecord.personalRecordId)"
+      style="background-color: red; color:wheat;"> Delete Resume
+    </button>
     </div>
 
   </div>
-</div>
-<!-- No Resumes Available Message -->
-<div *ngIf="resumes.length === 0" class="no-resumes-message">
-  No resumes available.
-</div>
-<!-- <button type="button" (click)="scrollRight()"> &gt;</button> -->
 
 
 
@@ -331,11 +327,7 @@
 
 
 
-
-
-
-
-
+  
 <div *ngIf="currentIndex === 2">
   <div class="resume" *ngFor="let resue of resumes; let i = index" id="resume-content" [id]="'resume-' + i">
     <div class="buttons-div">
@@ -343,7 +335,7 @@
       <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
     </div>
     <div class="header">
-      <h1> {{ resue.personalRecord.name }} </h1>
+      <h1 style="margin-bottom: 10px;"> {{ resue.personalRecord.name }} </h1>
       <p> {{ resue.personalRecord.intro }} </p>
     </div>
 
@@ -405,7 +397,8 @@
           <div class="button-class">
 
             <button class="button-33" role="button" (click)="editEducation(edu)"> Edit Education </button>
-            <button class="button-33" role="button" (click)="deleteEducationRecord(edu)"> Delete Acadamic Record </button>
+            <button class="button-33" role="button" (click)="deleteEducationRecord(edu)"> Delete Acadamic Record
+            </button>
           </div>
         </ul>
       </div>
@@ -426,7 +419,8 @@
           <li> {{ ext.exEduYearOfCompletion }} </li>
           <div class="button-class">
             <button class="button-33" role="button" (click)="editExtraEducation(ext)"> Edit Education </button>
-            <button class="button-33" role="button" (click)="deleteExtraEducationRecordById(ext)">Delete Extra Education </button>
+            <button class="button-33" role="button" (click)="deleteExtraEducationRecordById(ext)">Delete Extra Education
+            </button>
           </div>
 
         </ul>
@@ -454,16 +448,36 @@
 
 
 
-    <div class="button-class">
-      <button class="button-33" role="button" type="button"
-        (click)="deleteResumes(resue.personalRecord.personalRecordId)" style="background-color: red; color:wheat;">
-        Delete Resume
-      </button>
-    </div>
+    <!-- <div class="button-class">
+      
+    </div> -->
     <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
     <button (click)="downloadPNG(i)"> Donwload PNG </button>
+    <button class="button-33" role="button" type="button" (click)="deleteResumes(resue.personalRecord.personalRecordId)"
+      style="background-color: red; color:wheat;">
+      Delete Resume
+    </button>
   </div>
 </div>
+</div>
+<!-- No Resumes Available Message -->
+<div *ngIf="resumes.length === 0" class="no-resumes-message">
+  No resumes available.
+</div>
+<!-- <button type="button" (click)="scrollRight()"> &gt;</button> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- </div> -->
 
 

@@ -95,6 +95,7 @@ body {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-top: 10px;
+  margin-left: 10px;
 }
 
 .button-33:hover {
@@ -295,9 +296,44 @@ body {
 /* Resume Card */
 
 
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 20%;
+  }
+  20%{
+    background-position: 20% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 .formats-of-resumes {
   width: 100%;
-  margin-top: 10px;
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(135deg, rgb(31, 57, 58), rgb(10, 25, 27), rgb(44, 83, 85)); */
+  background: linear-gradient(135deg,
+      rgb(31, 57, 58),
+      rgb(44, 83, 85),
+      rgb(50, 182, 187),
+      rgb(9, 40, 43),
+      rgb(60, 206, 214),
+      rgb(15, 62, 65),
+      rgb(62, 194, 199));
+  background-size: 300% 300%;
+  animation: gradientAnimation 20s ease infinite;
+
 
 }
 
@@ -307,16 +343,16 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 1200px;
-  margin: 40px auto;
+  margin: 62px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px 0px;
   background-color: rgb(236, 236, 236);
 }
 
-.resume-card:hover {
+/* .resume-card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .button-left {
   background-color: rgb(86, 86, 146);
@@ -727,7 +763,11 @@ article ul {
 
 
 
-
+/* .third-resume{
+  background-color: red;
+  margin-top: -61px;
+  margin-bottom: 50px;
+} */
 .resume {
   background: white;
   /* padding: 20px; */
@@ -736,7 +776,10 @@ article ul {
   width: 1200px;
   margin: 60px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* padding-top: 50px; */
+  /* margin-top: 60px; */
   /* padding: 20px 40px; */
+
 }
 .resume h2{
   padding-left: 20px;
@@ -756,6 +799,7 @@ article ul {
 
 .header {
   text-align: center;
+  padding: 20px 40px;
 }
 
 .header h1 {
@@ -772,11 +816,18 @@ article ul {
   justify-content: space-around;
 }
 
+.resume .header p{
+  text-align: center;
+  align-items: center;
+  text-align: justify;
+}
+
 .contact-info {
   display: flex;
   justify-content: space-around;
   /* margin: 20px 150px; */
   width: 100%;
+  padding: 20px 40px;
 }
 
 .contact-info p {
@@ -854,6 +905,7 @@ h2{
 .button-class {
   display: flex;
   justify-content: right;
+  padding-left:40px;
 }
 
 
