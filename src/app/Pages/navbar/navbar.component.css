@@ -4,39 +4,99 @@ body {
   font-family: Arial, sans-serif;
 }
 
+
+
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 20%;
+  }
+
+  20% {
+    background-position: 20% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
+  /* Space between logo and links */
   align-items: center;
-  background-color: #333;
+  /* Vertically align items */
+  background-color: #fafafa;
   padding: 10px 20px;
-  color: white;
-  position: sticky; /* Makes the navbar sticky */
-  top: 0; /* Ensures it sticks to the top of the viewport */
-  z-index: 1000; /* Keeps it above other elements */
+  color: rgb(255, 255, 255);
+  position: sticky;
+  /* Makes the navbar sticky */
+  top: 0;
+  /* Ensures it sticks to the top of the viewport */
+  z-index: 1000;
+  /* Keeps it above other elements */
   width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+  /* Ensures padding doesn't break layout */
+  background: linear-gradient(135deg,
+      rgb(136, 135, 135),
+      rgb(114, 113, 113),
+      rgb(134, 134, 134),
+      rgb(124, 123, 123),
+      rgb(114, 113, 113),
+      rgb(114, 116, 116),
+      rgb(110, 112, 112));
+  background-size: 300% 300%;
+  animation: gradientAnimation 20s ease infinite;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+
+}
+.logo img{
+ padding-left: 58px;
 }
 
-.logo > a {
+.logo>a {
   text-decoration: none;
-  color: white;
+  color: rgb(253, 249, 249);
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
+  /* Even spacing between links */
+  margin: 0;
+  /* Remove default margin */
+  padding-right: 62px;
+  /* Remove default padding */
+  align-items: center;
+  /* Ensure links align with logo */
+  color: white;
+}
+
+.nav-links li {
+  display: inline-block;
+  /* Ensure list items align horizontally */
 }
 
 .nav-links li a {
+  
   text-decoration: none;
-  color: white;
-  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
   transition: color 0.3s;
 }
 
@@ -58,25 +118,26 @@ body {
   transition: all 0.3s;
 }
 
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .nav-links {
-      display: none;
-      flex-direction: column;
-      background-color: #333;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
+    display: none;
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
   }
 
   .nav-links.nav-active {
-      display: flex;
+    display: flex;
   }
 
   .burger {
-      display: block;
+    display: block;
   }
 }

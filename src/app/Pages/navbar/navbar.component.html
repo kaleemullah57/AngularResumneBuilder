@@ -1,16 +1,9 @@
 <nav class="navbar">
-  <div class="logo"> <a routerLink="/landingPage">Resume Builder</a></div>
+  <div class="logo"> <a routerLink="/landingPage">
+    <img src="logo-2.png" alt="Resume Builder">
+  </a></div>
   <ul class="nav-links" [ngClass]="{ 'nav-active': isMenuOpen }">
     <li><a routerLink="/landingPage">Home</a></li>
-    <!-- <li><a routerLink="/resumeTemplates">Templates</a></li> -->
-    
-<!-- 
-      <li><a routerLink="" (click)="logOut()"> LogOut</a></li>
-      <li> 
-        <a routerLink="/resumes"> Profile</a>
-      </li> -->
-
-
       <li *ngIf="isLoggedIn">
         <a routerLink="" (click)="logOut()">Logout</a>
       </li>

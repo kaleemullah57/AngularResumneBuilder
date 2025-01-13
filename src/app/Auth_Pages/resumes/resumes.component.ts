@@ -320,7 +320,7 @@ export class ResumesComponent implements OnInit {
     this._authService.getAllResumes().subscribe(
       (data) => {
         this.resumes = data;
-        console.log("dta fetched", data);
+        console.log("data fetched", data);
       },
       (error) => {
         if (error.status === 401) {
@@ -394,8 +394,8 @@ export class ResumesComponent implements OnInit {
 
 
   // Delete Experience Record By Id
-  deleteExperienceRecordById(exp : any){
-    if(confirm ("Are you sure you want to delete this record")){
+  deleteExperienceRecordById(exp: any) {
+    if (confirm("Are you sure you want to delete this record")) {
       const personalRecordId = exp.personalRecordId;
       const experienceId = exp.experienceId;
       this._authService.deleteExperienceRecordById(personalRecordId, experienceId).subscribe(
@@ -408,6 +408,48 @@ export class ResumesComponent implements OnInit {
         })
     }
   }
+
+
+
+  // Delete Language Record By Id
+  deleteLanguageRecordById(language: any) {
+    if (confirm("Are you sure you want to delete this record")) {
+      const personalRecordId = language.personalRecordId;
+      const languageId = language.languageId;
+      this._authService.deleteLanguageRecordById(personalRecordId, languageId).subscribe(
+        (data) => {
+          console.log("Your Data is deleted Successfully", data);
+          this.getAllResumes();
+        }, (error) => {
+          console.log(" Something is occured during deleting Language Record", error.errorMessage);
+          alert("Something is occured during deleting Language Reocrd");
+        }
+      )
+    }
+  }
+
+
+
+  // Delete Skill Record By Id
+  deleteSkillRecordById(skill: any) {
+    if (confirm("Are you sure you want to delete this record")) {
+      const personalRecordId = skill.personalRecordId;
+      const skillId = skill.skillId;
+
+      this._authService.deleteSkillRecordById(personalRecordId, skillId).subscribe(
+        (data) => {
+          console.log("Your Data is deleted Successfully", data);
+          this.getAllResumes();
+        }, (error) => {
+          console.log("Something is going wrong with Deleting Skill Record", error.errorMessage);
+          alert("Something is going wrong with Deleting Skill Record");
+        }
+      )
+    }
+  }
+
+
+
 
   onLogout(): void {
     this._authService.logout();
@@ -447,37 +489,37 @@ export class ResumesComponent implements OnInit {
   // Method to download as PDF
   async downloadPDF(index: number) {
     const content = document.getElementById(`resume-${index}`); // Use specific resume ID
-  if (content) {
-    const canvas = await html2canvas(content);
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save(`resume_${index + 1}.pdf`); // Dynamic file name
-  } else {
-    console.error('Resume content not found!');
-  }
+    if (content) {
+      const canvas = await html2canvas(content);
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`resume_${index + 1}.pdf`); // Dynamic file name
+    } else {
+      console.error('Resume content not found!');
+    }
   }
 
 
 
 
   // Method to download as PNG
-  async downloadPNG(index : number) {
+  async downloadPNG(index: number) {
     const content = document.getElementById(`resume-${index}`); // Use specific resume ID
-  if (content) {
-    const canvas = await html2canvas(content);
-    const imgData = canvas.toDataURL('image/png');
-    
-    // Create a link element for downloading
-    const link = document.createElement('a');
-    link.href = imgData;
-    link.download = `resume_${index + 1}.png`; // Dynamic file name
-    link.click();
-  } else {
-    console.error('Resume content not found!');
-  }
+    if (content) {
+      const canvas = await html2canvas(content);
+      const imgData = canvas.toDataURL('image/png');
+
+      // Create a link element for downloading
+      const link = document.createElement('a');
+      link.href = imgData;
+      link.download = `resume_${index + 1}.png`; // Dynamic file name
+      link.click();
+    } else {
+      console.error('Resume content not found!');
+    }
   }
 
 

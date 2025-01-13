@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { LandingPageComponent } from './Pages/landing-page/landing-page.component';
 import { ResumeTemplatesComponent } from './Pages/resume-templates/resume-templates.component';
 import { ResumesComponent } from './Auth_Pages/resumes/resumes.component';
+import { FinalResumesComponent } from './Auth_Pages/final-resumes/final-resumes.component';
 
 export const routes: Routes = [
     {path:'', component:LandingPageComponent, pathMatch:'full'},
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path:'login', component:LoginComponent},
     {path:'dashboard', component:DashboardComponent, canActivate:[authGuard]},
     {path: 'resumes', component:ResumesComponent, canActivate:[authGuard]},
+    {path: 'final_resumes', component:FinalResumesComponent, canActivate:[authGuard]},
     {path:'**', component:RegisterComponent}
 ];
 

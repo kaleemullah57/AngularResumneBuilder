@@ -1,0 +1,342 @@
+<div class="sidebar" [class.open]="isSidebarOpen">
+    <!-- Toggle Button -->
+    <button class="toggle-btn" (click)="toggleSidebar()">
+        {{ isSidebarOpen ? 'Close Menu' : 'Open Menu' }}
+    </button>
+
+    <!-- Sidebar Content -->
+    <div>
+        <button class="button-33" role="button" (click)="onLogout()">Logout</button>
+        <button class="button-33" role="button" routerLink="/resumes">Edit Resumes </button>
+        <button class="button-33" role="button" routerLink="/dashboard"> Create Resume </button>
+    </div>
+</div>
+
+
+<!-- Dropdown Section -->
+<!-- <div class="dropdown-container">
+    <h1>Your Resumes</h1>
+    <p>Manage and view all of your resumes in one place.</p>
+    <label for="cvFormat" class="dropdown-label">Select CV Format:</label>
+    <select id="cvFormat" [(ngModel)]="selectedFormat" (change)="onChangeFormat()" class="dropdown-select">
+      <option *ngFor="let format of format" [value]="format.value">{{ format.label }}</option>
+    </select>
+  </div> -->
+
+
+
+<!-- Error Message Section -->
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+</div>
+
+
+
+<!-- Resumes Section -->
+<div class="formats-of-resumes">
+    <!-- <button class="button" (click)="scrollLeft()">&lt;</button> -->
+
+    <div *ngIf="currentIndex === 0" id="resume-content">
+        <!-- <div *ngIf="resumes.length > 0" class="resumes-grid"> -->
+        <div>
+            <div *ngFor="let resume of resumes; let i = index" class="resume-card" [id]="'resume-' + i">
+                <div class="buttons-div">
+                    <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
+                    <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+                </div>
+                <!-- Personal Info Section -->
+                <div class="personal-info">
+                    <h2>{{ resume.personalRecord.name }}</h2>
+                    <img *ngIf="resume.personalRecord.imagePath" [src]="resume.personalRecord.imagePath"
+                        alt="Profile Image" class="profile-image" />
+                    <p><strong>Email:</strong> {{ resume.personalRecord.email }} || <strong>Phone:</strong> {{
+                        resume.personalRecord.phone }}</p>
+                    <p></p>
+                    <p><strong>Address:</strong> {{ resume.personalRecord.address }}</p>
+                    <p><strong>Intro:</strong> {{ resume.personalRecord.intro }}</p>
+                </div>
+
+                <!-- Experience Section -->
+                <div class="section">
+                    <h3 *ngIf="resume.experience.length > 0">Experience</h3>
+                    <ul *ngFor="let exp of resume.experience">
+                        <li>
+                            <strong>{{ exp.jobTitle }}</strong>
+                            in {{ exp.location }}
+                            with {{ exp.yearsOfExperience }} years of experience
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="section">
+                    <h3 *ngIf="resume.skills.length > 0">Skills</h3>
+                    <ul *ngFor="let skill of resume.skills">
+                        <li>
+                            <strong>{{ skill.skillName }}</strong> - Efficiency: {{ skill.efficiency }}
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- Education Section -->
+                <div class="section">
+                    <h3 *ngIf="resume.educations.length > 0">ducation</h3>
+                    <ul *ngFor="let education of resume.educations">
+                        <li>
+                            <strong>{{ education.degree }}</strong>
+                            at {{ education.institute }}
+                            ({{ education.yearOfCompletion }})
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Extra Education Section -->
+                <div class="section">
+                    <h3 *ngIf="resume.extraEducations.length > 0">Extra Education</h3>
+                    <ul *ngFor="let extraEducation of resume.extraEducations">
+                        <li>
+                            <strong>{{ extraEducation.exEduDegree }}</strong>
+                            at {{ extraEducation.exEduInstitute }}
+                            ({{ extraEducation.exEduYearOfCompletion }})
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- Languages Section -->
+                <div class="section">
+                    <h3 *ngIf="resume.languages.length > 0">Languages</h3>
+                    <ul *ngFor="let language of resume.languages">
+                        <li>
+                            {{ language.languageName }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="download-buttons">
+                    <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
+                    <button (click)="downloadPNG(i)"> Donwload PNG </button>
+                </div>
+            </div>
+
+        </div>
+        <!-- </div> -->
+
+    </div>
+    <!-- No Resumes Available Message -->
+    <div *ngIf="resumes.length === 0" class="no-resumes-message">
+        No resumes available.
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!--  Simple  Resume Template  -->
+    <div *ngIf="currentIndex === 1" class="simple">
+        <!-- <div *ngIf="resumes.length > 0" class="resume-container"> -->
+        <div *ngFor="let resue of resumes; let i = index" class="resume-item" id="resume-content" [id]="'resume-' + i">
+
+            <div class="buttons-div">
+                <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
+                <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+            </div>
+            <header class="resume-header">
+                <div class="header-left">
+                    <h1> {{ resue.personalRecord.name }} </h1>
+                    <p>
+                        {{ resue.personalRecord.intro }}
+                    </p>
+                </div>
+                <div class="header-right">
+                    <p> {{ resue.personalRecord.address }} </p>
+                    <p> {{ resue.personalRecord.phone }} </p>
+                    <p>{{ resue.personalRecord.email }}</p>
+                </div>
+            </header>
+
+            <main class="resume-content">
+                <section class="main-content">
+
+
+                    <h2 *ngIf="resue.experience.length > 0">Experience</h2>
+                    <article *ngFor="let exp of resue.experience">
+                        <h3> {{ exp.jobTitle }} </h3>
+                        <h4 class="main-container-ul-li-p"> || Location : {{ exp.location }} || Total Experience : {{
+                            exp.yearsOfExperience }} ||</h4>
+                    </article>
+
+
+
+                    
+                   
+
+                    <h2 *ngIf="resue.skills.length > 0 "> Skills </h2>
+                    <article *ngFor="let skill of resue.skills">
+                        <!-- <h2 *ngIf="resue.skills">Skills</h2> -->
+                        <h3> {{ skill.skillName }} </h3>
+                        <h4 class="main-container-ul-li-p">|| Efficiency : {{ skill.efficiency }} || </h4>
+                    </article>
+
+
+                    
+                    <h2 *ngIf="resue.educations.length > 0"> Qualifications</h2>
+                    <article>
+                        <ul *ngFor="let edu of resue.educations">
+                            <li>
+                                <h3> {{ edu.degree }} </h3>
+                                <p class="main-container-ul-li-p"> || Institute : {{ edu.institute }} || Year Of
+                                    Completion
+                                    : {{
+                                    edu.yearOfCompletion }} ||</p>
+                            </li>
+
+                        </ul>
+                    </article>
+
+                    <h2 *ngIf="resue.extraEducations.length > 0">Other Education</h2>
+                    <article *ngFor="let extra of resue.extraEducations">
+                        <h3> {{ extra.exEduDegree }} </h3>
+                        <h4 class="main-container-ul-li-p"> || Institute : {{ extra.exEduInstitute }} || Year Of
+                            Completion : {{
+                            extra.exEduYearOfCompletion }} ||
+                        </h4>
+                    </article>
+
+
+
+
+                    <h2 *ngIf="resue.languages.length > 0"> Languages </h2>
+                    <article *ngFor="let language of resue.languages">
+                        <h3> || {{ language.languageName }} || </h3>
+                    </article>
+                </section>
+            </main>
+            <div class="download-buttons">
+                <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
+                <button (click)="downloadPNG(i)"> Donwload PNG </button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <div *ngIf="currentIndex === 2">
+        <div class="resume" *ngFor="let resue of resumes; let i = index" id="resume-content" [id]="'resume-' + i">
+            <div class="buttons-div">
+                <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
+                <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+            </div>
+            <div class="header">
+                <h1 style="margin-bottom: 10px;"> {{ resue.personalRecord.name }} </h1>
+                <p> {{ resue.personalRecord.intro }} </p>
+            </div>
+
+            <div class="contact-info">
+                <div>
+                    <p><strong>Contact :</strong> {{ resue.personalRecord.phone }} </p>
+                    <p><strong>Email :</strong> {{ resue.personalRecord.email }} </p>
+                    <p><strong>Address :</strong> {{ resue.personalRecord.address }} </p>
+
+                </div>
+            </div>
+
+            <!-- Experience Record -->
+            <h2 *ngIf="resue.experience.length > 0"> Experience Record </h2>
+            <div class="section" *ngFor="let exp of resue.experience">
+
+                <div class="parent-section">
+                    <h3 class="h3-heading"> {{ exp.jobTitle }} </h3>
+                    <p> {{ exp.location }}
+                    </p>
+                </div>
+                <div class="child-section">
+                    <p> {{ exp.yearsOfExperience }} </p>
+
+                </div>
+
+            </div>
+
+            <h2 *ngIf="resue.skills.length > 0"> KEY SKILLS & TECHNOLOGIES </h2>
+            <div class="section" *ngFor="let skill of resue.skills">
+                <div class="parent-section">
+                    <h3 class="h3-heading"> {{ skill.skillName }} </h3>
+                </div>
+                <div class="child-section2">
+                    <ul>
+                        <li> {{ skill.efficiency }} </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 *ngIf="resue.educations.length > 0"> Academics </h2>
+            <div class="section" *ngFor="let edu of resue.educations">
+                <div class="parent-section">
+                    <h3 class="h3-heading"> {{ edu.degree }} </h3>
+                </div>
+                <div class="child-section2">
+                    <ul>
+                        <li> {{ edu.institute }} </li>
+                        <li> {{ edu.yearOfCompletion }} </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+            <h2 *ngIf="resue.extraEducations.length > 0"> Other Education </h2>
+            <div class="section" *ngFor="let ext of resue.extraEducations">
+                <div class="parent-section">
+                    <h3 class="h3-heading"> {{ ext.exEduDegree }} </h3>
+                </div>
+                <div class="child-section2">
+                    <ul>
+                        <li> {{ ext.exEduInstitute }} </li>
+                        <li> {{ ext.exEduYearOfCompletion }} </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <h2 *ngIf="resue.languages.length > 0"> Language Record </h2>
+            <div class="section" *ngFor="let laguage of resue.languages">
+
+                <div class="child-section2">
+                    <ul>
+                        <li> {{ laguage.languageName }}
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+            <div class="download-buttons">
+                <button style="margin-right: 10px;" (click)="downloadPDF(i)">Download as PDF</button>
+                <button (click)="downloadPNG(i)"> Donwload PNG </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- No Resumes Available Message -->
+<div *ngIf="resumes.length === 0" class="no-resumes-message">
+    No resumes available.
+</div>
+
+
+<router-outlet></router-outlet>

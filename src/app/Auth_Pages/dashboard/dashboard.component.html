@@ -4,20 +4,12 @@
     {{ isSidebarOpen ? 'Close Menu' : 'Open Menu' }}
   </button>
   <div>
-    <button class="button-33" role="button"  (click)="onLogout()">Logout</button>
-    <button class="button-33" role="button"  routerLink="/resumes">Edit Resumes </button>
+    <button class="button-33" role="button" (click)="onLogout()">Logout</button>
+    <button class="button-33" role="button" routerLink="/resumes">Edit Resumes </button>
+    <button class="button-33" role="button" routerLink="/final_resumes"> Final Resumes </button>
     <!-- <button (click)="toggleForm()">{{ isFormVisible ? 'Hide Resume Form' : 'Create Resume' }}</button> -->
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -31,52 +23,61 @@
 </div>
 
 <div class="Special-Button">
-  <button class="button-33" role="button"  (click)="toggleForm()">{{ isFormVisible ? 'Hide Resume Form' : 'Create Resume' }}</button>
+  <button class="button-33" role="button" (click)="toggleForm()">{{ isFormVisible ? 'Hide Resume Form' : 'Create Resume'
+    }}</button>
+</div>
+<div class="welcome-notification">
+  <p> Welcome to the Dashboard of the Resume Builder Application </p>
 </div>
 <!-- Form Section -->
-<div *ngIf="isFormVisible">
+<div *ngIf="isFormVisible" class="form-section">
   <form (ngSubmit)="addResume()" #resumeForm="ngForm">
     <!-- Personal Record (Step 1) -->
     <div *ngIf="currentStep === 1">
       <h3>Personal Information</h3>
       <div>
         <!-- <label for="name">Name:</label> -->
-        <input id="name" [(ngModel)]="personalRecords.name" name="name" class="form__field" placeholder="Name" required #name="ngModel" />
+        <input id="name" [(ngModel)]="personalRecords.name" name="name" class="form__field" placeholder="Name" required
+          #name="ngModel" />
         <div *ngIf="name.invalid && name.touched" class="error-message">Name is required!</div>
       </div>
 
       <div>
         <!-- <label for="email">Email:</label> -->
-        <input id="email" type="email" [(ngModel)]="personalRecords.email" class="form__field" placeholder=" Enter your email address" name="email" required #email="ngModel" />
+        <input id="email" type="email" [(ngModel)]="personalRecords.email" class="form__field"
+          placeholder=" Enter your email address" name="email" required #email="ngModel" />
         <div *ngIf="email.invalid && email.touched" class="error-message">Valid email is required!</div>
       </div>
 
       <div>
         <!-- <label for="phone">Phone:</label> -->
-        <input id="phone" [(ngModel)]="personalRecords.phone" class="form__field" placeholder="Enter your phone number" name="phone" required #phone="ngModel" />
+        <input id="phone" [(ngModel)]="personalRecords.phone" class="form__field" placeholder="Enter your phone number"
+          name="phone" required #phone="ngModel" />
         <div *ngIf="phone.invalid && phone.touched" class="error-message">Phone number is required!</div>
       </div>
 
       <div>
         <!-- <label for="address">Address:</label> -->
-        <input id="address" [(ngModel)]="personalRecords.address" class="form__field" placeholder="Enter your address" name="address" required #address="ngModel" />
+        <input id="address" [(ngModel)]="personalRecords.address" class="form__field" placeholder="Enter your address"
+          name="address" required #address="ngModel" />
         <div *ngIf="address.invalid && address.touched" class="error-message">Address is required!</div>
       </div>
 
       <div>
         <!-- <label for="intro">Introduction:</label> -->
-        <textarea id="intro" [(ngModel)]="personalRecords.intro" class="form__field" placeholder="Add your intro" name="intro" required #intro="ngModel"></textarea>
+        <textarea id="intro" [(ngModel)]="personalRecords.intro" class="form__field" placeholder="Add your intro"
+          name="intro" required #intro="ngModel"></textarea>
         <div *ngIf="intro.invalid && intro.touched" class="error-message">Introduction is required!</div>
       </div>
 
       <div>
         <!-- <label for="imagePath">Picture:</label> -->
-        <textarea id="imagePath" [(ngModel)]="personalRecords.imagePath" class="form__field" placeholder="Attach Profile Picture" name="imagePath" required
-          #imagePath="ngModel"></textarea>
+        <textarea id="imagePath" [(ngModel)]="personalRecords.imagePath" class="form__field"
+          placeholder="Attach Profile Picture" name="imagePath" required #imagePath="ngModel"></textarea>
         <div *ngIf="imagePath.invalid && imagePath.touched" class="error-message">Image Path is required!</div>
       </div>
 
-      <button class="button-17"  type="button" (click)="goToNextStep()">Next</button>
+      <button class="button-17" type="button" (click)="goToNextStep()">Next</button>
     </div>
 
     <!-- Education Records (Step 2) -->
@@ -87,29 +88,31 @@
         <h4>Education {{i + 1}}</h4>
         <div>
           <!-- <label for="degree">Degree:</label> -->
-          <input id="degree" [(ngModel)]="education.degree" class="form__field" placeholder="degree" name="degree{{i}}" required #degree="ngModel" />
+          <input id="degree" [(ngModel)]="education.degree" class="form__field" placeholder="degree" name="degree{{i}}"
+            required #degree="ngModel" />
           <div *ngIf="degree.invalid && degree.touched" class="error-message">Degree is required!</div>
         </div>
 
         <div>
           <!-- <label for="institute">Institute:</label> -->
-          <input id="institute" [(ngModel)]="education.institute" class="form__field" placeholder="institute" name="institute{{i}}" required #institute="ngModel" />
+          <input id="institute" [(ngModel)]="education.institute" class="form__field" placeholder="institute"
+            name="institute{{i}}" required #institute="ngModel" />
           <div *ngIf="institute.invalid && institute.touched" class="error-message">Institute is required!</div>
         </div>
 
         <div>
           <!-- <label for="yearOfCompletion">Year of Completion:</label> -->
-          <input id="yearOfCompletion" [(ngModel)]="education.yearOfCompletion" class="form__field" placeholder="year of completion" name="yearOfCompletion{{i}}" required
-            #yearOfCompletion="ngModel" />
+          <input id="yearOfCompletion" [(ngModel)]="education.yearOfCompletion" class="form__field"
+            placeholder="year of completion" name="yearOfCompletion{{i}}" required #yearOfCompletion="ngModel" />
           <div *ngIf="yearOfCompletion.invalid && yearOfCompletion.touched" class="error-message">Year of Completion is
             required!</div>
         </div>
-        <button class="button-17"  type="button" (click)="removeEducationField(i)">Remove Education Fields</button>
+        <button class="button-17" type="button" (click)="removeEducationField(i)">Remove Education Fields</button>
       </div>
-      <button class="button-17"  type="button" (click)="addEducation()">Add More Education Fields</button>
+      <button class="button-17" type="button" (click)="addEducation()">Add More Education Fields</button>
 
-      <button class="button-17"  type="button" (click)="goToBackStep()">Previous</button>
-      <button class="button-17"  type="button" (click)="goToNextStep()">Next</button>
+      <button class="button-17" type="button" (click)="goToBackStep()">Previous</button>
+      <button class="button-17" type="button" (click)="goToNextStep()">Next</button>
     </div>
 
     <!-- Extra Education Records (Step 3) -->
@@ -119,32 +122,33 @@
         <h4>Extra Education {{i + 1}}</h4>
         <div>
           <!-- <label for="exEduDegree">Degree:</label> -->
-          <input id="exEduDegree" [(ngModel)]="extraEducation.exEduDegree" class="form__field" placeholder="Extra Degree" name="exEduDegree{{i}}" required
-            #exEduDegree="ngModel" />
+          <input id="exEduDegree" [(ngModel)]="extraEducation.exEduDegree" class="form__field"
+            placeholder="Extra Degree" name="exEduDegree{{i}}" required #exEduDegree="ngModel" />
           <div *ngIf="exEduDegree.invalid && exEduDegree.touched" class="error-message">Degree is required!</div>
         </div>
 
         <div>
           <!-- <label for="exEduInstitute">Institute:</label> -->
-          <input id="exEduInstitute" [(ngModel)]="extraEducation.exEduInstitute" class="form__field" placeholder="Institute" name="exEduInstitute{{i}}" required
-            #exEduInstitute="ngModel" />
+          <input id="exEduInstitute" [(ngModel)]="extraEducation.exEduInstitute" class="form__field"
+            placeholder="Institute" name="exEduInstitute{{i}}" required #exEduInstitute="ngModel" />
           <div *ngIf="exEduInstitute.invalid && exEduInstitute.touched" class="error-message">Institute is required!
           </div>
         </div>
 
         <div>
           <!-- <label for="exEduYearOfCompletion">Year of Completion:</label> -->
-          <input id="exEduYearOfCompletion" [(ngModel)]="extraEducation.exEduYearOfCompletion" class="form__field" placeholder="Year of completion"
-            name="exEduYearOfCompletion{{i}}" required #exEduYearOfCompletion="ngModel" />
+          <input id="exEduYearOfCompletion" [(ngModel)]="extraEducation.exEduYearOfCompletion" class="form__field"
+            placeholder="Year of completion" name="exEduYearOfCompletion{{i}}" required
+            #exEduYearOfCompletion="ngModel" />
           <div *ngIf="exEduYearOfCompletion.invalid && exEduYearOfCompletion.touched" class="error-message">Year of
             Completion is required!</div>
         </div>
-        <button class="button-17"  type="button" (click)="removeExtraEducation(i)">Remove Extra Education Fields</button>
+        <button class="button-17" type="button" (click)="removeExtraEducation(i)">Remove Extra Education Fields</button>
       </div>
-      <button class="button-17"  type="button" (click)="addExtraEducation()">Add Extra Education Fields</button>
+      <button class="button-17" type="button" (click)="addExtraEducation()">Add Extra Education Fields</button>
 
-      <button class="button-17"  type="button" (click)="goToBackStep()">Previous</button>
-      <button class="button-17"  type="button" (click)="goToNextStep()">Next</button>
+      <button class="button-17" type="button" (click)="goToBackStep()">Previous</button>
+      <button class="button-17" type="button" (click)="goToNextStep()">Next</button>
     </div>
 
     <!-- Experience Records (Step 4) -->
@@ -154,29 +158,31 @@
         <h4>Experience {{i + 1}}</h4>
         <div>
           <!-- <label for="jobTitle">Job Title:</label> -->
-          <input id="jobTitle" [(ngModel)]="experience.jobTitle" class="form__field" placeholder="Job Title" name="jobTitle{{i}}" required #jobTitle="ngModel" />
+          <input id="jobTitle" [(ngModel)]="experience.jobTitle" class="form__field" placeholder="Job Title"
+            name="jobTitle{{i}}" required #jobTitle="ngModel" />
           <div *ngIf="jobTitle.invalid && jobTitle.touched" class="error-message">Job Title is required!</div>
         </div>
 
         <div>
           <!-- <label for="location">Location:</label> -->
-          <input id="location" [(ngModel)]="experience.location" class="form__field" placeholder="Location" name="location{{i}}" required #location="ngModel" />
+          <input id="location" [(ngModel)]="experience.location" class="form__field" placeholder="Location"
+            name="location{{i}}" required #location="ngModel" />
           <div *ngIf="location.invalid && location.touched" class="error-message">Location is required!</div>
         </div>
 
         <div>
           <!-- <label for="yearsOfExperience">Years of Experience:</label> -->
-          <input id="yearsOfExperience" [(ngModel)]="experience.yearsOfExperience" class="form__field" placeholder="Total Experience" name="yearsOfExperience{{i}}"
-            required #yearsOfExperience="ngModel" />
+          <input id="yearsOfExperience" [(ngModel)]="experience.yearsOfExperience" class="form__field"
+            placeholder="Total Experience" name="yearsOfExperience{{i}}" required #yearsOfExperience="ngModel" />
           <div *ngIf="yearsOfExperience.invalid && yearsOfExperience.touched" class="error-message">Years of Experience
             is required!</div>
         </div>
-        <button class="button-17"  type="button" (click)="removeExperienceRecord(i)">Remove Experience Fields</button>
+        <button class="button-17" type="button" (click)="removeExperienceRecord(i)">Remove Experience Fields</button>
       </div>
-      <button class="button-17"  type="button" (click)="addExperienceRecord()">Add Experience Fields</button>
+      <button class="button-17" type="button" (click)="addExperienceRecord()">Add Experience Fields</button>
 
       <button class="button-17" type="button" (click)="goToBackStep()">Previous</button>
-      <button class="button-17"  type="button" (click)="goToNextStep()">Next</button>
+      <button class="button-17" type="button" (click)="goToNextStep()">Next</button>
 
     </div>
 
@@ -190,20 +196,22 @@
         <h4>Skill {{i + 1}}</h4>
         <div>
           <!-- <label for="skillName">Skill Name:</label> -->
-          <input id="skillName" [(ngModel)]="skill.skillName" class="form__field" placeholder="Skill Name " name="skillName{{i}}" required #skillName="ngModel" />
+          <input id="skillName" [(ngModel)]="skill.skillName" class="form__field" placeholder="Skill Name "
+            name="skillName{{i}}" required #skillName="ngModel" />
           <div *ngIf="skillName.invalid && skillName.touched" class="error-message">Skill Name is required!</div>
         </div>
 
         <div>
           <!-- <label for="efficiency">Efficiency:</label> -->
-          <input id="efficiency" [(ngModel)]="skill.efficiency" class="form__field" placeholder="Efficiency" name="efficiency{{i}}" required #efficiency="ngModel" />
+          <input id="efficiency" [(ngModel)]="skill.efficiency" class="form__field" placeholder="Efficiency"
+            name="efficiency{{i}}" required #efficiency="ngModel" />
           <div *ngIf="efficiency.invalid && efficiency.touched" class="error-message">Efficiency is required!</div>
         </div>
-        <button class="button-17"  type="button" (click)="removeSkillsRecord(i)"> Remove Skills Fields </button>
+        <button class="button-17" type="button" (click)="removeSkillsRecord(i)"> Remove Skills Fields </button>
       </div>
-      <button class="button-17"  type="button" (click)="addSkillsRecord()"> Add Skills Fields </button>
-      <button class="button-17"  type="button" (click)="goToBackStep()">Previous</button>
-      <button class="button-17"  type="button" (click)="goToNextStep()">Next</button>
+      <button class="button-17" type="button" (click)="addSkillsRecord()"> Add Skills Fields </button>
+      <button class="button-17" type="button" (click)="goToBackStep()">Previous</button>
+      <button class="button-17" type="button" (click)="goToNextStep()">Next</button>
     </div>
 
 
@@ -218,22 +226,22 @@
         <h4>Language {{i + 1}}</h4>
         <div>
           <!-- <label for="languageName">Language Name:</label> -->
-          <input id="languageName" [(ngModel)]="language.languageName" class="form__field" placeholder="Language Name" name="languageName{{i}}" required
-            #languageName="ngModel" />
+          <input id="languageName" [(ngModel)]="language.languageName" class="form__field" placeholder="Language Name"
+            name="languageName{{i}}" required #languageName="ngModel" />
           <div *ngIf="languageName.invalid && languageName.touched" class="error-message">Language Name is required!
           </div>
         </div>
-        <button class="button-17"  type="button" (click)="removeLanguageRecord(i)"> Remove Language Fields </button>
+        <button class="button-17" type="button" (click)="removeLanguageRecord(i)"> Remove Language Fields </button>
       </div>
-      <button class="button-17"  type="button" (click)="addLanguageRecord()"> Add Language Fields </button>
-      <button class="button-17"  type="button" (click)="goToBackStep()">Previous</button>
+      <button class="button-17" type="button" (click)="addLanguageRecord()"> Add Language Fields </button>
+      <button class="button-17" type="button" (click)="goToBackStep()">Previous</button>
 
       <!-- Submit (Final Step) -->
 
-      <button class="button-17"  type="submit" [disabled]="!resumeForm.valid">Submit</button>
+      <button class="button-17" type="submit" [disabled]="!resumeForm.valid">Submit</button>
     </div>
   </form>
-<!-- </div> -->
+</div>
 
 <div *ngIf="errorMessage" class="error">
   {{ errorMessage }}

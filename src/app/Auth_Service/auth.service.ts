@@ -19,7 +19,7 @@ export class AuthService {
   private userAPIUrl = "https://localhost:7299/api/Auth/register";
   private userLoginAPIUrl = "https://localhost:7299/api/Auth/login";
   private loggedIn = false; // Simulate login status (replace with actual logic)
- 
+
   private getAllResumesURL = "https://localhost:7299/api/FinalResume/GetAllDataOfLoggedIn";
   private addResumeUrl = "https://localhost:7299/api/FinalResume/AddResume"
   private deleteResumeUrl = "https://localhost:7299/api/FinalResume/DeleteRecords"
@@ -36,6 +36,8 @@ export class AuthService {
   private deleteEducationRecord = "https://localhost:7299/api/FinalResume/DeleteOnlyEducationRecord";
   private deleteExtraEducationRecord = "https://localhost:7299/api/FinalResume/DeleteExtraEducationRecordById";
   private deleteExperienceRecordByIdUrl = "https://localhost:7299/api/FinalResume/DeleteExperinceRecordById";
+  private deleteLanguageRecordByIdUrl = "https://localhost:7299/api/FinalResume/DeleteLanguageRecord";
+  private deleteSkillRecordByIdUrl = "https://localhost:7299/api/FinalResume/DeleteSkillRecord";
 
   private getAllRegisteredUsersUrl = "https://localhost:7299/api/FinalResume/GetAllRegisteredUsers";
   constructor(private http: HttpClient, private route: Router) { }
@@ -48,7 +50,7 @@ export class AuthService {
 
 
 
-// Login Section
+  // Login Section
   login(email: string, password: string): Observable<FinalResume[]> {
     const loginData = { email, password };
     console.log(email, password);
@@ -59,12 +61,15 @@ export class AuthService {
 
 
 
-  
 
 
 
 
-// Logout LogedIn User
+
+
+
+
+  // Logout LogedIn User
   logout(): void {
     localStorage.removeItem("jwtToken");
     this.route.navigate(['/login']);
@@ -73,22 +78,22 @@ export class AuthService {
 
 
   // Count, Get All Registered Users
-  getAllRegisteredUsers():Observable<number>{
+  getAllRegisteredUsers(): Observable<number> {
     const token = localStorage.getItem('jwtToken');
-    if(!token){
+    if (!token) {
       throw new Error("First to register Your Self");
-    } 
+    }
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
-    return this.http.get<number>(this.getAllRegisteredUsersUrl, {headers:headers});
+    return this.http.get<number>(this.getAllRegisteredUsersUrl, { headers: headers });
   }
 
 
 
 
 
-// Add Full Resume After Login
+  // Add Full Resume After Login
   addData(finalResume: FinalResume): Observable<FinalResume> {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
@@ -131,17 +136,17 @@ export class AuthService {
       personalRecordId: number,
       updateExEducationModel: ExtraEducationModel
     ): Observable<any> {
-      const token = localStorage.getItem('jwtToken');
-      if (!token) {
-        throw new Error("User not Authorized");
-      }
-      const headers = new HttpHeaders({
-        Authorization: `Bearer ${token}`
-      });
-      const url = `${this.updateExtraEducationUrl}/${exEducationId}/${personalRecordId}`;
-      return this.http.put(url, updateExEducationModel, { headers });
-  
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+      throw new Error("User not Authorized");
     }
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    const url = `${this.updateExtraEducationUrl}/${exEducationId}/${personalRecordId}`;
+    return this.http.put(url, updateExEducationModel, { headers });
+
+  }
 
 
 
@@ -165,10 +170,10 @@ export class AuthService {
 
 
   // Update Skills Record
-  updateSkillsRecord (
+  updateSkillsRecord(
     skillId: number,
-    personalRecordId : number,
-    updateSkillRecord : SkillsRecordModel
+    personalRecordId: number,
+    updateSkillRecord: SkillsRecordModel
   ): Observable<any> {
     const token = localStorage.getItem('jwtToken');
     if (!token) {
@@ -185,9 +190,9 @@ export class AuthService {
 
   // Update Languge record
   updateLanguageRecord(
-    languageId : number,
-    personalRecordId : number,
-    updateLanguageModel : LanguageRecordModel
+    languageId: number,
+    personalRecordId: number,
+    updateLanguageModel: LanguageRecordModel
   ): Observable<any> {
     const token = localStorage.getItem('jwtToken');
     if (!token) {
@@ -202,8 +207,8 @@ export class AuthService {
 
 
 
-// Get Total Resume of LogedIn User.
-  getAllResumes(): Observable<FinalResume[]> {
+  // Get Total Resume of LogedIn User.
+  getAllResumes():Observable<FinalResume[]> {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
       throw new Error("User Not LoggedIn");
@@ -215,7 +220,7 @@ export class AuthService {
   }
 
 
-// Delete Resume After LogedIn.
+  // Delete Resume After LogedIn.
   deleteResume(personalRecordId: number): Observable<any> {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
@@ -232,8 +237,8 @@ export class AuthService {
   }
 
 
-// Delete Education Record when user is loggedIn.
-  deleteEducationRecordOnly(personalRecordId : number, educationId : number){
+  // Delete Education Record when user is loggedIn.
+  deleteEducationRecordOnly(personalRecordId: number, educationId: number) {
     const token = localStorage.getItem('jwtToken');
     if (!token) {
       throw new Error("User is Not loggedIn");
@@ -247,29 +252,58 @@ export class AuthService {
 
 
   // Delete Extra Education Record when use is loggedIn
-  deleteExtraEducationRecordById(personalRecordId: number, exEducationId : number){
+  deleteExtraEducationRecordById(personalRecordId: number, exEducationId: number) {
     const token = localStorage.getItem('jwtToken');
-    if(!token){
+    if (!token) {
       throw new Error("User is Not LoggedIn");
     }
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
     const url = `${this.deleteExtraEducationRecord}/${personalRecordId}/${exEducationId}`;
-    return this.http.delete(url, {headers});
+    return this.http.delete(url, { headers });
   }
 
 
   // Delete Experience Record By Id
-  deleteExperienceRecordById(personalRecordId:number, experienceId : number){
+  deleteExperienceRecordById(personalRecordId: number, experienceId: number) {
     const token = localStorage.getItem('jwtToken');
-    if(!token){
+    if (!token) {
       throw new Error("User is Not LoggedIn");
     }
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
     const url = `${this.deleteExperienceRecordByIdUrl}/${personalRecordId}/${experienceId}`;
+    return this.http.delete(url, { headers });
+  }
+
+
+  // Delete Language Record By Id
+  deleteLanguageRecordById(personalRecordId:number, languageId:number){
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+      throw new Error("User is Not LoggedIn");
+    }
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const url = `${this.deleteLanguageRecordByIdUrl}/${personalRecordId}/${languageId}`;
+    return this.http.delete(url, {headers});
+  }
+
+
+
+  // Delete Skill Record ById
+  deleteSkillRecordById(personalRecordId:number, skillId:number){
+    const token = localStorage.getItem('jwtToken');
+    if (!token) {
+      throw new Error("User is Not LoggedIn");
+    }
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    const url = `${this.deleteSkillRecordByIdUrl}/${personalRecordId}/${skillId}`;
     return this.http.delete(url, {headers});
   }
 }
