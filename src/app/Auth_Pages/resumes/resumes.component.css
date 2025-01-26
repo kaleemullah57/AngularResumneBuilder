@@ -192,7 +192,7 @@ body {
   .sidebar .sidebar-content button {
     padding: 10px;
     font-size: 12px;
-    /* Smaller buttons for mobile */
+    /* Smaller  for mobile */
   }
 }
 
@@ -235,17 +235,6 @@ body {
   align-items: center;
   justify-content: center;
   color: black;
-  /* background: linear-gradient(135deg, rgb(31, 57, 58), rgb(10, 25, 27), rgb(44, 83, 85)); */
-  /* background: linear-gradient(135deg,
-        rgb(255, 255, 255),
-        rgb(114, 113, 113),
-        rgb(250, 250, 250),
-        rgb(245, 245, 245),
-        rgb(58, 57, 57),
-        rgb(74, 75, 75),
-        rgb(28, 29, 29));
-    background-size: 300% 300%;
-  animation: gradientAnimation 20s ease infinite; */
   box-shadow: 2px 2px 2px black;
 
 }
@@ -255,7 +244,7 @@ body {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: 1200px;
+  width: 90%; /* Changed to make it more fluid */
   margin: 76px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0px 0px 40px 0px;
@@ -294,7 +283,7 @@ body {
 
 .button-right{
   background-color: rgb(86, 86, 146);
-  margin-left: 90%;
+  margin-left: 89%;
   background-color: #c2fbd7;
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
@@ -329,24 +318,254 @@ body {
   background-color: rgb(255, 255, 255);
   padding: 20px 40px;
   color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.personal-info h2{
+  font-family: FontAwesome;
+  font-size: 24px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.personal-info .top-Info{
+  width: 100%;
+  background-color: white;
+  padding: 5px 4% 5px 22%;
+  display: flex;
+  flex-direction: row;
 }
 
-.personal-info>p {
+.personal-info .top-Info p {
+  font-family: FontAwesome;
+  font-size: 18px;
+  font-weight: 500;
   text-align: justify;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+margin: 10px 20px 10px 5px;
 }
 
-.profile-image {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin: 10px auto;
+
+.Main-ContainerToEdit1{
+  width: 100%;
+  background-color: white;
+  /* padding: 20px 40px 20px 40px; */
 }
 
-.section ul {
-  margin: 0;
-  padding: 0 20px;
-  list-style-type: disc;
+.Main-ContainerToEdit1 .Experience-Container{
+  width: 100%;
+  background-color: white;
+  padding: 20px 40px 20px 40px;
 }
+.Main-ContainerToEdit1 .Experience-Container .Experience-Heading{
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: black;
+  padding: 10px 0px 10px 20px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.Main-ContainerToEdit1 .Experience-Container .Experience-ContainerUl{
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+}
+.Main-ContainerToEdit1 .Experience-Container .Experience-ContainerUl .Experience-ContainerParagraph{
+  font-size: 18px;
+  font-family: FontAwesome;
+  font-weight: 500;
+  color: rgb(83, 81, 81);
+  font-style: italic;
+  margin: 0px 0px 0px 20px;
+}
+
+
+
+.Main-ContainerToEdit1 .Skills-LanguageContainer{
+  display: flex;
+  flex-direction: row;
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer  .Skills-Container{
+  width: 60%;
+  background-color: white;
+  padding: 20px 40px 20px 40px;
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer .Skills-Container .Skills-Header{
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: black;
+  padding: 10px 0px 10px 20px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer .Skills-Container .Skills-ContainerUl{
+  width: 100%;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  padding-bottom: 0px;
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer .Skills-Container .Skills-ContainerUl .button-paragraphContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer .Skills-Container .Skills-ContainerUl .Skills-ContainerParagraph{
+  font-size: 18px;
+  font-family: FontAwesome;
+  font-weight: 500;
+  color: rgb(83, 81, 81);
+  font-style: italic;
+  margin: 0px 0px 0px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+
+
+
+
+.Main-ContainerToEdit1 .Skills-LanguageContainer  .Language-Container{
+  width: 60%;
+  background-color: white;
+  padding: 20px 40px 20px 40px;
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer  .Language-Container .Language-Header{
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: black;
+  padding: 10px 0px 10px 20px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer  .Language-Container .Language-ContainerUl{
+  width: 100%;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  padding-bottom: 0px;
+}
+
+.Main-ContainerToEdit1 .Skills-LanguageContainer  .Language-Container .button-paragraphContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end
+}
+.Main-ContainerToEdit1 .Skills-LanguageContainer  .Language-Container .Language-ContainerParagraph{
+  font-size: 18px;
+  font-family: FontAwesome;
+  font-weight: 500;
+  color: rgb(83, 81, 81);
+  font-style: italic;
+  margin: 0px 0px 0px 20px;
+}
+
+
+
+
+
+
+
+.Main-ContainerToEdit1 .Education-Container{
+  width: 100%;
+  background-color: white;
+  padding: 20px 40px 20px 40px;
+} 
+.Main-ContainerToEdit1 .Education-Container .Education-Header{
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: black;
+  padding: 10px 0px 10px 20px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} 
+.Main-ContainerToEdit1 .Education-Container .Education-ContainerUl{
+  width: 100%;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  padding-bottom: 0px;
+} 
+.Main-ContainerToEdit1 .Education-Container .Education-ContainerUl .button-paragraphContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end
+} 
+.Main-ContainerToEdit1 .Education-Container .Education-ContainerUl .button-paragraphContainer .Education-ContainerParagraph{
+  font-size: 18px;
+  font-family: FontAwesome;
+  font-weight: 500;
+  color: rgb(83, 81, 81);
+  font-style: italic;
+  margin: 0px 0px 0px 20px;
+}
+
+
+
+
+
+
+
+
+.Main-ContainerToEdit1 .ExtraEducation-Container{
+  width: 100%;
+  background-color: white;
+  padding: 20px 40px 20px 40px;
+}
+.Main-ContainerToEdit1 .ExtraEducation-Container .ExtraEducation-Header{
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: black;
+  padding: 10px 0px 10px 20px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.Main-ContainerToEdit1 .ExtraEducation-Container .ExtraEducation-ContainerUl{
+  width: 100%;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  padding-bottom: 0px;
+}
+.Main-ContainerToEdit1 .ExtraEducation-Container .ExtraEducation-ContainerUl .button-paragraphContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end
+}
+.Main-ContainerToEdit1 .ExtraEducation-Container .ExtraEducation-ContainerUl .button-paragraphContainer .ExtraEducation-ContainerParagraph{
+  font-size: 18px;
+  font-family: FontAwesome;
+  font-weight: 500;
+  color: rgb(83, 81, 81);
+  font-style: italic;
+  margin: 0px 0px 0px 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 button {
   background-color: #cfcbcb;
@@ -365,26 +584,6 @@ button {
 
 button:hover {
   background-color: #c0392b;
-}
-
-/* Section Titles */
-h3 {
-  font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #34495e;
-}
-
-/* Lists */
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul li {
-  margin-bottom: 10px;
-  font-size: 16px;
-  color: #7f8c8d;
 }
 
 /* No Resumes Available */
@@ -410,13 +609,12 @@ ul li {
   margin: auto;
   text-align: left;
 }
-
-
-
 button:hover{
   background-color: red;
 
 }
+
+
 
 
 
@@ -454,7 +652,7 @@ button:hover{
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 1200px;
-  margin: 60px auto;
+  margin: 76px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0px 0px;
 }
@@ -535,6 +733,7 @@ button:hover{
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px 40px;
+  margin-top: 10px;
 }
 
 .main-content {
@@ -689,7 +888,7 @@ article ul {
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 1200px;
-  margin: 60px auto;
+  margin: 76px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .resume h2{

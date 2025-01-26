@@ -42,12 +42,13 @@ export class ResumesComponent implements OnInit {
   // Update Education Record
   selectedEducationId: number | null = null;
   updatedEducation: EducationRecordModel = {
-    educationId: 0,
-    degree: '',
-    institute: '',
-    yearOfCompletion: '',
-    personalRecordId: 0,
-    id: 0,
+    educationId           :    0,
+    degree                :   '',
+    institute             :   '',
+    yearOfCompletion      :   '',
+    gpa                   :   '',
+    personalRecordId      :    0,
+    id                    :    0,
   };
 
 
@@ -55,12 +56,12 @@ export class ResumesComponent implements OnInit {
   // Update Extra Education Record
   selectedExtraEducationRecordId: number | null = null;
   updateExEducationModel: ExtraEducationModel = {
-    exEducationId: 0,
-    exEduDegree: '',
-    exEduInstitute: '',
-    exEduYearOfCompletion: '',
-    personalRecordId: 0,
-    id: 0
+    exEducationId           :    0,
+    exEduDegree             :   '',
+    exEduInstitute          :   '',
+    exEduYearOfCompletion   :   '',
+    personalRecordId        :    0,
+    id                      :    0
   }
 
 
@@ -68,12 +69,15 @@ export class ResumesComponent implements OnInit {
   // Update Experience Record 
   SelectedExperienceRecordId: number | null = null;
   updateExperience: ExperienceRecordModel = {
-    experienceId: 0,
-    jobTitle: '',
-    location: '',
-    yearsOfExperience: '',
-    personalRecordId: 0,
-    id: 0
+    experienceId          :    0,
+    jobTitle              :   '',
+    location              :   '',
+    role                  :   '',
+    description           :   '',
+    technologies          :   '',
+    yearsOfExperience     :   '',
+    personalRecordId      :    0,
+    id                    :    0
   }
 
 
@@ -82,11 +86,11 @@ export class ResumesComponent implements OnInit {
   // Update Skills Record
   SelectedSkillsRecordId: number | null = null;
   updateSkillRecord: SkillsRecordModel = {
-    skillId: 0,
-    skillName: '',
-    efficiency: '',
-    personalRecordId: 0,
-    id: 0
+    skillId                :     0,
+    skillName              :    '',
+    efficiency             :    '',
+    personalRecordId       :     0,
+    id                     :     0
   }
 
 
@@ -95,10 +99,10 @@ export class ResumesComponent implements OnInit {
 
   selectedLanguageRecordId: number | null = null;
   updateLanguageModel: LanguageRecordModel = {
-    languageId: 0,
-    languageName: '',
-    personalRecordId: 0,
-    id: 0
+    languageId              :    0,
+    languageName            :   '',
+    personalRecordId        :    0,
+    id                      :    0
   }
   constructor(private _authService: AuthService) { }
   ngOnInit(): void {
@@ -201,12 +205,15 @@ export class ResumesComponent implements OnInit {
   cancelExperienceEdit() {
     this.SelectedExperienceRecordId = null;
     this.updateExperience = {
-      experienceId: 0,
-      jobTitle: '',
-      location: '',
-      yearsOfExperience: '',
-      personalRecordId: 0,
-      id: 0
+      experienceId        :    0,
+      jobTitle            :   '',
+      location            :   '',
+      role                :   '',
+      description         :   '',
+      technologies        :   '',
+      yearsOfExperience   :   '',
+      personalRecordId    :    0,
+      id                  :    0
     }
   }
 

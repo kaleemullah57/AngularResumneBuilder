@@ -37,6 +37,17 @@ export class NavbarComponent implements OnInit{
 
 
 
+  getToken(): string | null {
+    return localStorage.getItem('jwtToken');
+  }
+
+
+  isLoggedInn():boolean{
+    return this.getToken() !== null;
+  }
+
+
+
 
   
 

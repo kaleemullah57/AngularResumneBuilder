@@ -6,6 +6,12 @@ import { AuthService } from '../../Auth_Service/auth.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+
+
+
+
+
+
 @Component({
   selector: 'app-final-resumes',
   standalone: true,
@@ -182,7 +188,7 @@ export class FinalResumesComponent {
   // Download PDF
   // Method to download as PDF
   async downloadPDF(index: number) {
-    const content = document.getElementById(`resume-${index}`); // Use specific resume ID
+    const content = document.getElementById(`finalResume${index}`); // Use specific resume ID
     if (content) {
       const canvas = await html2canvas(content);
       const imgData = canvas.toDataURL('image/png');
@@ -190,7 +196,7 @@ export class FinalResumesComponent {
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`resume_${index + 1}.pdf`); // Dynamic file name
+      pdf.save(`finalResume${index + 1}.pdf`); // Dynamic file name
     } else {
       console.error('Resume content not found!');
     }
@@ -199,9 +205,12 @@ export class FinalResumesComponent {
 
 
 
+
+
+
   // Method to download as PNG
   async downloadPNG(index: number) {
-    const content = document.getElementById(`resume-${index}`); // Use specific resume ID
+    const content = document.getElementById(`finalResume${index}`); // Use specific resume ID
     if (content) {
       const canvas = await html2canvas(content);
       const imgData = canvas.toDataURL('image/png');
@@ -209,7 +218,7 @@ export class FinalResumesComponent {
       // Create a link element for downloading
       const link = document.createElement('a');
       link.href = imgData;
-      link.download = `resume_${index + 1}.png`; // Dynamic file name
+      link.download = `finalResume${index + 1}.png`; // Dynamic file name
       link.click();
     } else {
       console.error('Resume content not found!');

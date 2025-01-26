@@ -10,7 +10,7 @@ import { SkillsRecordModel } from '../../Models/skills-record-model';
 import { LanguageRecordModel } from '../../Models/language-record-model';
 import { FormsModule } from '@angular/forms';
 import { timeout } from 'rxjs';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { error } from 'console';
 import { User } from '../../Auth_Folders/Auth_Model/user';
 
@@ -38,27 +38,31 @@ export class DashboardComponent {
   
 
   educationRecords: EducationRecordModel[] = [{
-    educationId: 0,
-    degree: '',
-    institute: '',
-    yearOfCompletion: '',
-    personalRecordId: 0,
-    id: 0
+    educationId       :     0,
+    degree            :    '',
+    institute         :    '',
+    yearOfCompletion  :    '',
+    gpa               :    '',
+    personalRecordId  :     0,
+    id                :     0
   }];
 
   extraEducations: ExtraEducationModel[] = [{
-    exEducationId: 0,
-    exEduDegree: '',
-    exEduInstitute: '',
-    exEduYearOfCompletion: '',
-    personalRecordId: 0,
-    id: 0
+    exEducationId     :     0,
+    exEduDegree       :     '',
+    exEduInstitute    :     '',
+    exEduYearOfCompletion:  '',
+    personalRecordId  :      0,
+    id                :      0
   }];
 
   experienceRecords: ExperienceRecordModel[] = [{
     experienceId: 0,
     jobTitle: '',
     location: '',
+    role : '',
+    description: '',
+    technologies: '',
     yearsOfExperience: '',
     personalRecordId: 0,
     id: 0
@@ -94,7 +98,7 @@ export class DashboardComponent {
 
 
 
-  constructor(private _authService: AuthService)  { }
+  constructor(private _authService: AuthService, private route:Router)  { }
   
   goToNextStep():void{
     if(this.currentStep < 6){
@@ -168,6 +172,9 @@ export class DashboardComponent {
       this.formSubmitted = true;
       this.resetForm();
       
+
+      // Navigate resume after adding 
+      this.route.navigate(['/resumes']);
       setTimeout(() => {
         this.formSubmitted = false;
       }, 2000);
@@ -188,8 +195,13 @@ export class DashboardComponent {
 
 addEducation (){
   this.educationRecords.push({
-    degree: '', institute: '', yearOfCompletion: '', educationId: 0, personalRecordId: 0,
-    id: 0
+    degree            :   '',
+    institute         :   '', 
+    yearOfCompletion  :   '', 
+    gpa               :   '', 
+    educationId       :   0, 
+    personalRecordId  :   0,
+    id                :   0
   })
 }
 removeEducationField(index:number){
@@ -199,12 +211,12 @@ removeEducationField(index:number){
 
 addExtraEducation(){
   this.extraEducations.push({
-    exEducationId: 0,
-    exEduDegree: '',
-    exEduInstitute: '',
-    exEduYearOfCompletion: '',
-    personalRecordId: 0,
-    id: 0
+    exEducationId           :    0,
+    exEduDegree             :   '',
+    exEduInstitute          :   '',
+    exEduYearOfCompletion   :   '',
+    personalRecordId        :    0,
+    id                      :    0
   })
 }
 
@@ -217,12 +229,15 @@ removeExtraEducation(index:number){
 
 addExperienceRecord(){
   this.experienceRecords.push({
-    experienceId: 0,
-    jobTitle: '',
-    location: '',
-    yearsOfExperience: '',
-    personalRecordId: 0,
-    id: 0
+    experienceId        :    0,
+    jobTitle            :   '',
+    location            :   '',
+    role                :   '',
+    description         :   '',
+    technologies        :   '',
+    yearsOfExperience   :   '',
+    personalRecordId    :    0,
+    id                  :    0
   })
 }
 
@@ -234,11 +249,11 @@ removeExperienceRecord(index:number){
 
 addSkillsRecord(){
   this.skillsRecords.push({
-    skillId: 0,
-    skillName: '',
-    efficiency: '',
-    personalRecordId: 0,
-    id: 0
+    skillId             :    0,
+    skillName           :   '',
+    efficiency          :   '',
+    personalRecordId    :    0,
+    id                  :    0
   })
 }
 
@@ -250,10 +265,10 @@ removeSkillsRecord(index:number){
 
 addLanguageRecord(){
 this.languageRecords.push({
-  languageId: 0,
-  languageName: '',
-  personalRecordId: 0,
-  id: 0
+  languageId          :    0,
+  languageName        :   '',
+  personalRecordId    :    0,
+  id                  :    0
 })
 }
 
@@ -265,45 +280,49 @@ removeLanguageRecord(index:number){
 resetForm(){
   this.personalRecords = { name:'', email: '', phone: '', address: '', intro: '', imagePath: '', id:0, personalRecordId:0},
   this.educationRecords = [{
-    educationId: 0,
-    degree: '',
-    institute: '',
-    yearOfCompletion: '',
-    personalRecordId: 0,
-    id: 0
+    educationId         :    0,
+    degree              :   '',
+    institute           :   '',
+    yearOfCompletion    :   '',
+    gpa                 :   '',
+    personalRecordId    :    0,
+    id                  :    0
   }];
 
   this.extraEducations = [{
-    exEducationId: 0,
-    exEduDegree: '',
-    exEduInstitute: '',
-    exEduYearOfCompletion: '',
-    personalRecordId: 0,
-    id: 0
+    exEducationId           :    0,
+    exEduDegree             :   '',
+    exEduInstitute          :   '',
+    exEduYearOfCompletion   :   '',
+    personalRecordId        :    0,
+    id                      :    0
   }];
 
   this.experienceRecords = [{
-    experienceId: 0,
-    jobTitle: '',
-    location: '',
-    yearsOfExperience: '',
-    personalRecordId: 0,
-    id: 0
+    experienceId            :    0,
+    jobTitle                :   '',
+    location                :   '',
+    role                    :   '',
+    description             :   '',
+    technologies            :   '',
+    yearsOfExperience       :   '',
+    personalRecordId        :    0,
+    id                      :    0
   }];
 
   this.skillsRecords = [{
-    skillId: 0,
-    skillName: '',
-    efficiency: '',
-    personalRecordId: 0,
-    id: 0
+    skillId                 :    0,
+    skillName               :   '',
+    efficiency              :   '',
+    personalRecordId        :    0,
+    id                      :    0
   }];
 
   this.languageRecords= [{
-    languageId: 0,
-    languageName: '',
-    personalRecordId: 0,
-    id: 0
+    languageId              :    0,
+    languageName            :   '',
+    personalRecordId        :    0,
+    id                      :    0
   }];
 
 }

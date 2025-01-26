@@ -21,7 +21,7 @@ export class LoginComponent {
     // Step 1: Initialize the form with email and password fields
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],       // Email field with validation
-      password: ['', [Validators.required, Validators.minLength(6)]], // Password field with validation
+      password: ['', [Validators.required, Validators.minLength(2)]], // Password field with validation
     });
   }
 
@@ -37,7 +37,7 @@ export class LoginComponent {
           console.log("Loged In SuccessFully");
           localStorage.setItem('jwtToken', response.token); // Save token in local storage
           this.errorMessage = '';                          // Clear error messages
-          this.router.navigate(['/resumes']);            // Navigate to the dashboard
+          this.router.navigate(['/final_resumes']);            // Navigate to the dashboard
 
         },
         (error) => {

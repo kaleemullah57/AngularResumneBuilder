@@ -7,27 +7,12 @@
 </div> -->
 
 
-<!-- Conditional rendering based on the selected format -->
-
-
-
-
-
-
-
-
-
-<!-- Count Total Registered Users -->
-<!-- <p> Total Users : {{ registeredUsers }}</p> -->
-
-
 
 
 
 <div class="counter-container">
-    <h1>Professional Templates : {{ currentIndexForNumbers }}</h1>
+    <h1>  Resume Templates : {{ currentIndexForNumbers }}</h1>
 </div>
-
 <!-- Format: Education -->
 <div class="formats-of-resumes">
 
@@ -158,7 +143,6 @@
 
 
 
-    <!--  Simple  Resume Template  -->
     <!-- <div *ngIf="selectedFormat === 'format2'" class="simple"> -->
     <div class="resume-container" *ngIf="currentIndex === 1">
         <div class="buttons-div">
@@ -293,100 +277,187 @@
                 <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
                 <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
             </div>
-            <header class="resume-header">
-                <div class="header-left">
-                    <h1 style="text-align: center; color:rgb(0, 0, 0)"> Imran Khan </h1>
-                    <h2 style="text-align: center; color: rgb(0, 0, 0);">Professional Summary</h2>
+            <div class="cv-container">
+                <div class="header">
+                    <h1>AHMED GULAL</h1>
+                    <p>ahmed.gulalgmail.com</p>
+                </div>
+
+                <div class="section">
+                    <h2>Professional Summary</h2>
                     <p>
-                        Customer-focused Retail Sales professional with solid understanding of retail dynamics,
-                        marketing, and customer service. Offers 5 years of experience providing quality product
-                        recommendations and solutions to meet customer needs and exceed expectations. Demonstrated
-                        record of exceeding revenue targets by leveraging communication skills and sales expertise.
+                        Astute Business Analyst with 8-year background, successful at leading cross-functional
+                        teams to deliver targeted, effective technical solutions for enhanced company capabilities.
+                        Using SQL and Tableau expertise to achieve consistent growth against operational targets.
+                        Able to work on 5+ software development projects at once under tight deadlines and without
+                        supervision.
                     </p>
                 </div>
-                <!-- <div class="header-right">
-                    <img src="avatar.jpg" alt="Profile Picture">
-                </div> -->
-            </header>
 
-            <main class="resume-content">
-                <section class="main-content">
-                    <h2>Experience</h2>
-                    <article>
-                        <h3>Retail Sales Associate (02/2021 – Current)</h3>
-                        <h4>ZARA – New Delhi, India</h4>
+                <div class="section">
+                    <h2>Skills</h2>
+                    <ul class="skills-list">
+                        <li>Software development</li>
+                        <li>User acceptance testing</li>
+                        <li>Agile methodologies</li>
+                        <li>Risk analysis and management</li>
+                        <li>Process mapping</li>
+                        <li>Gap analysis</li>
+                        <li>Oracle SQL Developer</li>
+                        <li>Solution scope analysis</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>Languages</h2>
+                    <p><strong>English:</strong> Advanced</p>
+                    <p><strong>Arabic:</strong> Native</p>
+                </div>
+
+                <div class="section">
+                    <h2>Education</h2>
+                    <p>Master of Arts: Computer Science, 2013</p>
+                    <p>University of London - United Kingdom</p>
+                    <p>International Baccalaureate - 2010</p>
+                    <p>Raha International School - Abu Dhabi, UAE</p>
+                </div>
+
+                <div class="section">
+                    <h2>Work History</h2>
+                    <div class="work-history">
+                        <h3>Business Analyst</h3>
+                        <p><strong>02/2019 to Current</strong> - McKinsey & Company, Abu Dhabi</p>
                         <ul>
-                            <li>Increased monthly sales by 10% through effective upselling.</li>
-                            <li>Proactively resolved issues by leveraging attention to detail and integrity.</li>
-                            <li>Managed payments and maintained accurate cash drawers.</li>
+                            <li>Designed analytical solutions for business optimization projects, producing 20% market
+                                share increase.</li>
+                            <li>Conducted demand evaluation, identifying risk mitigation opportunities that led to
+                                500,000 AED cost savings.</li>
+                            <li>Liaised with stakeholders to verify business and technology alignment, recommending
+                                solutions that consistently met project specifications.</li>
                         </ul>
-                    </article>
 
-                    <article>
-                        <h3>Barista (03/2019 – 09/2021)</h3>
-                        <h4>Dunkin’ Donuts – New Delhi, India</h4>
+                        <h3>Junior Business Analyst</h3>
+                        <p><strong>03/2017 to 01/2019</strong> - Accor, Dhabi</p>
                         <ul>
-                            <li>Boosted average store sales by 15%.</li>
-                            <li>Trained 5+ new staff in standard procedures.</li>
+                            <li>Analyzed business, user, and technical requirements for proposed system solutions,
+                                resulting in 15% efficiency gains.</li>
+                            <li>Performed data modeling and proposed suggestions for strategic and operational
+                                improvement changes.</li>
                         </ul>
-                    </article>
-
-                    <article>
-                        <h3>Cashier (01/2017 – 02/2019)</h3>
-                        <h4>Burger King – New Delhi, India</h4>
-                        <ul>
-                            <li>Processed all transactions quickly and accurately.</li>
-                            <li>Handled customer complaints to ensure satisfaction.</li>
-                        </ul>
-                    </article>
-                </section>
-
-                <section class="sidebar">
-
-
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Recreational Football League</li>
-                    </ul>
-
-
-
-                    <h3>Core Qualifications</h3>
-                    <ul>
-                        <li>
-                            <p>Cash register operation </p>
-                        </li>
-                        <li>
-                            <p> POS system expertise </p>
-                        </li>
-                        <li>
-                            <p> Inventory management </p>
-                        </li>
-                    </ul>
-
-                    <h3>Contact</h3>
-                    <ul>
-                        <li>
-                            <p>Address: New Delhi, India 110034</p>
-                        </li>
-                        <li>
-                            <p>Phone: +92 555 3345</p>
-                        </li>
-                        <li>
-                            <p>Email: isagarwalexample.in</p>
-                        </li>
-                    </ul>
-
-
-                    <h3>Languages</h3>
-                    <ul>
-                        <li>Hindi: Native</li>
-                        <li>English: Fluent</li>
-                    </ul>
-                </section>
-            </main>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div *ngIf="currentIndex === 3" class="education">
+
+        <div class="resume-container">
+            <!-- <button class="arrow prev" (click)="scrollLeft()">&lt;</button>
+            <button class="arrow next" (click)="scrollRight()">&gt;</button> -->
+
+            <div class="buttons-div">
+                <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
+                <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+            </div>
+            <div class="cv-container">
+                <!-- Header Section -->
+                <div class="cv-header">
+                    <h1>AHMED GULAL</h1>
+                    <p>ahmed.gulalgmail.com</p>
+                </div>
+
+                <!-- Professional Summary -->
+                <div class="cv-section">
+                    <h2>PROFESSIONAL SUMMARY</h2>
+                    <p>
+                        Astute Business Analyst with 8-year background, successful at leading cross-functional teams to
+                        deliver targeted, effective technical solutions for enhanced company capabilities. Using SQL and
+                        Tableau expertise to achieve consistent growth against operational targets. Able to work on 5+
+                        software development projects at once under tight deadlines and without supervision.
+                    </p>
+                </div>
+
+                <!-- Work History -->
+                <div class="cv-section">
+                    <h2>WORK HISTORY</h2>
+                    <div class="work-entry">
+                        <h3>McKinsey & Company, Abu Dhabi</h3>
+                        <p><strong>Business Analyst</strong> | 02/2019 - Current</p>
+                        <ul>
+                            <li>Designed analytical solutions for business optimization projects, producing 20% market
+                                share increase.</li>
+                            <li>Conducted demand evaluation, identifying risk mitigation opportunities that led to
+                                500,000 AED cost savings.</li>
+                            <li>Liaised with stakeholders to verify business and technology alignment, recommending
+                                solutions that consistently met project specifications.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-entry">
+                        <h3>Accor, Dhabi</h3>
+                        <p><strong>Junior Business Analyst</strong> | 03/2017 - 01/2019</p>
+                        <ul>
+                            <li>Analyzed business, user, and technical requirements for proposed system solutions,
+                                resulting in 15% efficiency gains.</li>
+                            <li>Performed data modeling and proposed suggestions for strategic and operational
+                                improvement changes.</li>
+                            <li>Developed and delivered user training, earning 98% positive user feedback.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="cv-section">
+                    <h2>SKILLS</h2>
+                    <ul class="skills-list">
+                        <li>Software development</li>
+                        <li>Agile methodologies</li>
+                        <li>Oracle SQL Developer</li>
+                        <li>User acceptance testing</li>
+                        <li>Risk analysis and management</li>
+                        <li>Solution scope analysis</li>
+                    </ul>
+                </div>
+
+                <!-- Languages -->
+                <div class="cv-section">
+                    <h2>LANGUAGES</h2>
+                    <p><strong>English:</strong> Advanced</p>
+                    <p><strong>Arabic:</strong> Native</p>
+                </div>
+
+                <!-- Education -->
+                <div class="cv-section">
+                    <h2>EDUCATION</h2>
+                    <p>Master of Arts: Computer Science, 2013</p>
+                    <p>University of London - United Kingdom</p>
+                    <p>International Baccalaureate - 2010</p>
+                    <p>Raha International School - Abu Dhabi, UAE</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
 </div>
 
 

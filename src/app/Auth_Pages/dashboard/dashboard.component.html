@@ -70,12 +70,12 @@
         <div *ngIf="intro.invalid && intro.touched" class="error-message">Introduction is required!</div>
       </div>
 
-      <div>
-        <!-- <label for="imagePath">Picture:</label> -->
-        <textarea id="imagePath" [(ngModel)]="personalRecords.imagePath" class="form__field"
+      <!-- <div> -->
+      <!-- <label for="imagePath">Picture:</label> -->
+      <!-- <textarea id="imagePath" [(ngModel)]="personalRecords.imagePath" class="form__field"
           placeholder="Attach Profile Picture" name="imagePath" required #imagePath="ngModel"></textarea>
         <div *ngIf="imagePath.invalid && imagePath.touched" class="error-message">Image Path is required!</div>
-      </div>
+      </div> -->
 
       <button class="button-17" type="button" (click)="goToNextStep()">Next</button>
     </div>
@@ -105,6 +105,14 @@
           <input id="yearOfCompletion" [(ngModel)]="education.yearOfCompletion" class="form__field"
             placeholder="year of completion" name="yearOfCompletion{{i}}" required #yearOfCompletion="ngModel" />
           <div *ngIf="yearOfCompletion.invalid && yearOfCompletion.touched" class="error-message">Year of Completion is
+            required!</div>
+        </div>
+        
+        <div>
+          <!-- <label for="yearOfCompletion">Year of Completion:</label> -->
+          <input id="gpa" [(ngModel)]="education.gpa" class="form__field" placeholder="Enter your GPA" name="gpa{{i}}"
+            required #gpa="ngModel" />
+          <div *ngIf="gpa.invalid && gpa.touched" class="error-message">GPA is
             required!</div>
         </div>
         <button class="button-17" type="button" (click)="removeEducationField(i)">Remove Education Fields</button>
@@ -171,9 +179,31 @@
         </div>
 
         <div>
+          <!-- <label for="location">Location:</label> -->
+          <input id="role" [(ngModel)]="experience.role" class="form__field" placeholder="role"
+            name="role{{i}}" required #role="ngModel" />
+          <div *ngIf="role.invalid && role.touched" class="error-message">role is required!</div>
+        </div>
+
+        <div>
+          <!-- <label for="location">Location:</label> -->
+          <input id="description" [(ngModel)]="experience.description" class="form__field" placeholder="description"
+            name="description{{i}}" required #description="ngModel" />
+          <div *ngIf="description.invalid && description.touched" class="error-message">description is required!</div>
+        </div>
+
+        <div>
+          <!-- <label for="location">Location:</label> -->
+          <input id="technologies" [(ngModel)]="experience.technologies" class="form__field" placeholder="technologies"
+            name="technologies{{i}}" required #technologies="ngModel" />
+          <div *ngIf="technologies.invalid && technologies.touched" class="error-message">technologies is required!</div>
+        </div>
+
+
+        <div>
           <!-- <label for="yearsOfExperience">Years of Experience:</label> -->
           <input id="yearsOfExperience" [(ngModel)]="experience.yearsOfExperience" class="form__field"
-            placeholder="Total Experience" name="yearsOfExperience{{i}}" required #yearsOfExperience="ngModel" />
+            placeholder="Description" name="yearsOfExperience{{i}}" required #yearsOfExperience="ngModel" />
           <div *ngIf="yearsOfExperience.invalid && yearsOfExperience.touched" class="error-message">Years of Experience
             is required!</div>
         </div>

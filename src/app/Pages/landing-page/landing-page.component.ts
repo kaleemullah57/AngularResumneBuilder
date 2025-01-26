@@ -28,25 +28,28 @@ export class LandingPageComponent implements OnInit {
   constructor(private _authService: AuthService) { }
   ngOnInit(): void {
 
-    this.getRegisteredUsers();
+
     this.startCounting();
+    this.getRegisteredUsers();
   }
 
   startCounting(): void {
+    console.log('Counter started'); // Debugging log
     const interval = 25;
     const target = 100;
     const increment = 1;
-
+  
     const timer = setInterval(() => {
       this.currentIndexForNumbers += increment;
+      console.log(this.currentIndexForNumbers); // Debugging log
       if (this.currentIndexForNumbers >= target) {
         clearInterval(timer);
       }
-    }, interval
-    )
+    }, interval);
   }
 
-  resumeFormats: string[] = ['format1', 'format2', 'format3'];
+  
+  resumeFormats: string[] = ['format1', 'format2', 'format3', 'format4'];
   scrollLeft(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;

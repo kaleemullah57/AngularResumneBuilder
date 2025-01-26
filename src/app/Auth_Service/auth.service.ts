@@ -69,6 +69,11 @@ export class AuthService {
 
 
 
+
+
+
+
+
   // Logout LogedIn User
   logout(): void {
     localStorage.removeItem("jwtToken");
@@ -208,7 +213,7 @@ export class AuthService {
 
 
   // Get Total Resume of LogedIn User.
-  getAllResumes():Observable<FinalResume[]> {
+  getAllResumes(): Observable<FinalResume[]> {
     const token = localStorage.getItem("jwtToken");
     if (!token) {
       throw new Error("User Not LoggedIn");
@@ -280,7 +285,7 @@ export class AuthService {
 
 
   // Delete Language Record By Id
-  deleteLanguageRecordById(personalRecordId:number, languageId:number){
+  deleteLanguageRecordById(personalRecordId: number, languageId: number) {
     const token = localStorage.getItem('jwtToken');
     if (!token) {
       throw new Error("User is Not LoggedIn");
@@ -289,13 +294,13 @@ export class AuthService {
       'Authorization': `Bearer ${token}`
     });
     const url = `${this.deleteLanguageRecordByIdUrl}/${personalRecordId}/${languageId}`;
-    return this.http.delete(url, {headers});
+    return this.http.delete(url, { headers });
   }
 
 
 
   // Delete Skill Record ById
-  deleteSkillRecordById(personalRecordId:number, skillId:number){
+  deleteSkillRecordById(personalRecordId: number, skillId: number) {
     const token = localStorage.getItem('jwtToken');
     if (!token) {
       throw new Error("User is Not LoggedIn");
@@ -304,6 +309,10 @@ export class AuthService {
       'Authorization': `Bearer ${token}`
     });
     const url = `${this.deleteSkillRecordByIdUrl}/${personalRecordId}/${skillId}`;
-    return this.http.delete(url, {headers});
+    return this.http.delete(url, { headers });
   }
 }
+function jwtDecode(token: string): any {
+  throw new Error('Function not implemented.');
+}
+
