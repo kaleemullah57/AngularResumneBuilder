@@ -70,7 +70,7 @@ export class LandingPageComponent implements OnInit {
         // alert("Data is Fetched Successfully");
       },
       error(err) {
-        alert("Something is going wrong in the get all registerd Users");
+        // alert("Something is going wrong in the get all registerd Users");
         console.log("Error Occured during Getting All Users", err);
       },
     })
