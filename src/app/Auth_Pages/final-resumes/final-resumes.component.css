@@ -1,3 +1,44 @@
+/* Click to change colors of fonts and background */
+.background-picker {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-colorbutton {
+  padding: 12px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0px 5px 0px 5px
+}
+
+.font-color-button {
+  padding: 20px;
+  width: auto;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+}
+
+.font-color-button:hover {
+  background-color: #ddd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* General Reset */
 body {
   margin: 0;
@@ -230,7 +271,6 @@ body {
     background-size: 300% 300%;
     animation: gradientAnimation 20s ease infinite; */
   /* border-bottom: 10px solid red; */
-  box-shadow: 2px 2px 2px black;
 
 
 
@@ -242,7 +282,7 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 900px;
-  margin: 76px auto;
+  margin: 60px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0px 0px;
   background-color: white;
@@ -322,7 +362,8 @@ body {
   color: black;
   font-family: sans-serif;
 }
-.personal-info .personal-infoName{
+
+.personal-info .personal-infoName {
   font-size: 24px;
   font-family: FontAwesome;
   font-weight: 700;
@@ -330,7 +371,8 @@ body {
   color: black;
   letter-spacing: 2px;
 }
-.personal-info > p {
+
+.personal-info>p {
   font-size: 18px;
   font-family: FontAwesome;
   font-weight: 500;
@@ -360,7 +402,7 @@ button {
 }
 
 button:hover {
-  background-color:blue;
+  background-color: blue;
 }
 
 
@@ -454,12 +496,12 @@ button:hover {
 
 
 
-.MainExperience-SkillsContainer .Main-left .Education-Container{
+.MainExperience-SkillsContainer .Main-left .Education-Container {
   width: 100%;
   background-color: white;
 }
 
-.MainExperience-SkillsContainer .Main-left .Education-Container .Education-Header{
+.MainExperience-SkillsContainer .Main-left .Education-Container .Education-Header {
   font-size: 22px;
   font-weight: 600;
   font-style: normal;
@@ -468,14 +510,15 @@ button:hover {
   padding: 10px 0px 10px 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.MainExperience-SkillsContainer .Main-left .Education-Container  .Education-ContainerUl{
+
+.MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl {
   width: 100%;
   padding: 0;
   margin: 0%;
   background-color: white;
 }
 
-.MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl .Education-ContainerParagraph{
+.MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl .Education-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
   font-style: italic;
@@ -490,11 +533,12 @@ button:hover {
 
 
 
-.MainExperience-SkillsContainer .Main-left .ExEducation-Container{
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container {
   width: 100%;
   background-color: white;
 }
-.MainExperience-SkillsContainer .Main-left .ExEducation-Container .EdEducation-Header{
+
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container .EdEducation-Header {
   font-size: 22px;
   font-weight: 600;
   font-style: normal;
@@ -504,13 +548,14 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl{
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl {
   width: 100%;
   padding: 0;
   margin: 0%;
   background-color: white;
 }
-.MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl .ExEducation-ContainerParagraph{
+
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl .ExEducation-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
   /* font-style: italic; */
@@ -527,12 +572,13 @@ button:hover {
 
 
 
-.MainExperience-SkillsContainer .Main-right .Personal-Container{
+.MainExperience-SkillsContainer .Main-right .Personal-Container {
   width: 100%;
   padding: 20px 20px 20px 20px;
   margin: 20px 0px 10px 0px;
 }
-.MainExperience-SkillsContainer .Main-right .Personal-Container .Personal-ContainerParagraph{
+
+.MainExperience-SkillsContainer .Main-right .Personal-Container .Personal-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
   /* font-style: italic; */
@@ -545,12 +591,13 @@ button:hover {
 }
 
 
-.MainExperience-SkillsContainer .Main-right .Skill-Container{
+.MainExperience-SkillsContainer .Main-right .Skill-Container {
   width: 100%;
   padding: 20px 20px 20px 20px;
   margin: 20px 0px 10px 0px;
 }
-.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-Header{
+
+.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-Header {
   font-size: 22px;
   font-weight: 600;
   font-style: normal;
@@ -560,14 +607,15 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl{
+.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl {
   width: 100%;
   padding: 0;
   margin: 0%;
   padding: 0px 0px 0px 10px;
   background-color: white;
 }
-.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl .Skill-ContainerParagraph{
+
+.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl .Skill-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
   /* font-style: italic; */
@@ -583,13 +631,13 @@ button:hover {
 
 
 
-.MainExperience-SkillsContainer .Main-right .Language-Container{
+.MainExperience-SkillsContainer .Main-right .Language-Container {
   width: 100%;
   padding: 20px 20px 20px 20px;
   margin: 20px 0px 10px 0px;
 }
 
-.MainExperience-SkillsContainer .Main-right .Language-Container .Language-Header{
+.MainExperience-SkillsContainer .Main-right .Language-Container .Language-Header {
   font-size: 22px;
   font-weight: 600;
   font-style: normal;
@@ -599,14 +647,15 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl{
+.MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl {
   width: 100%;
   padding: 0;
   margin: 0%;
   padding: 0px 0px 0px 10px;
   background-color: white;
 }
-.MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl .Language-ContainerParagraph{
+
+.MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl .Language-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
   /* font-style: italic; */
@@ -654,7 +703,7 @@ button:hover {
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 900px;
-  margin: 76px auto;
+  margin: 60px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0px 0px;
 }
@@ -1104,7 +1153,7 @@ button:hover {
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 900px;
-  margin: 76px auto;
+  margin: 60px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   /* padding-top: 50px; */
   /* margin-top: 60px; */
@@ -1285,6 +1334,7 @@ button:hover {
   color: black;
   font-family: FontAwesome;
   text-transform: capitalize;
+  margin: 0px 0px 0px -20px;
 }
 
 .academic3-title {
@@ -1307,7 +1357,7 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin: 40px 0px 30px 0px;
+  margin: 4% 0px 3% 17%;
 }
 
 
@@ -1391,6 +1441,7 @@ button:hover {
   font-variant: small-caps;
   text-align: center;
   text-transform: capitalize;
+  margin: 0px 0px 0px -20px;
 }
 
 .languages3 p {
@@ -1401,6 +1452,7 @@ button:hover {
   text-align: center;
   font-style: italic;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 0px 0px 0px 23px;
 }
 
 

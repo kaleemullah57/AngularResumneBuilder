@@ -1,4 +1,4 @@
-<nav class="navbar" >
+<nav class="navbar" style="background-color: transparent;">
   <div class="logo"> <a routerLink="/landingPage">
     <img src="logo-2.png" alt="Resume Builder">
   </a></div>
@@ -8,7 +8,9 @@
       <a routerLink="/resumes">Dashboard</a>
     </li>  
     <li>
-        <a routerLink="" (click)="logOut()">Logout</a>
+        <a routerLink="" (click)="logOut()">Logout
+          <div class="blinking-circle"></div>
+        </a>
       </li>
       
   </ul>
@@ -20,6 +22,7 @@
       </li> -->
       <li>
         <a routerLink="/resumes">Login </a>
+
       </li>
   </ul>
   <div class="burger" (click)="toggleMenu()">

@@ -5,11 +5,10 @@ import { FinalResume } from '../../Models/final-resume';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-resume-templates',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './resume-templates.component.html',
-  styleUrl: './resume-templates.component.css'
+    selector: 'app-resume-templates',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './resume-templates.component.html',
+    styleUrl: './resume-templates.component.css'
 })
 export class ResumeTemplatesComponent  {
 

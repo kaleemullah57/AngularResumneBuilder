@@ -16,11 +16,10 @@ import { User } from '../../Auth_Folders/Auth_Model/user';
 
 
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, CommonModule, FormsModule ],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+    selector: 'app-dashboard',
+    imports: [RouterOutlet, RouterLink, CommonModule, FormsModule],
+    templateUrl: './dashboard.component.html',
+    styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
 

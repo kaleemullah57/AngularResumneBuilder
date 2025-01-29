@@ -5,11 +5,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../Auth_Service/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+    selector: 'app-navbar',
+    imports: [RouterLink, CommonModule, FormsModule],
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit{
   isMenuOpen: boolean = false;

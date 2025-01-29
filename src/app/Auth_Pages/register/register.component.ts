@@ -6,11 +6,10 @@ import {FormsModule} from '@angular/forms';
 import { User } from '../../Auth_Folders/Auth_Model/user';
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, CommonModule, FormsModule],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+    selector: 'app-register',
+    imports: [RouterOutlet, RouterLink, CommonModule, FormsModule],
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.css'
 })
 export class RegisterComponent {
 

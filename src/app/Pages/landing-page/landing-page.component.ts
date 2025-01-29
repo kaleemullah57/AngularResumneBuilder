@@ -7,11 +7,10 @@ import { User } from '../../Auth_Folders/Auth_Model/user';
 import { AuthService } from '../../Auth_Service/auth.service';
 
 @Component({
-  selector: 'app-landing-page',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule],
-  templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css'
+    selector: 'app-landing-page',
+    imports: [RouterOutlet, CommonModule, FormsModule],
+    templateUrl: './landing-page.component.html',
+    styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent implements OnInit {
 
@@ -49,7 +48,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   
-  resumeFormats: string[] = ['format1', 'format2', 'format3', 'format4'];
+  resumeFormats: string[] = ['format1', 'format2', 'format3'];
   scrollLeft(): void {
     if (this.currentIndex > 0) {
       this.currentIndex--;

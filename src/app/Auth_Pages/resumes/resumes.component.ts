@@ -24,11 +24,10 @@ import { saveAs } from 'file-saver';
 
 
 @Component({
-  selector: 'app-resumes',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule, RouterLink],
-  templateUrl: './resumes.component.html',
-  styleUrl: './resumes.component.css'
+    selector: 'app-resumes',
+    imports: [RouterOutlet, CommonModule, FormsModule, RouterLink],
+    templateUrl: './resumes.component.html',
+    styleUrl: './resumes.component.css'
 })
 export class ResumesComponent implements OnInit {
 

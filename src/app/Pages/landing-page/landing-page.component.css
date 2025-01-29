@@ -11,7 +11,7 @@
 
   font-size: 2rem;
   animation: gradientAnimation 8s ease infinite;
-  box-shadow: 2px 2px 2px black;
+  /* box-shadow: 2px 2px 2px black; */
 }
 .counter-container h1{
   color: black;
@@ -99,7 +99,7 @@
 
 .button-right {
   background-color: rgb(86, 86, 146);
-  margin-left: 90%;
+  margin-left: 88%;
   background-color: #c2fbd7;
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
@@ -144,7 +144,7 @@
 
 
 .resume-container {
-  max-width: 1200px;
+  width: 1200px;
   margin: 20px auto;
   background-color: #fff;
   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
@@ -154,162 +154,204 @@
   align-items: center;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
-
-.resume-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  /* background-color: rgb(28, 79, 80); */
-  color: rgb(8, 8, 8);
+/*  First Resume Css Section  */
+.personal-info {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 20px 40px;
+  color: black;
+  font-family: sans-serif;
 }
 
-.header-left {
-  width: 70%;
-}
-
-.header-left h1 {
-  margin: 0;
-  font-size: 28px;
+.personal-info .personal-infoName {
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 700;
   text-transform: uppercase;
-  /* color: #fdfdfd; */
+  color: black;
+  letter-spacing: 2px;
 }
 
-.header-left h2 {
-  margin: 10px 0;
+.personal-info>p {
   font-size: 18px;
-  /* color: #ffffff; */
+  font-family: FontAwesome;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: black;
+  text-align: justify;
+  letter-spacing: 1.5px;
 }
 
-.header-left p {
-  margin: 0;
+
+
+button {
+  background-color: #cfcbcb;
+  color: rgb(15, 15, 15);
+  padding: 10px 40px;
+  border: none;
+  border-radius: 50px;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 200 0 / 30%),
+
+    0.3em 0.3em 1em rgba(47, 200, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   font-size: 14px;
-  line-height: 1.6;
-  /* color: white; */
+  font-family: FontAwesome;
+  font-weight: 500;
 }
 
-.header-right img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-}
-.header-right p{
-  margin-right: 106px;
+button:hover {
+  background-color: blue;
 }
 
-.resume-content {
-  display: flex;
-  padding: 20px;
-}
-
-.main-content {
-  width: 100%;
-}
-
-.main-content h2 {
-  border-bottom: 2px solid #eaeaea;
-  padding-bottom: 5px;
-  margin-bottom: 20px;
-}
-
-.main-content article {
-  margin-bottom: 20px;
-}
-
-.main-content h3 {
-  font-size: 20px;
-  color: #333;
-  margin: 0;
-}
-
-.main-content h4 {
-  font-size: 14px;
-  color: #777;
-  margin: 5px 0;
-}
-
-.main-content ul {
-  padding-left: 20px;
-  margin: 10px 0 0;
-}
-
-.main-content ul li {
-  margin-bottom: 5px;
-  font-size: 14px;
-}
-
-.sidebar {
-  width: 35%;
-  padding-left: 20px;
-  border-left: 2px solid #eaeaea;
-  /* background-color: rgb(28, 79, 80); */
-  margin-top: -20px;
-  margin-right: -20px;
+/* No Resumes Available */
+.no-resumes-message {
+  text-align: center;
+  align-items: center;
+  margin-top: -56px;
+  font-size: 1.1rem;
   color: white;
-  /* border-radius: 3px; */
+  font-style: italic;
 }
 
-.sidebar h3 {
-  border-bottom: 2px solid #eaeaea;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
+/*  Download Buttons CSS */
+.resume-container {
+
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 1200px;
+  margin: auto;
+  text-align: left;
+}
+
+
+button:hover {
+  background-color: red;
+
+}
+
+
+.MainExperience-SkillsContainer {
+  width: 100%;
+  display: flex;
+  flex: row;
+  font-family: FontAwesome;
+}
+
+.MainExperience-SkillsContainer .Main-left {
+  width: 65%;
+  padding: 20px 20px 20px 20px;
+}
+
+.MainExperience-SkillsContainer .Main-left .Experience-Container {
+  width: 100%;
+  background-color: white;
+}
+
+.MainExperience-SkillsContainer .Main-left .Experience-Container .Experience-Header {
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  background-color: white;
   color: black;
-  font-size: 25px;
+  padding: 10px 0px 10px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar p,
-.sidebar ul li {
-  font-size: 14px;
-  margin-bottom: 10px;
+.MainExperience-SkillsContainer .Main-left .Experience-Container .Experience-ContainerUl {
+  width: 100%;
+  padding: 0;
+  margin: 0%;
+  background-color: white;
+  margin-bottom: 50px;
+}
+
+.MainExperience-SkillsContainer .Main-left .Experience-Container .Experience-ContainerUl .Experience-ContainerParagraph {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  color: gray;
+  font-family: FontAwesome;
+  margin-left: 30px;
+  list-style: .5;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+
+
+
+
+.MainExperience-SkillsContainer .Main-left .Education-Container {
+  width: 100%;
+  background-color: white;
+}
+
+.MainExperience-SkillsContainer .Main-left .Education-Container .Education-Header {
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  background-color: white;
   color: black;
+  padding: 10px 0px 10px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl {
+  width: 100%;
+  padding: 0;
+  margin: 0%;
+  background-color: white;
+}
+
+.MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl .Education-ContainerParagraph {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  color: gray;
+  font-family: FontAwesome;
+  margin-left: 30px;
+  list-style: .5;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 
 
 
 
-/* General Responsive Adjustments */
-@media (max-width: 1024px) {
-  /* Tablet devices */
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container {
+  width: 100%;
+  background-color: white;
+}
 
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container .EdEducation-Header {
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  background-color: white;
+  color: black;
+  padding: 10px 0px 10px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  .resume-container {
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px;
-  }
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl {
+  width: 100%;
+  padding: 0;
+  margin: 0%;
+  background-color: white;
+}
 
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
-  }
-
-
-
-  .header-info h1 {
-    font-size: 20px;
-  }
-
-  .header-info h2 {
-    font-size: 16px;
-  }
-
-  .content {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    padding-right: 0;
-    border-right: none;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #eaeaea;
-  }
-
-  .main {
-    width: 100%;
-    padding-left: 0;
-  }
+.MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl .ExEducation-ContainerParagraph {
+  font-size: 16px;
+  font-weight: 500;
+  /* font-style: italic; */
+  color: gray;
+  font-family: FontAwesome;
+  margin-left: 30px;
+  list-style: .5;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  font-style: italic;
 }
 
 
@@ -317,175 +359,99 @@
 
 
 
-@media (max-width : 1008px) {
-  /* Mobile devices */
-  /*  Left Right Buttons Settings */
-
-  .buttons-div {
-    width: 100%;
-  }
-
-  .button-left {
-    margin-left: 10px;
-  }
-
-  .button-right {
-    margin-left: 88%;
-  }
+.MainExperience-SkillsContainer .Main-right .Personal-Container {
+  width: 100%;
+  padding: 20px 20px 20px 20px;
+  margin: 20px 0px 10px 0px;
 }
 
-@media (max-width : 940px) {
-  .button-right {
-    margin-left: 80%;
-  }
+.MainExperience-SkillsContainer .Main-right .Personal-Container .Personal-ContainerParagraph {
+  font-size: 16px;
+  font-weight: 500;
+  /* font-style: italic; */
+  color: gray;
+  font-family: FontAwesome;
+  margin-left: 30px;
+  list-style: .5;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  font-style: italic;
 }
 
 
+.MainExperience-SkillsContainer .Main-right .Skill-Container {
+  width: 100%;
+  padding: 20px 20px 20px 20px;
+  margin: 20px 0px 10px 0px;
+}
 
+.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-Header {
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  background-color: white;
+  color: black;
+  padding: 10px 0px 10px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-@media (max-width: 768px) {
-  /* Mobile devices */
-  /*  Left Right Buttons Settings */
+.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl {
+  width: 100%;
+  padding: 0;
+  margin: 0%;
+  padding: 0px 0px 0px 10px;
+  background-color: white;
+}
 
-  .buttons-div {
-    width: 100%;
-  }
-
-  .button-left {
-    margin-left: 10px;
-  }
-
-  .button-right {
-    margin-left: 78%;
-  }
-
-  /* Resume container adjustments */
-
-  .resume-container {
-    width: 100%;
-    padding: 0px;
-  }
-
-  .resume-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .header-left {
-    width: 100%;
-  }
-
-  .header-left h1 {
-    font-size: 25px;
-    color: white;
-  }
-
-  .header-left h2 {
-    font-size: 14px;
-    margin: 8px 0;
-    color: white;
-  }
-
-  /* .header-right img {
-  width: 80px;
-  height: 80px;
-} */
-
-  .resume-content {
-    flex-direction: column;
-    width: 100%;
-    max-width: 100%;
-    padding: 0%;
-  }
-
-  .main-content {
-    width: 100%;
-    /* background-color: red; */
-    margin-top: -20px;
-    padding: 40px 0px 20px 0px;
-  }
-
-  .main-content h2 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    padding-left: 15px;
-  }
-
-  .main-content h3 {
-    font-size: 24px;
-    padding-left: 18px;
-  }
-
-  .main-content h4 {
-    font-size: 12px;
-    padding-left: 18px;
-  }
-
-  .main-content ul {
-    padding-left: 40px;
-  }
-
-  .counter-container{
-    width: 100%;
-    height: 50px;
-  }
-  .counter-container h1{
-    font-size: 18px;
-  }
-
-
-
-
-
-
-  .sidebar {
-    color: black;
-    padding-top: 20px;
-    background-color: white;
-    border-top: 2px solid #030303;
-  }
-
-  .sidebar h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    /* background-color: red; */
-  }
-
-  .sidebar p,
-  li {
-    font-size: 12px;
-    padding-left: 20px;
-  }
-
-  .sidebar ul {
-    color: black;
-    padding-left: 20px;
-  }
+.MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl .Skill-ContainerParagraph {
+  font-size: 16px;
+  font-weight: 500;
+  /* font-style: italic; */
+  color: gray;
+  font-family: FontAwesome;
+  margin-left: 30px;
+  list-style: .5;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  font-style: italic;
 }
 
 
-@media (max-width : 520px) {
-  .button-right {
-    margin-left: 70%;
-  }
+
+
+
+.MainExperience-SkillsContainer .Main-right .Language-Container {
+  width: 100%;
+  padding: 20px 20px 20px 20px;
+  margin: 20px 0px 10px 0px;
 }
 
-/* Additional Styles for Small Mobile Screens */
-@media (max-width: 480px) {
+.MainExperience-SkillsContainer .Main-right .Language-Container .Language-Header {
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  background-color: white;
+  color: black;
+  padding: 10px 0px 10px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-  /* Small mobile devices */
-  .header-info h1 {
-    font-size: 18px;
-  }
+.MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl {
+  width: 100%;
+  padding: 0;
+  margin: 0%;
+  padding: 0px 0px 0px 10px;
+  background-color: white;
+}
 
-  .header-info h2 {
-    font-size: 14px;
-  }
-
-
-
-
+.MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl .Language-ContainerParagraph {
+  font-size: 16px;
+  font-weight: 500;
+  /* font-style: italic; */
+  color: gray;
+  font-family: FontAwesome;
+  margin-left: 30px;
+  list-style: .5;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  font-style: italic;
 }
 
 
@@ -555,164 +521,741 @@
   /* border-radius: 8px; */
 }
 
-.header {
-  text-align: center;
-  background-color: #3d3d4b;
-  color: white;
-  padding: 20px;
-  border-radius: 8px 8px 0 0;
-}
+/* Second Resume CSS Section  */
 
-.header h1 {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.header p {
-  margin: 5px 0 0;
-  font-size: 1rem;
-}
-
-.section {
-  margin: 20px 0;
-  color: #030303; 
-}
-
-.section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 5px;
-}
-
-.section p,
-.section ul {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.skills-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding: 0;
-  list-style: none;
-}
-
-.work-history h3 {
-  font-size: 1.2rem;
-  color: #3d3d4b;
-  margin: 10px 0;
-}
-
-.work-history p {
-  font-size: 1rem;
-  color: #555;
-}
-
-ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Fourth Resume */
-/* General Container */
-.cv-container {
-  font-family: Arial, sans-serif;
-  max-width: 1200px;
-  margin: 0px auto;
-  padding: 20px;
-  /* background-color: #1a1a2e; Dark background */
-  color: #030303; 
-}
-
-/* Header Section */
-.cv-header {
-  text-align: center;
+.resume-container {
+  width: 1200px;
+  height: auto;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* padding: 20px; */
   margin-bottom: 20px;
-  padding: 20px;
-  /* background-color: #0f3460; */
+  font-family: sans-serif;
+}
+
+.resume-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 900px;
+  margin: 60px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0px 0px;
+}
+
+.resume-item .left-button {
+  background-color: rgb(86, 86, 146);
+}
+
+.resume-item .right-button {
+  background-color: rgb(86, 86, 146);
+  margin-left: 92%;
+}
+
+
+
+/* Header Styles */
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding: 20px 40px 0px 40px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.header-left h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 600;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+
+.header-left .heading-profile {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.header-left h2 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #7f8c8d;
+}
+
+.header-left p {
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+.header-right {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #555;
+  width: 500px;
+}
+
+.header-left {
+  /* background-color: gray; */
+  max-width: 98%;
+}
+
+.header-right p {
+  margin: 5px 0;
+  padding-left: 20px;
+  text-align: justify;
+}
+
+.header-right a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.header-right a:hover {
+  text-decoration: underline;
+}
+
+/* Content Section Styles */
+.resume-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0px 40px;
+}
+
+.main-content {
+  flex: 3;
+}
+
+
+
+
+.mainleft2-rightContainer {
+  display: flex;
+  flex: row;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.mainleft2 {
+  width: 35%;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid rgb(146, 142, 142);
+}
+
+.mainleft2 .Skill2-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  margin: 18px 0px 2px 0px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.mainleft2 .Language2-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  margin: 18px 0px 2px 0px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.mainleft2-paragraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+}
+
+
+
+
+.mainright2 {
+  width: 65%;
+  padding: 0px 0px 0px 20px;
+}
+
+.mainright2 h2 {
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.mainright2 .mainright2-title {
+  font-size: 22px;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+  margin: 18px 0px 10px 0px;
+}
+
+.mainright2-paragraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+  margin: 4px 0px 6px 0px;
+}
+
+
+
+.mainContainer2-EduAndExtraEducation {
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-family: FontAwesome;
+  margin: 40px 0px 30px 0px
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-Container {
+  color: rgb(0, 0, 0);
+  font-family: FontAwesome;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  align-content: center;
+  flex-wrap: nowrap;
+  /* align-content: normal; */
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  margin-left: 20px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-Container .Education2-ContainerUl {
+  width: 100%;
+  padding-left: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-Container .Education2-ContainerUl .Education2-ContainerParagraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+}
+
+
+
+
+
+
+.OtherEducation-Container {
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-family: FontAwesome;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: normal;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.OtherEducation-Container .OtherEducation-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 81px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.OtherEducation-Container .OtherEducation-ContainerArticle {
+  width: 100%;
+  color: black;
+  font-family: FontAwesome;
+  margin-left: 40px;
+  background-color: white;
+  align-items: baseline;
+}
+
+.OtherEducation-Container .OtherEducation-ContainerArticle .OtherEducation-ContainerUl {
+  padding-left: 0;
+  margin: 0;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.OtherEducation-Container .OtherEducation-ContainerArticle .OtherEducation-ContainerUl .OtherEducation-ContainerParagraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+  margin-left: 22%;
+  /* background-color: black; */
+}
+
+
+
+.button-class {
+  display: flex;
+  justify-content: right;
+}
+
+.button-class>button {
+  color: #34495e;
+  background-color: rgb(252, 249, 249);
+  font-size: 17px;
   border-radius: 8px;
 }
 
-.cv-header h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
+.button-class>button:hover {
+  color: wheat;
+  background-color: #28516d;
+
 }
 
-.cv-header p {
-  font-size: 1rem;
-  color: #030303; 
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .resume-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .resume-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    margin-top: 20px;
+    /* margin-left: 142px; */
+  }
+
+  .sidebar .toggle-btn {
+    margin: -28px 0px 0px 142px;
+    width: 200px;
+  }
 }
 
-/* Section Styling */
-.cv-section {
-  margin: 20px 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Third Resume Section */
+/* Resume 3 FUll Details  */
+.resume {
+  background: white;
+  /* background-color: red; */
+  /* padding: 20px; */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 900px;
+  margin: 60px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* padding-top: 50px; */
+  /* margin-top: 60px; */
+  /* padding: 20px 40px; */
+
 }
 
-.cv-section h2 {
-  font-size: 1.5rem;
-  color: #030303; 
-  border-bottom: 2px solid #f9a825;
-  padding-bottom: 5px;
+.resume h2 {
+  padding-left: 45px;
   margin-bottom: 10px;
+  /* background-color:  rgb(140, 140, 167); */
 }
 
-.cv-section p,
-.cv-section ul {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #030303; 
+.resume .left-button {
+  background-color: rgb(86, 86, 146);
+  /* margin-left: 92%; */
 }
 
-.work-entry h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  color: #030303; 
+.resume .right-button {
+  background-color: rgb(86, 86, 146);
+  margin-left: 92%;
 }
 
-.work-entry ul {
-  list-style-type: disc;
-  margin-left: 20px;
+.header {
+  text-align: center;
+  padding: 20px 40px 20px 40px;
+  background-color: #34495e;
+  color: white;
 }
 
-/* Skills List */
-.skills-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 0;
-  list-style: none;
+.header h1 {
+  margin: 0;
+  font-size: 2em;
 }
 
-/* Languages and Education */
-.cv-section p {
-  margin: 5px 0;
+.resume .header p {
+  align-items: center;
+  text-align: center;
+}
+
+
+
+.header h2 {
+  margin: 0;
+  padding: 20px 40px;
+  font-size: 1.2em;
+  color: #666;
+  display: flex;
+  justify-content: space-around;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0px 40px;
+}
+
+.contact-info p {
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 20px 5px 20px 5px;
+}
+
+
+
+.experience3-mainContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 0px 0px 21px;
+}
+
+.experience3-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: black;
+  font-family: FontAwesome;
+  margin: 0px 0px 0px 67px;
+}
+
+.experience3-title {
+  font-size: 16px;
+  font-family: FontAwesome;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  margin: 11px 0px 0px 40px;
+}
+
+
+
+
+.skill3-mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+
+}
+
+.skill3-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: black;
+  font-family: FontAwesome;
+  margin: 0px 0px 0px 67px;
+}
+
+.skill3-title {
+  color: black;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 0px 0px 168px;
+  max-width: 650px;
+  text-align: justify;
+}
+
+
+
+
+.experience3-mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 30px 0px 0px 0px;
+}
+
+.experience3-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: black;
+  font-family: FontAwesome;
+  text-transform: capitalize;
+  margin: 0px 0px 0px 47px;
+}
+
+.experience3-card {
+  margin: 10px 0px 11px 0px;
+}
+
+.experience3-title {
+  font-size: 16px;
+  color: black;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 0px 0px 145px;
+  max-width: 650px;
+  text-align: justify;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+
+
+
+.academic3-mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 30px 0px 0px 0px;
+}
+
+.academic3-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: black;
+  font-family: FontAwesome;
+  text-transform: capitalize;
+  margin: 0px 0px 0px 67px;
+  /* margin-left: 67px; */
+}
+
+.academic3-title {
+  color: black;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0 0px 0px 168px;
+  max-width: 650px;
+  text-align: justify;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+
+
+.otherEducation3-languages3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 4% 0px 3% 17%;
+}
+
+
+
+.otherEducation3-mainContainer {
+
+  font-family: FontAwesome;
+  max-width: 527px;
+}
+
+.otherEducation3 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 0px 0px 70px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  padding-left: 53px;
+}
+
+.otherEducation3-heading {
+  font-size: 22px;
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: black;
+  font-variant: small-caps;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.otherEducation3-title {
+  font-size: 14px;
+  color: black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+}
+
+.otherEducation3 p {
+  padding: 10px 5px 0px 30px;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: italic;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+
+
+
+
+
+
+
+
+
+
+.languages3-mainContainer {
+  margin: 0px 0px 0px 76px;
+  max-width: 233px;
+}
+
+.languages3 {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allows wrapping if needed */
+  justify-content: flex-start;
+  /* Align items to the start of the row */
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 500;
+  color: black;
+  gap: 20px;
+  /* Add spacing between items */
+}
+
+.languages3-heading {
+  font-size: 22px;
+  font-family: FontAwesome;
+  font-weight: 600;
+  color: black;
+  font-variant: small-caps;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0px 0px 0px -20px;
+}
+
+.languages3 p {
+  font-size: 14px;
+  font-weight: 500;
+  flex: 0 0 calc(50% - 20px);
+  margin: 0;
+  text-align: center;
+  font-style: italic;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  padding: 0px 0px 0px 23px;
+}
+
+
+
+
+
+.button-class {
+  display: flex;
+  justify-content: right;
+  padding-left: 40px;
+}
+
+.download-buttons {
+  /* background-color: red; */
+  text-align: right;
+  padding: 20px 60px 20px 50px;
 }

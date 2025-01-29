@@ -13,11 +13,10 @@ import { CommonModule } from '@angular/common';
 
 
 @Component({
-  selector: 'app-final-resumes',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
-  templateUrl: './final-resumes.component.html',
-  styleUrl: './final-resumes.component.css'
+    selector: 'app-final-resumes',
+    imports: [CommonModule, RouterOutlet, RouterLink],
+    templateUrl: './final-resumes.component.html',
+    styleUrl: './final-resumes.component.css'
 })
 export class FinalResumesComponent {
   resumes: FinalResume[] = [];
@@ -26,24 +25,35 @@ export class FinalResumesComponent {
   isSidebarOpen: boolean = false;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
   constructor(private _authService: AuthService) { }
   ngOnInit(): void {
     this.getAllResumes();
   }
 
 
+// Change Background Color
+  backgroundColors: string[] = ['#ecf0f1', '#f5e6ca', '#e3f2fd', 'black'   ];
+  selectedBackgroundColor: string = '';
+  applyBackgroundColor(color: string) {
+    this.selectedBackgroundColor = color;
+  }
+
+
+
+  // Change Font Color
+  FontsColors: string[] = ['#FFFFFF', '#000000'];
+  selectedFontsColor: string = '';
+  applyFontsColor(color: string) {
+    this.selectedFontsColor = color;
+  }
+
+
+  // Change Font Family
+  FontFamily : string[] = ['Futura','Georgia', 'monospace']
+  selectedFontFamily : string = '';
+  applyFontFamily(fontFamily: string) {
+    this.selectedFontFamily = fontFamily;
+  }
 
 
 

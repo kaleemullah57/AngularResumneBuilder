@@ -145,3 +145,54 @@ body {
     display: block;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Blinking circle css */
+
+.blinking-circle {
+  width: 10px;
+  height: 10px;
+  background-color: #20961c;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+  margin: 0px 0px 0px 8px;
+  display: inline-block;
+}
+
+@keyframes blink {
+  0% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+/* Optional: Center the circle vertically and horizontally */
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+} */
