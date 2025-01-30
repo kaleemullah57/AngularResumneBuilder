@@ -291,6 +291,7 @@ body {
 .form-section{
   width: 100%;
   height: 100vh;
+  min-height: calc(100vh - 200px); /* Adjust based on footer height */
 }
 .container {
   width: 90%;

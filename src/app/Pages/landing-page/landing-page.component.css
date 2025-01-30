@@ -1,55 +1,3 @@
-.slideshow-container {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-}
-
-.slide.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .counter-container {
   display: flex;
@@ -119,6 +67,11 @@
 /*  Left Right Buttons  */
 .buttons-div {
   background-color: rgb(22, 62, 63);
+
+    /* Animation */
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideFromTop 1s ease-out forwards;
 }
 
 .button-left {
@@ -200,13 +153,13 @@
   width: 1200px;
   margin: 20px auto;
   background-color: #fff;
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
   border-radius: 8px;
   overflow: hidden;
-  /* padding-top: 20px; */
   align-items: center;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+
+
 /*  First Resume Css Section  */
 .personal-info {
   text-align: center;
@@ -217,14 +170,24 @@
   font-family: sans-serif;
 }
 
-.personal-info .personal-infoName {
+/* Add these styles to your CSS file */
+
+.personal-infoName {
   font-size: 24px;
   font-family: FontAwesome;
   font-weight: 700;
   text-transform: uppercase;
   color: black;
   letter-spacing: 2px;
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: slideFromTop 1.5s ease-out forwards;
 }
+
+
+
 
 .personal-info>p {
   font-size: 18px;
@@ -234,8 +197,25 @@
   color: black;
   text-align: justify;
   /* letter-spacing: 1.5px; */
+
+    /* Animation */
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: slideFromTop 1s ease-out forwards;
 }
 
+
+/* Keyframes for animation */
+@keyframes slideFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 
 button {
@@ -311,6 +291,24 @@ button:hover {
   color: black;
   padding: 10px 0px 10px 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      /* Animation */
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideFromLeft 1s ease-out forwards;
+}
+
+
+/* Keyframes for animation */
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .MainExperience-SkillsContainer .Main-left .Experience-Container .Experience-ContainerUl {
@@ -330,6 +328,11 @@ button:hover {
   margin-left: 30px;
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: slideFromLeft 1s ease-out forwards;
 }
 
 
@@ -349,6 +352,11 @@ button:hover {
   color: black;
   padding: 10px 0px 10px 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: slideFromLeft 1s ease-out forwards;
 }
 
 .MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl {
@@ -367,6 +375,11 @@ button:hover {
   margin-left: 30px;
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: slideFromLeft 1s ease-out forwards;
 }
 
 
@@ -386,6 +399,11 @@ button:hover {
   color: black;
   padding: 10px 0px 10px 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: slideFromLeft 1s ease-out forwards;
 }
 
 .MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl {
@@ -405,6 +423,11 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(-100%);
+        animation: slideFromLeft 1s ease-out forwards;
 }
 
 
@@ -428,7 +451,13 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideFromRight 1s ease-out forwards;
 }
+
 
 
 .MainExperience-SkillsContainer .Main-right .Skill-Container {
@@ -445,6 +474,11 @@ button:hover {
   color: black;
   padding: 10px 0px 10px 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideFromRight 1s ease-out forwards;
 }
 
 .MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl {
@@ -465,6 +499,11 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideFromRight 1s ease-out forwards;
 }
 
 
@@ -485,6 +524,12 @@ button:hover {
   color: black;
   padding: 10px 0px 10px 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  
+        /* Animation */
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideFromRight 1s ease-out forwards;
 }
 
 .MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl {
@@ -505,6 +550,24 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+
+  
+        /* Animation */
+        opacity: 0;
+        transform: translateX(100%);
+        animation: slideFromRight 1s ease-out forwards;
+}
+
+/* Keyframes for animation */
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 

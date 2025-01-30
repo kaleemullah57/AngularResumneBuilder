@@ -3,4 +3,18 @@
     margin: 0%;
     box-sizing: border-box;
 }
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content-wrapper {
+    flex: 1;
+    position: relative;
+    padding-bottom: 150px; /* Footer height + spacing */
+  }
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css";
