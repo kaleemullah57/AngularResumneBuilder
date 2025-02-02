@@ -6,9 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { User } from '../../Auth_Folders/Auth_Model/user';
 import { AuthService } from '../../Auth_Service/auth.service';
 
+
 @Component({
     selector: 'app-landing-page',
-    imports: [RouterOutlet, CommonModule, FormsModule],
+    imports: [RouterOutlet, CommonModule],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
 })

@@ -5,11 +5,7 @@ import { FinalResume } from '../../Models/final-resume';
 import { AuthService } from '../../Auth_Service/auth.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
-
-
-
-
+import { PersonalRecordModel } from '../../Models/personal-record-model';
 
 
 @Component({
@@ -23,7 +19,6 @@ export class FinalResumesComponent {
   errorMessage: boolean = false;
 
   isSidebarOpen: boolean = false;
-
 
   constructor(private _authService: AuthService) { }
   ngOnInit(): void {
@@ -54,20 +49,6 @@ export class FinalResumesComponent {
   applyFontFamily(fontFamily: string) {
     this.selectedFontFamily = fontFamily;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

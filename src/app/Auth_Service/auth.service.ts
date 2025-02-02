@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, catchError, Observable } from 'rxjs';
 import { User } from '../Auth_Folders/Auth_Model/user';
 import { error } from 'console';
 import { FinalResume } from '../Models/final-resume';
@@ -11,6 +11,7 @@ import { ExtraEducationModel } from '../Models/extra-education-model';
 import { Token } from '@angular/compiler';
 import { SkillsRecordModel } from '../Models/skills-record-model';
 import { LanguageRecordModel } from '../Models/language-record-model';
+import { PersonalRecordModel } from '../Models/personal-record-model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class AuthService {
 
   private getAllResumesURL = "https://localhost:7299/api/FinalResume/GetAllDataOfLoggedIn";
   private addResumeUrl = "https://localhost:7299/api/FinalResume/AddResume"
-  private deleteResumeUrl = "https://localhost:7299/api/FinalResume/DeleteRecords"
+  private deleteResumeUrl = "https://localhost:7299/api/FinalResume/DeleteRecords";
 
 
   private updateEducationUrl = 'https://localhost:7299/api/FinalResume/UpdateEducationRecord';
@@ -111,6 +112,8 @@ export class AuthService {
 
     return this.http.post<FinalResume>(this.addResumeUrl, finalResume, { headers });
   }
+
+
 
 
   // Update Education Record

@@ -1,4 +1,4 @@
-<div class="login-container">
+<!-- <div class="login-container">
     <div class="form-wrapper">
       <h2>Login</h2>
       <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
@@ -38,4 +38,112 @@
   </div>
   
   <router-outlet></router-outlet>
-  
+   -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="login-container">
+  <mat-card class="form-wrapper">
+    <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+        <!-- Email Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput id="email" formControlName="email" type="email" placeholder="Enter your email" required>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+
+        <!-- Password Field -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+          <button mat-icon-button matSuffix type="button" 
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="hidePassword ? 'Show password' : 'Hide password'"
+            [attr.aria-pressed]="!hidePassword"
+            >
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <button mat-raised-button color="primary" type="submit" class="full-width" [disabled]="loginForm.invalid">
+          Login
+        </button>
+
+        <!-- Registration Link -->
+        <mat-card-actions class="register-link">
+          <span>Don't have an account?</span>
+          <a mat-button color="primary" routerLink="/register">Register here</a>
+        </mat-card-actions>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="error-message">
+          <mat-error>
+            <mat-icon>error_outline</mat-icon>
+            {{ errorMessage }}
+          </mat-error>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>
