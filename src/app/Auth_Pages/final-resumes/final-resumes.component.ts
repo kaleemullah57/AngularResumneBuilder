@@ -31,6 +31,11 @@ export class FinalResumesComponent {
   selectedBackgroundColor: string = '';
   applyBackgroundColor(color: string) {
     this.selectedBackgroundColor = color;
+    if(color === "black"){
+      this.selectedFontsColor = "white";
+    }else if(color == '#e3f2fd' ){
+      this.selectedFontsColor = "black";
+    }
   }
 
 
