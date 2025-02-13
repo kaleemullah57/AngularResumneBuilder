@@ -1,0 +1,142 @@
+/* Resume 3 FUll Details  */
+.resume {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 900px;
+    margin: 60px auto;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+
+.resume .finalResume {
+    background-color: cornsilk;
+    border: none;
+    border-radius: 8px;
+}
+
+.resume .finalResume .header {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px 20px 40px;
+}
+
+.resume .finalResume .header h1 {
+    padding-left: 45px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: FontAwesome;
+    /* background-color:  rgb(140, 140, 167); */
+}
+
+.resume .finalResume .header p {
+    text-align: center;
+}
+
+
+.resume .finalResume .academic3-mainContainer {
+    border-radius: 8px;
+}
+
+.resume .finalResume .academic3-mainContainer .academic3-heading {
+    background-color: rgb(108, 197, 219);
+    border-radius: 2px;
+    width: 100%;
+    height: 45px;
+    padding-left: 10px;
+    font-family: FontAwesome;
+}
+
+.resume .finalResume .academic3-mainContainer .academic3-title {
+    color: black;
+    padding-left: 20px;
+}
+
+
+
+
+.resume .finalResume .otherEducation3-mainContainer .otherEducation3-heading {
+    background-color: rgb(108, 197, 219);
+    border-radius: 2px;
+    width: 100%;
+    height: 45px;
+    padding-left: 10px;
+    font-family: FontAwesome;
+}
+
+.resume .finalResume .otherEducation3-mainContainer .otherEducation3 {
+    color: black;
+    padding-left: 20px;
+}
+
+.resume .finalResume .otherEducation3-mainContainer .otherEducation3 .otherEducation3-title {
+    font-family: FontAwesome;
+}
+
+.resume .finalResume .otherEducation3-mainContainer .otherEducation3 .paragraph {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 15% 0px 50px;
+}
+
+.resume .finalResume .otherEducation3-mainContainer .otherEducation3 p {
+    font-family: FontAwesome;
+    /* padding-right: 0%; */
+}
+
+
+
+
+.resume .finalResume .skill3-mainContainer .skill3-heading{
+    background-color: rgb(108, 197, 219);
+    border-radius: 2px;
+    width: 100%;
+    height: 45px;
+    padding-left: 10px;
+    font-family: FontAwesome;
+}
+.resume .finalResume .skill3-mainContainer .paragraph{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 15% 0px 70px;
+    font-family: FontAwesome;
+}
+
+.resume .finalResume .skill3-mainContainer .skill3-title{
+    color: black;
+    /* padding-left: 90px; */
+    font-family: FontAwesome;
+}
+
+
+
+
+
+
+.resume .finalResume .experience3-mainContainer .experience3-heading{
+    background-color: rgb(108, 197, 219);
+    border-radius: 2px;
+    width: 100%;
+    height: 45px;
+    padding-left: 10px;
+    font-family: FontAwesome;
+}
+.resume .finalResume .experience3-mainContainer .experience3-card .experience3-title{
+    color: black;
+    padding: 20px 20px 0px 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.resume .finalResume .experience3-mainContainer .experience3-card .experience3-Role,
+.experience3-Description,
+.experience3-Technologies,
+.experience3-Year{
+    color: black;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: justify;
+}

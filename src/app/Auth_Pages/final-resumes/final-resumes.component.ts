@@ -6,11 +6,12 @@ import { AuthService } from '../../Auth_Service/auth.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PersonalRecordModel } from '../../Models/personal-record-model';
+import { Template4Component } from './template4/template4.component';
 
 
 @Component({
     selector: 'app-final-resumes',
-    imports: [CommonModule, RouterOutlet, RouterLink],
+    imports: [CommonModule, RouterOutlet, RouterLink, Template4Component],
     templateUrl: './final-resumes.component.html',
     styleUrl: './final-resumes.component.css'
 })
@@ -78,7 +79,7 @@ export class FinalResumesComponent {
 
 
   currentIndex: number = 0;
-  totalResumes: number = 3;
+  totalResumes: number = 4;
   scrollLeft() {
     if (this.currentIndex > 0) {
       this.currentIndex--;
@@ -221,6 +222,103 @@ export class FinalResumesComponent {
     }
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  isDragging = false;
+  activeItem: string | null = null;
+  offset = { x: 0, y: 0 };
+
+  // Define positions for each draggable item
+  positions: { [key: string]: { x: number; y: number } } = {
+    paragraph1: { x: 0, y: 0 },
+    paragraph2: { x: 0, y: 0 },
+    paragraph3: { x: 0, y: 0 },
+    paragraph4: { x: 0, y: 0 },
+  };
+
+  // Triggered when the user clicks on a draggable item
+  onMouseDown(event: MouseEvent, item: string): void {
+    this.isDragging = true;
+    this.activeItem = item;
+
+    // Get the current position of the item
+    const rect = (event.target as HTMLElement).getBoundingClientRect();
+    const currentPos = this.positions[item];
+
+    // Calculate offset relative to the current position
+    this.offset.x = event.clientX - rect.left + currentPos.x;
+    this.offset.y = event.clientY - rect.top + currentPos.y;
+  }
+
+  // Triggered when the user moves the mouse
+  onMouseMove(event: MouseEvent): void {
+    if (this.isDragging && this.activeItem) {
+      // Update the position of the active item
+      const itemPosition = this.positions[this.activeItem];
+      if (itemPosition) {
+        itemPosition.x = event.clientX - this.offset.x;
+        itemPosition.y = event.clientY - this.offset.y;
+      }
+    }
+  }
+
+  // Triggered when the user releases the mouse button
+  onMouseUp(): void {
+    this.isDragging = false;
+    this.activeItem = null; // Reset the active item
+  }
 
 }
 

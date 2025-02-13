@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, model, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { FinalResume } from '../../Models/final-resume';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../Auth_Folders/Auth_Model/user';
 import { AuthService } from '../../Auth_Service/auth.service';
-
 
 @Component({
     selector: 'app-landing-page',
@@ -86,5 +85,9 @@ export class LandingPageComponent implements OnInit {
   //   const container = document.querySelector(".formats-of-resumes") as HTMLElement;
   //   container.scrollBy({left : 300, behavior: 'smooth'});
   // }
+
+
+
+
 
 }

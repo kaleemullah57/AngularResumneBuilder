@@ -1,0 +1,194 @@
+<div class="resume" *ngFor="let resue of resumes; let i = index" id="resume-content" [id]="'resume-' + i"
+    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+    [style.font-family]="selectedFontFamily">
+
+
+    <div class="finalResume" [id]="'finalResume' + i" [style.backgroundColor]="selectedBackgroundColor"
+        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+        <div class="header" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+            [style.font-family]="selectedFontFamily">
+            <h1 style="margin-bottom: 10px;" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                {{ resue.personalRecord.name }} </h1>
+            <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+
+
+                <strong style="margin-left: 50px;"><i class="fa fa-address-card" aria-hidden="true"></i>
+                    :</strong> {{ resue.personalRecord.address }}
+            </p>
+            <p>
+                <strong style="margin-left: 50px;"><i class="fa fa-phone"></i> :</strong> {{
+                resue.personalRecord.phone }}
+                ||
+                <strong><i class="fa fa-envelope"></i> :</strong> {{ resue.personalRecord.email }}
+            </p>
+        </div>
+        <div class="contact-info" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+            [style.font-family]="selectedFontFamily">
+            <div [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+                <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                    [style.font-family]="selectedFontFamily">
+                    {{ resue.personalRecord.intro }}
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="academic3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
+            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <h2 class="academic3-heading" *ngIf="resue.educations.length > 0"
+                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+                EDUCATION </h2>
+            <div *ngFor="let edu of resue.educations" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                <p class="academic3-title" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    * {{ edu.degree }} - {{ edu.institute }} -
+                    {{ edu.yearOfCompletion }} (Grade/GPA): {{ edu.gpa }}
+                </p>
+            </div>
+        </div>
+
+
+
+        <!-- <div class="otherEducation3-languages3" [style.backgroundColor]="selectedBackgroundColor" -->
+        <!-- [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"> -->
+        <div class="otherEducation3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
+            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <h2 class="otherEducation3-heading" *ngIf="resue.extraEducations.length > 0"
+                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+                EXTRA EDUCATION
+            </h2>
+            <div class="otherEducation3" *ngFor="let ext of resue.extraEducations"
+                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+                <h4 class="otherEducation3-title" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    {{ ext.exEduDegree }} : </h4>
+                <div class="paragraph">
+                    <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                        [style.font-family]="selectedFontFamily">
+                        {{ ext.exEduInstitute }} </p>
+                    <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                        [style.font-family]="selectedFontFamily">
+                        {{ ext.exEduYearOfCompletion }} </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="skill3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
+            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <h2 class="skill3-heading" *ngIf="resue.skills.length > 0" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                Skills & Technologies </h2>
+            <div *ngFor="let skill of resue.skills" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                <div class="paragraph">
+                    <p class="skill3-title" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        {{ skill.skillName }}
+
+                    </p>
+                    <p class="skill3-title" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        {{ skill.efficiency }}
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Experience Record -->
+        <div class="experience3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
+            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <h2 class="experience3-heading" *ngIf="resue.experience.length > 0"
+                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+                Experience Record
+            </h2>
+            <div *ngFor="let exp of resue.experience" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                <div class="experience3-card" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <p class="experience3-title" style="min-width: 550px;"
+                        [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                        [style.font-family]="selectedFontFamily">
+                        {{ exp.jobTitle }} - In : {{
+                        exp.location }} </p>
+                    <p class="experience3-Role" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        Role : {{ exp.role }} </p>
+                    <p class="experience3-Description" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        Description : {{ exp.description }} </p>
+                    <p class="experience3-Technologies" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        Technologies : {{ exp.technologies }} </p>
+                    <p class="experience3-Year" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        Experience : {{ exp.yearsOfExperience }} Years. </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="languages3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
+            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <h2 class="languages3-heading" *ngIf="resue.languages.length > 0"
+                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+                Language Record </h2>
+            <div class="languages3" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                [style.font-family]="selectedFontFamily">
+                <div *ngFor="let laguage of resue.languages" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                        [style.font-family]="selectedFontFamily">
+                        {{ laguage.languageName }} </p>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+    <div class="download-buttons" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+        [style.font-family]="selectedFontFamily">
+        <button style="margin-right: 10px;" (click)="downloadPDF(i)"><i class="fa fa-download"></i>PDF</button>
+        <button (click)="downloadPNG(i)"><i class="fa fa-download"></i>PNG </button>
+    </div>
+</div>

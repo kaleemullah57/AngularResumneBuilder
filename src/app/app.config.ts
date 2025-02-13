@@ -15,7 +15,8 @@ import { MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButton} from '@angular/material/button';
-//  ,  MatButtonModule} from '@angular/material';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+
 
 
 
@@ -34,6 +35,8 @@ export const appConfig: ApplicationConfig = {
      MatCardModule,
      MatInputModule,
      MatFormFieldModule,
-     MatButton
+     MatButton,
+     BrowserAnimationsModule,
+     provideAnimations()
     ]
 };
