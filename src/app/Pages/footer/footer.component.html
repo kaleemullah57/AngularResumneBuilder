@@ -1,9 +1,9 @@
-footer.component.html
 
 
 
-<footer class="site-footer" #animatedContainer>
-    <div class="footer-container">
+
+<footer class="site-footer" *ngIf="!isLoggedInn()" #animatedContainer >
+    <div class="footer-container" >
       <!-- Left Section - Logo & Social Media -->
       <div class="footer-section logo-social">
         <div class="logo-container">

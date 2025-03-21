@@ -17,7 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
 @Component({
     selector: 'app-login',
     imports: [RouterOutlet, ReactiveFormsModule, RouterLink, CommonModule,
-      MatCardModule,
+        MatCardModule,
       MatInputModule,
       MatFormFieldModule,
       MatButton,

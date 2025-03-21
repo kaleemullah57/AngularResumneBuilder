@@ -11,32 +11,32 @@ import jsPDF from 'jspdf';
   templateUrl: './template4.component.html',
   styleUrl: './template4.component.css'
 })
-export class Template4Component implements OnInit{
+export class Template4Component implements OnInit {
 
-constructor(private _authService:AuthService ){}
-ngOnInit(): void {
-  this.getAllResumes();
-}
+  constructor(private _authService: AuthService) { }
+  ngOnInit(): void {
+    this.getAllResumes();
+  }
 
 
   resumes: FinalResume[] = [];
-getAllResumes(): void {
-  this._authService.getAllResumes().subscribe(
-    (data) => {
-      this.resumes = data;
-      console.log("dta fetched", data);
-    },
-    (error) => {
-      if (error.status === 401) {
-        console.error('Unauthorized access - redirecting to login.');
-        this._authService.logout();
-        alert('Session expired. Please log in again.');
-      } else {
-        console.error('Error while fetching resumes:', error);
+  getAllResumes(): void {
+    this._authService.getAllResumes().subscribe(
+      (data) => {
+        this.resumes = data;
+        console.log("dta fetched", data);
+      },
+      (error) => {
+        if (error.status === 401) {
+          console.error('Unauthorized access - redirecting to login.');
+          this._authService.logout();
+          alert('Session expired. Please log in again.');
+        } else {
+          console.error('Error while fetching resumes:', error);
+        }
       }
-    }
-  );
-}
+    );
+  }
 
 
   FontsColors: string[] = ['#FFFFFF', '#000000'];
@@ -92,7 +92,7 @@ getAllResumes(): void {
 
 
 
-    // Download PDF
+  // Download PDF
   // Method to download as PDF
   async downloadPDF(index: number) {
     const content = document.getElementById(`finalResume${index}`); // Use specific resume ID

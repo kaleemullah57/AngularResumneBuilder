@@ -145,7 +145,11 @@
                                     [style.font-family]="selectedFontFamily">
                                     <p class="Education-ContainerParagraph"
                                         [style.backgroundColor]="selectedBackgroundColor"
-                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph5')"
+                                        [style.transform]="'translate(' + positions['paragraph5'].x + 'px, ' + positions['paragraph5'].y + 'px)'"
+                                        
+                                        >
                                         <strong> ◾ {{ education.degree }}</strong>
                                         - From : {{
                                         education.institute }} - In : {{
@@ -171,7 +175,11 @@
                                     [style.font-family]="selectedFontFamily">
                                     <p class="ExEducation-ContainerParagraph"
                                         [style.backgroundColor]="selectedBackgroundColor"
-                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph6')"
+                                        [style.transform]="'translate(' + positions['paragraph6'].x + 'px, ' + positions['paragraph6'].y + 'px)'"
+                                        
+                                        >
                                         <strong> ◾ {{ extraEducation.exEduDegree }} </strong> - From : {{
                                         extraEducation.exEduInstitute }}
                                         - In :{{ extraEducation.exEduYearOfCompletion }}
@@ -190,16 +198,25 @@
                             <div class="Personal-Container" [style.backgroundColor]="selectedBackgroundColor"
                                 [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
                                 <p class="Personal-ContainerParagraph" [style.backgroundColor]="selectedBackgroundColor"
-                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"><i
-                                        class="fa fa-envelope"></i> :
+                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph7')"
+                                        [style.transform]="'translate(' + positions['paragraph7'].x + 'px, ' + positions['paragraph7'].y + 'px)'"
+                                    >
+                                    <i class="fa fa-envelope"></i> :
                                     {{ resume.personalRecord.email }} </p>
                                 <p class="Personal-ContainerParagraph" [style.backgroundColor]="selectedBackgroundColor"
-                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-                                    <i class="fa fa-phone"></i> : {{
-                                    resume.personalRecord.phone }}
+                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph8')"
+                                        [style.transform]="'translate(' + positions['paragraph8'].x + 'px, ' + positions['paragraph8'].y + 'px)'"
+                                    >
+                                    <i class="fa fa-phone"></i> : 
+                                    {{ resume.personalRecord.phone }}
                                 </p>
                                 <p class="Personal-ContainerParagraph" [style.backgroundColor]="selectedBackgroundColor"
-                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph9')"
+                                        [style.transform]="'translate(' + positions['paragraph9'].x + 'px, ' + positions['paragraph9'].y + 'px)'"
+                                        >
                                     <i class="fa fa-address-card"></i> : {{ resume.personalRecord.address }}
                                 </p>
                             </div>
@@ -209,14 +226,18 @@
                                 [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
                                 <p class="Skill-Header" *ngIf="resume.skills.length > 0"
                                     [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                                    [style.font-family]="selectedFontFamily">
+                                    [style.font-family]="selectedFontFamily"
+                                        >
                                     Skills</p>
                                 <ul class="Skill-ContainerUl" *ngFor="let skill of resume.skills"
                                     [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
                                     [style.font-family]="selectedFontFamily">
                                     <p class="Skill-ContainerParagraph"
                                         [style.backgroundColor]="selectedBackgroundColor"
-                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        
+                                    (mousedown)="onMouseDown($event, 'paragraph10')"
+                                    [style.transform]="'translate(' + positions['paragraph10'].x + 'px, ' + positions['paragraph10'].y + 'px)'">
                                         ◾ {{ skill.skillName }} : {{ skill.efficiency }}
                                     </p>
                                 </ul>
@@ -236,7 +257,10 @@
                                     [style.font-family]="selectedFontFamily">
                                     <p class="Language-ContainerParagraph"
                                         [style.backgroundColor]="selectedBackgroundColor"
-                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        
+                                    (mousedown)="onMouseDown($event, 'paragraph11')"
+                                    [style.transform]="'translate(' + positions['paragraph11'].x + 'px, ' + positions['paragraph11'].y + 'px)'">
                                         ◾ {{ language.languageName }} </p>
                                 </ul>
                             </div>
@@ -420,7 +444,11 @@
                                 [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
                                 <p class="Education2-ContainerHeading" *ngIf="resue.educations.length > 0"
                                     [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                                    [style.font-family]="selectedFontFamily">
+                                    [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph12')"
+                                    [style.transform]="'translate(' + positions['paragraph12'].x + 'px, ' + positions['paragraph12'].y + 'px)'"
+                                            
+                                    >
                                     Qualifications</p>
                                 <article class="OtherEducation-ContainerArticle"
                                     [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
@@ -430,7 +458,10 @@
                                         [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
                                         <p class="Education2-ContainerParagraph"
                                             [style.backgroundColor]="selectedBackgroundColor"
-                                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                            (mousedown)="onMouseDown($event, 'paragraph13')"
+                                    [style.transform]="'translate(' + positions['paragraph13'].x + 'px, ' + positions['paragraph13'].y + 'px)'"
+                                            >
                                             ▫ {{ edu.degree }} - From : {{
                                             edu.institute }} - In : {{ edu.yearOfCompletion }} - <span>(Grade/GPA):
                                             </span> {{ edu.gpa }} </p>
@@ -444,7 +475,10 @@
                                 [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
                                 <p class="OtherEducation-ContainerHeading" *ngIf="resue.extraEducations.length > 0"
                                     [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                                    [style.font-family]="selectedFontFamily">
+                                    [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph14')"
+                                    [style.transform]="'translate(' + positions['paragraph14'].x + 'px, ' + positions['paragraph14'].y + 'px)'"
+                                            >
                                     Other Education</p>
                                 <article class="OtherEducation-ContainerArticle"
                                     [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
@@ -454,7 +488,10 @@
                                         [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
                                         <p class="OtherEducation-ContainerParagraph"
                                             [style.backgroundColor]="selectedBackgroundColor"
-                                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                            (mousedown)="onMouseDown($event, 'paragraph15')"
+                                    [style.transform]="'translate(' + positions['paragraph15'].x + 'px, ' + positions['paragraph15'].y + 'px)'"
+                                            >
                                             ▫ {{ extra.exEduDegree }} - From :
                                             {{ extra.exEduInstitute }} - In : {{ extra.exEduYearOfCompletion }} </p>
                                     </ul>

@@ -529,6 +529,7 @@ button:hover {
   font-family: FontAwesome;
   margin-left: 30px;
   list-style: .5;
+  cursor: pointer;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
@@ -568,6 +569,7 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+  cursor: pointer;
 }
 
 
@@ -591,6 +593,7 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+  cursor: pointer;
 }
 
 
@@ -628,6 +631,7 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+  cursor: pointer;
 }
 
 
@@ -668,6 +672,7 @@ button:hover {
   list-style: .5;
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
+  cursor: pointer;
 }
 
 
@@ -923,6 +928,7 @@ button:hover {
   align-items: baseline;
   font-style: normal;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .mainContainer2-EduAndExtraEducation .Education2-Container .Education2-ContainerUl {
@@ -938,6 +944,7 @@ button:hover {
   font-weight: 500;
   color: gray;
   font-style: italic;
+  cursor: pointer;
 }
 
 
@@ -968,6 +975,7 @@ button:hover {
   align-items: baseline;
   font-style: normal;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .OtherEducation-Container .OtherEducation-ContainerArticle {
@@ -995,6 +1003,7 @@ button:hover {
   font-style: italic;
   margin-left: 22%;
   /* background-color: black; */
+  cursor: pointer;
 }
 
 

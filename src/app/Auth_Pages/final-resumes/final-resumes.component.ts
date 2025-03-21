@@ -286,26 +286,36 @@ export class FinalResumesComponent {
     paragraph2: { x: 0, y: 0 },
     paragraph3: { x: 0, y: 0 },
     paragraph4: { x: 0, y: 0 },
+    paragraph5: { x: 0, y: 0 },
+    paragraph6: { x: 0, y: 0 },
+    paragraph7: { x: 0, y: 0 },
+    paragraph8: { x: 0, y: 0 },
+    paragraph9: { x: 0, y: 0 },
+    paragraph10: { x: 0, y: 0 },
+    paragraph11: { x: 0, y: 0 },
+    paragraph12: { x: 0, y: 0 },
+    paragraph13: { x: 0, y: 0 },
+    paragraph14: { x: 0, y: 0 },
+    paragraph15: { x: 0, y: 0 },
   };
 
   // Triggered when the user clicks on a draggable item
   onMouseDown(event: MouseEvent, item: string): void {
     this.isDragging = true;
     this.activeItem = item;
-
-    // Get the current position of the item
+  
+    // Get the bounding rectangle of the clicked element
     const rect = (event.target as HTMLElement).getBoundingClientRect();
-    const currentPos = this.positions[item];
-
-    // Calculate offset relative to the current position
-    this.offset.x = event.clientX - rect.left + currentPos.x;
-    this.offset.y = event.clientY - rect.top + currentPos.y;
+  
+    // Calculate the offset relative to the clicked position
+    this.offset.x = event.clientX;
+    this.offset.y = event.clientY;
   }
+  
 
   // Triggered when the user moves the mouse
   onMouseMove(event: MouseEvent): void {
     if (this.isDragging && this.activeItem) {
-      // Update the position of the active item
       const itemPosition = this.positions[this.activeItem];
       if (itemPosition) {
         itemPosition.x = event.clientX - this.offset.x;
@@ -313,6 +323,7 @@ export class FinalResumesComponent {
       }
     }
   }
+  
 
   // Triggered when the user releases the mouse button
   onMouseUp(): void {

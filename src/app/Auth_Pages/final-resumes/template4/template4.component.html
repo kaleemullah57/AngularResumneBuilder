@@ -1,12 +1,12 @@
 <div class="resume" *ngFor="let resue of resumes; let i = index" id="resume-content" [id]="'resume-' + i"
-    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-    [style.font-family]="selectedFontFamily">
+[style.backgroundColor]="selectedBackgroundColor"
+[style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
 
 
     <div class="finalResume" [id]="'finalResume' + i" [style.backgroundColor]="selectedBackgroundColor"
+    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+        <div class="header" [style.backgroundColor]="selectedBackgroundColor"
         [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-        <div class="header" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-            [style.font-family]="selectedFontFamily">
             <h1 style="margin-bottom: 10px;" [style.backgroundColor]="selectedBackgroundColor"
                 [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
                 {{ resue.personalRecord.name }} </h1>
@@ -186,9 +186,12 @@
         </div>
         <!-- </div> -->
     </div>
+
+
+
     <div class="download-buttons" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
         [style.font-family]="selectedFontFamily">
-        <button style="margin-right: 10px;" (click)="downloadPDF(i)"><i class="fa fa-download"></i>PDF</button>
+        <button  (click)="downloadPDF(i)"><i class="fa fa-download"></i>PDF</button>
         <button (click)="downloadPNG(i)"><i class="fa fa-download"></i>PNG </button>
     </div>
 </div>

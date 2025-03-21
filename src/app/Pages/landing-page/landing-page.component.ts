@@ -5,10 +5,11 @@ import { FinalResume } from '../../Models/final-resume';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../Auth_Folders/Auth_Model/user';
 import { AuthService } from '../../Auth_Service/auth.service';
+import { CustomersComponent } from "../smallComponents/LandingComponents/customers/customers.component";
 
 @Component({
     selector: 'app-landing-page',
-    imports: [RouterOutlet, CommonModule],
+    imports: [RouterOutlet, CommonModule, CustomersComponent],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
 })

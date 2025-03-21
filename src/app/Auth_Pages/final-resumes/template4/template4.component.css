@@ -1,18 +1,20 @@
 /* Resume 3 FUll Details  */
 .resume {
-    background: white;
+    background-color: rgb(232, 236, 236);
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 900px;
     margin: 60px auto;
+    padding: 0px 0px 10px 0px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 
 .resume .finalResume {
-    background-color: cornsilk;
+    background-color: rgb(232, 236, 236);
     border: none;
     border-radius: 8px;
+    padding: 5px;
 }
 
 .resume .finalResume .header {
@@ -40,12 +42,14 @@
 }
 
 .resume .finalResume .academic3-mainContainer .academic3-heading {
-    background-color: rgb(108, 197, 219);
-    border-radius: 2px;
+    background-color: #d2e0fa;
+    border-radius: 3px;
     width: 100%;
     height: 45px;
     padding-left: 10px;
+    padding-top: 2px;
     font-family: FontAwesome;
+    font-size: 26px;
 }
 
 .resume .finalResume .academic3-mainContainer .academic3-title {
@@ -57,12 +61,14 @@
 
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3-heading {
-    background-color: rgb(108, 197, 219);
-    border-radius: 2px;
+    background-color: #d2e0fa;
+    border-radius: 8px;
     width: 100%;
     height: 45px;
     padding-left: 10px;
+    padding-top: 2px;
     font-family: FontAwesome;
+    font-size: 26px;
 }
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 {
@@ -72,6 +78,7 @@
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 .otherEducation3-title {
     font-family: FontAwesome;
+    font-size: 22px;
 }
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 .paragraph {
@@ -79,23 +86,27 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0px 15% 0px 50px;
+    font-size: 18px;
 }
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 p {
     font-family: FontAwesome;
     /* padding-right: 0%; */
+    font-size: 18px;
 }
 
 
 
 
 .resume .finalResume .skill3-mainContainer .skill3-heading{
-    background-color: rgb(108, 197, 219);
-    border-radius: 2px;
+    background-color: #d2e0fa;
+    border-radius: 8px;
     width: 100%;
     height: 45px;
     padding-left: 10px;
+    padding-top: 2px;
     font-family: FontAwesome;
+    font-size: 26px;
 }
 .resume .finalResume .skill3-mainContainer .paragraph{
     color: black;
@@ -104,12 +115,14 @@
     justify-content: space-between;
     padding: 0px 15% 0px 70px;
     font-family: FontAwesome;
+    font-size: 18px;
 }
 
 .resume .finalResume .skill3-mainContainer .skill3-title{
     color: black;
     /* padding-left: 90px; */
     font-family: FontAwesome;
+    font-size: 18px;
 }
 
 
@@ -118,17 +131,19 @@
 
 
 .resume .finalResume .experience3-mainContainer .experience3-heading{
-    background-color: rgb(108, 197, 219);
-    border-radius: 2px;
+    background-color: #d2e0fa;
+    border-radius: 8px;
     width: 100%;
     height: 45px;
     padding-left: 10px;
+    padding-top: 2px;
     font-family: FontAwesome;
+    font-size: 26px;
 }
 .resume .finalResume .experience3-mainContainer .experience3-card .experience3-title{
     color: black;
     padding: 20px 20px 0px 20px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
 }
 .resume .finalResume .experience3-mainContainer .experience3-card .experience3-Role,
@@ -139,4 +154,69 @@
     padding-left: 30px;
     padding-right: 30px;
     text-align: justify;
+    font-size: 18px;
+    font-family: FontAwesome;
 }
+
+
+
+
+
+
+
+
+
+.resume .finalResume .languages3-mainContainer .languages3-heading{
+    background-color: #d2e0fa;
+    border-radius: 8px;
+    width: 100%;
+    height: 45px;
+    padding-left: 10px;
+    padding-top: 2px;
+    font-family: FontAwesome;
+    font-size: 26px;
+}
+
+
+.resume .finalResume .languages3-mainContainer .languages3 p{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 15% 0px 70px;
+    font-family: FontAwesome;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+/*  Download Buttons */
+.resume .download-buttons{
+    width: 100%;
+    height: 50px;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    flex-direction: row-reverse;
+}
+
+.resume .download-buttons button{
+    width: 90px;
+    height: 50px;
+    background-color: #d2e0fa;
+    border-radius: 8px;
+    text-align: center;
+    margin-right: 1%;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: FontAwesome;
+    border: .2px dotted black;
+    cursor: pointer;
+} 
