@@ -1,0 +1,521 @@
+.resume-card {
+    /* background: white; */
+    padding: 20px 0px 40px 0px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 900px;
+    margin: 5px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0px 0px;
+    background-color: white;
+  }
+  
+  /* .resume-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    } */
+  .button-left {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 25px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+  }
+  
+  .button-left:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(0deg);
+    color: white;
+    background-color: rgb(75, 141, 45);
+  }
+  
+  .button-right {
+    background-color: rgb(86, 86, 146);
+    margin-left: 84%;
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 25px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin-top: 10px;
+  }
+  
+  .button-right:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(0deg);
+    color: white;
+    background-color: rgb(75, 141, 45);
+  }
+  
+  
+  
+  
+  /*  First Resume Css Section  */
+  .personal-info {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px 40px;
+    color: black;
+    font-family: sans-serif;
+  }
+  
+  .personal-info .personal-infoName {
+    font-size: 24px;
+    font-family: FontAwesome;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: 2px;
+  }
+  
+  .personal-info>p {
+    font-size: 18px;
+    font-family: FontAwesome;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: black;
+    text-align: justify;
+    letter-spacing: 1.5px;
+  }
+  
+  
+  
+  button {
+    background-color: #cfcbcb;
+    color: rgb(15, 15, 15);
+    padding: 10px 40px;
+    border: none;
+    border-radius: 50px;
+    box-shadow:
+      inset 0 -3em 3em rgb(0 200 0 / 30%),
+  
+      0.3em 0.3em 1em rgba(47, 200, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-family: FontAwesome;
+    font-weight: 500;
+  }
+  
+  button:hover {
+    background-color: blue;
+  }
+  
+  
+  /* No Resumes Available */
+  .no-resumes-message {
+    text-align: center;
+    align-items: center;
+    margin-top: -56px;
+    font-size: 1.1rem;
+    color: white;
+    font-style: italic;
+  }
+  
+  
+  
+  
+  
+  /*  Download Buttons CSS */
+  .resume-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 800px;
+    margin: auto;
+    text-align: left;
+  }
+  
+  
+  
+  button:hover {
+    background-color: red;
+  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .MainExperience-SkillsContainer {
+    width: 100%;
+    display: flex;
+    flex: row;
+    font-family: FontAwesome;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left {
+    width: 65%;
+    padding: 20px 20px 20px 20px;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .Experience-Container {
+    width: 100%;
+    background-color: white;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .Experience-Container .Experience-Header {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    background-color: white;
+    color: black;
+    padding: 10px 0px 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .Experience-Container .Experience-ContainerUl {
+    width: 100%;
+    padding: 0;
+    margin: 0%;
+    background-color: white;
+    margin-bottom: 50px;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .Experience-Container .Experience-ContainerUl .Experience-ContainerParagraph {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: gray;
+    font-family: FontAwesome;
+    margin-left: 30px;
+    list-style: .5;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* position: absolute; */
+    /* cursor: grab; */
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  .MainExperience-SkillsContainer .Main-left .Education-Container {
+    width: 100%;
+    background-color: white;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .Education-Container .Education-Header {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    background-color: white;
+    color: black;
+    padding: 10px 0px 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl {
+    width: 100%;
+    padding: 0;
+    margin: 0%;
+    background-color: white;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .Education-Container .Education-ContainerUl .Education-ContainerParagraph {
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: gray;
+    font-family: FontAwesome;
+    margin-left: 30px;
+    list-style: .5;
+    cursor: pointer;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  }
+  
+  
+  
+  
+  
+  .MainExperience-SkillsContainer .Main-left .ExEducation-Container {
+    width: 100%;
+    background-color: white;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .ExEducation-Container .EdEducation-Header {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    background-color: white;
+    color: black;
+    padding: 10px 0px 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl {
+    width: 100%;
+    padding: 0;
+    margin: 0%;
+    background-color: white;
+  }
+  
+  .MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl .ExEducation-ContainerParagraph {
+    font-size: 16px;
+    font-weight: 500;
+    /* font-style: italic; */
+    color: gray;
+    font-family: FontAwesome;
+    margin-left: 30px;
+    list-style: .5;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    font-style: italic;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  
+  .MainExperience-SkillsContainer .Main-right .Personal-Container {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    margin: 20px 0px 10px 0px;
+  }
+  
+  .MainExperience-SkillsContainer .Main-right .Personal-Container .Personal-ContainerParagraph {
+    font-size: 16px;
+    font-weight: 500;
+    /* font-style: italic; */
+    color: gray;
+    font-family: FontAwesome;
+    margin-left: 30px;
+    list-style: .5;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    font-style: italic;
+    cursor: pointer;
+  }
+  
+  
+  .MainExperience-SkillsContainer .Main-right .Skill-Container {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    margin: 20px 0px 10px 0px;
+  }
+  
+  .MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-Header {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    background-color: white;
+    color: black;
+    padding: 10px 0px 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl {
+    width: 100%;
+    padding: 0;
+    margin: 0%;
+    padding: 0px 0px 0px 10px;
+    background-color: white;
+  }
+  
+  .MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl .Skill-ContainerParagraph {
+    font-size: 16px;
+    font-weight: 500;
+    /* font-style: italic; */
+    color: gray;
+    font-family: FontAwesome;
+    margin-left: 30px;
+    list-style: .5;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    font-style: italic;
+    cursor: pointer;
+  }
+  
+  
+  
+  
+  
+  .MainExperience-SkillsContainer .Main-right .Language-Container {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    margin: 20px 0px 10px 0px;
+  }
+  
+  .MainExperience-SkillsContainer .Main-right .Language-Container .Language-Header {
+    font-size: 22px;
+    font-weight: 600;
+    font-style: normal;
+    background-color: white;
+    color: black;
+    padding: 10px 0px 10px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl {
+    width: 100%;
+    padding: 0;
+    margin: 0%;
+    padding: 0px 0px 0px 10px;
+    background-color: white;
+  }
+  
+  .MainExperience-SkillsContainer .Main-right .Language-Container .Language-ContainerUl .Language-ContainerParagraph {
+    font-size: 16px;
+    font-weight: 500;
+    /* font-style: italic; */
+    color: gray;
+    font-family: FontAwesome;
+    margin-left: 30px;
+    list-style: .5;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    font-style: italic;
+    cursor: pointer;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Click to change colors of fonts and background */
+.background-picker {
+  width: 100%;
+  height: 80px;
+  background-color: rgb(204, 212, 125);
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.background-colorbutton {
+  padding: 12px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0px 5px 0px 5px;
+  cursor: pointer;
+}
+
+.font-color-button {
+  padding: 20px;
+  width: auto;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.font-color-button:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button {
+  background-color: #cfcbcb;
+  color: rgb(15, 15, 15);
+  /* padding: 10px 40px; */
+  border: none;
+  border-radius: 50px;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 200 0 / 30%),
+
+    0.3em 0.3em 1em rgba(47, 200, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-family: FontAwesome;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: blue;
+}
+
+
+/* No Resumes Available */
+.no-resumes-message {
+  text-align: center;
+  align-items: center;
+  margin-top: -56px;
+  font-size: 1.1rem;
+  color: white;
+  font-style: italic;
+}
+
+
+

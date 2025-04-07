@@ -1,0 +1,523 @@
+/* Second Resume CSS Section  */
+
+.resume-container {
+  max-width: 900px;
+  height: auto;
+  margin: 5px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+}
+
+.resume-item {
+  background: white;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 900px;
+  margin: 5px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0px 0px;
+}
+
+.resume-item .left-button {
+  background-color: rgb(86, 86, 146);
+}
+
+.resume-item .right-button {
+  background-color: rgb(86, 86, 146);
+  margin-left: 92%;
+}
+
+
+
+/* Header Styles */
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  padding: 20px 40px 0px 40px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.header-left h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 600;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+
+.header-left .heading-profile {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.header-left h2 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #7f8c8d;
+}
+
+.header-left p {
+  margin-top: 10px;
+  color: #555;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+.header-right {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #555;
+  width: 500px;
+}
+
+.header-left {
+  /* background-color: gray; */
+  max-width: 98%;
+}
+
+.header-right p {
+  margin: 5px 0;
+  padding-left: 20px;
+  text-align: justify;
+}
+
+.header-right a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.header-right a:hover {
+  text-decoration: underline;
+}
+
+/* Content Section Styles */
+.resume-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0px 40px;
+}
+
+.main-content {
+  flex: 3;
+}
+
+
+
+
+.mainleft2-rightContainer {
+  display: flex;
+  flex: row;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.mainleft2 {
+  width: 35%;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid rgb(146, 142, 142);
+}
+
+.mainleft2 .Skill2-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  margin: 18px 0px 2px 0px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.mainleft2 .Language2-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  margin: 18px 0px 2px 0px;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.mainleft2-paragraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+}
+
+
+
+
+.mainright2 {
+  width: 65%;
+  padding: 0px 0px 0px 20px;
+}
+
+.mainright2 h2 {
+  font-size: 24px;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.mainright2 .mainright2-title {
+  font-size: 22px;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-style: normal;
+  color: black;
+  margin: 18px 0px 10px 0px;
+}
+
+.mainright2-paragraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+  margin: 4px 0px 6px 0px;
+}
+
+
+
+.mainContainer2-EduAndExtraEducation {
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-family: FontAwesome;
+  margin: 40px 0px 30px 0px
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-Container {
+  color: rgb(0, 0, 0);
+  font-family: FontAwesome;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+  align-content: center;
+  flex-wrap: nowrap;
+  /* align-content: normal; */
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-weight: 700;
+  font-size: 24px;
+  margin-left: 20px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-Container .Education2-ContainerUl {
+  width: 100%;
+  padding-left: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.mainContainer2-EduAndExtraEducation .Education2-Container .Education2-ContainerUl .Education2-ContainerParagraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.OtherEducation-Container {
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-family: FontAwesome;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: normal;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+
+.OtherEducation-Container .OtherEducation-ContainerHeading {
+  color: black;
+  font-family: FontAwesome;
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 48px;
+  background-color: white;
+  align-items: baseline;
+  font-style: normal;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.OtherEducation-Container .OtherEducation-ContainerArticle {
+  width: 100%;
+  color: black;
+  font-family: FontAwesome;
+  margin-left: 40px;
+  background-color: white;
+  align-items: baseline;
+}
+
+.OtherEducation-Container .OtherEducation-ContainerArticle .OtherEducation-ContainerUl {
+  padding-left: 0;
+  margin: 0;
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.OtherEducation-Container .OtherEducation-ContainerArticle .OtherEducation-ContainerUl .OtherEducation-ContainerParagraph {
+  font-family: FontAwesome;
+  font-size: 16px;
+  font-weight: 500;
+  color: gray;
+  font-style: italic;
+  margin-left: 22%;
+  /* background-color: black; */
+  cursor: pointer;
+}
+
+
+
+.button-class {
+  display: flex;
+  justify-content: right;
+}
+
+.button-class>button {
+  color: #34495e;
+  background-color: rgb(252, 249, 249);
+  font-size: 17px;
+  border-radius: 8px;
+}
+
+.button-class>button:hover {
+  color: wheat;
+  background-color: #28516d;
+
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .resume-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-right {
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  .resume-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    margin-top: 20px;
+    /* margin-left: 142px; */
+  }
+
+  .sidebar .toggle-btn {
+    margin: -28px 0px 0px 142px;
+    width: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Click to change colors of fonts and background */
+.background-picker {
+  width: 100%;
+  height: 80px;
+  background-color: rgb(204, 212, 125);
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.background-colorbutton {
+  padding: 12px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin: 0px 5px 0px 5px;
+  cursor: pointer;
+}
+
+.font-color-button {
+  padding: 20px;
+  width: auto;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.font-color-button:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button {
+  background-color: #cfcbcb;
+  color: rgb(15, 15, 15);
+  padding: 10px 40px;
+  border: none;
+  border-radius: 50px;
+  box-shadow:
+    inset 0 -3em 3em rgb(0 200 0 / 30%),
+
+    0.3em 0.3em 1em rgba(47, 200, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-family: FontAwesome;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: blue;
+}
+
+
+/* No Resumes Available */
+.no-resumes-message {
+  text-align: center;
+  align-items: center;
+  margin-top: -56px;
+  font-size: 1.1rem;
+  color: white;
+  font-style: italic;
+}
+
+
+
+
+/*  Download Buttons CSS */
+.resume-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  width: 800px;
+  margin: auto;
+  text-align: left;
+}
+
+
+
+button:hover {
+  background-color: red;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

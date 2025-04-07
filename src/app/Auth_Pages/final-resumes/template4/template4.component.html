@@ -1,35 +1,54 @@
-<div class="resume" *ngFor="let resue of resumes; let i = index" id="resume-content" [id]="'resume-' + i"
-[style.backgroundColor]="selectedBackgroundColor"
-[style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+<div class="background-picker">
+    <button ngClass="background-colorbutton" *ngFor="let color of backgroundColors" [style.backgroundColor]="color"
+        (click)="applyBackgroundColor(color)">
+    </button>
+
+    <!--  Fonts Color Button -->
+    <button *ngFor="let color of FontsColors" [style.color]="color" (click)="applyFontsColor(color)"
+        class="font-color-button">
+        Font
+    </button>
+
+    <button *ngFor="let fontfamily of FontFamily" (click)="applyFontFamily(fontfamily)" class="font-color-button">
+        {{ fontfamily }}
+    </button>
+</div>
+
+<div class="resume" *ngFor="let resue of resumes; let i = index" [id]="'resume-' + i" [style.color]="selectedFontsColor"
+    [style.backgroundColor]="selectedBackgroundColor" [style.font-family]="selectedFontFamily"
+    (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()"
+    >
 
 
-    <div class="finalResume" [id]="'finalResume' + i" [style.backgroundColor]="selectedBackgroundColor"
-    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-        <div class="header" [style.backgroundColor]="selectedBackgroundColor"
-        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+
+    <div class="finalResume" [id]="'finalResume' + i" [style.color]="selectedFontsColor"
+        [style.backgroundColor]="selectedBackgroundColor">
+        <div class="header" [style.color]="selectedFontsColor" [style.backgroundColor]="selectedBackgroundColor">
             <h1 style="margin-bottom: 10px;" [style.backgroundColor]="selectedBackgroundColor"
-                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                [style.font-family]="selectedFontFamily"
+                (mousedown)="onMouseDown($event, 'paragraph1')"
+                [style.transform]="'translate(' + positions['paragraph1'].x + 'px, ' + positions['paragraph1'].y + 'px)'"
+                >
                 {{ resue.personalRecord.name }} </h1>
-            <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
+            <p [style.font-family]="selectedFontFamily" [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
 
 
                 <strong style="margin-left: 50px;"><i class="fa fa-address-card" aria-hidden="true"></i>
                     :</strong> {{ resue.personalRecord.address }}
             </p>
-            <p>
+            <p [style.font-family]="selectedFontFamily" [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                 <strong style="margin-left: 50px;"><i class="fa fa-phone"></i> :</strong> {{
                 resue.personalRecord.phone }}
                 ||
                 <strong><i class="fa fa-envelope"></i> :</strong> {{ resue.personalRecord.email }}
             </p>
         </div>
-        <div class="contact-info" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-            [style.font-family]="selectedFontFamily">
-            <div [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
-                <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                    [style.font-family]="selectedFontFamily">
+        <div class="contact-info">
+            <div>
+                <p class="intro" [style.font-family]="selectedFontFamily" [style.color]="selectedFontsColor"
+                    [style.backgroundColor]="selectedBackgroundColor">
                     {{ resue.personalRecord.intro }}
                 </p>
             </div>
@@ -46,16 +65,20 @@
 
 
 
-        <div class="academic3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
-            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+        <div class="academic3-mainContainer" [style.font-family]="selectedFontFamily"
+        [style.color]="selectedFontsColor"
+        [style.backgroundColor]="selectedBackgroundColor">
             <h2 class="academic3-heading" *ngIf="resue.educations.length > 0"
-                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                 EDUCATION </h2>
-            <div *ngFor="let edu of resue.educations" [style.backgroundColor]="selectedBackgroundColor"
-                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-                <p class="academic3-title" [style.backgroundColor]="selectedBackgroundColor"
-                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <div *ngFor="let edu of resue.educations" [style.font-family]="selectedFontFamily"
+            [style.color]="selectedFontsColor"
+            [style.backgroundColor]="selectedBackgroundColor">
+                <p class="academic3-title" [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                     * {{ edu.degree }} - {{ edu.institute }} -
                     {{ edu.yearOfCompletion }} (Grade/GPA): {{ edu.gpa }}
                 </p>
@@ -64,27 +87,39 @@
 
 
 
-        <!-- <div class="otherEducation3-languages3" [style.backgroundColor]="selectedBackgroundColor" -->
-        <!-- [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"> -->
-        <div class="otherEducation3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
-            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+        <!-- <div class="otherEducation3-languages3" -->
+        
+        <div class="otherEducation3-mainContainer" [style.font-family]="selectedFontFamily"
+        [style.color]="selectedFontsColor"
+        [style.backgroundColor]="selectedBackgroundColor">
             <h2 class="otherEducation3-heading" *ngIf="resue.extraEducations.length > 0"
-                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                 EXTRA EDUCATION
             </h2>
             <div class="otherEducation3" *ngFor="let ext of resue.extraEducations"
-                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
-                <h4 class="otherEducation3-title" [style.backgroundColor]="selectedBackgroundColor"
-                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+                <h4 class="otherEducation3-title"
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                     {{ ext.exEduDegree }} : </h4>
-                <div class="paragraph">
-                    <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                        [style.font-family]="selectedFontFamily">
+                <div class="paragraph"
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+                    <p
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         {{ ext.exEduInstitute }} </p>
-                    <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                        [style.font-family]="selectedFontFamily">
+                    <p
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         {{ ext.exEduYearOfCompletion }} </p>
                 </div>
             </div>
@@ -97,21 +132,34 @@
 
 
 
-        <div class="skill3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
-            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-            <h2 class="skill3-heading" *ngIf="resue.skills.length > 0" [style.backgroundColor]="selectedBackgroundColor"
-                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+        <div class="skill3-mainContainer"
+        [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+            <h2 class="skill3-heading" *ngIf="resue.skills.length > 0"
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                 Skills & Technologies </h2>
-            <div *ngFor="let skill of resue.skills" [style.backgroundColor]="selectedBackgroundColor"
-                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-                <div class="paragraph">
-                    <p class="skill3-title" [style.backgroundColor]="selectedBackgroundColor"
-                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <div *ngFor="let skill of resue.skills"
+            [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+                <div class="paragraph"
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+                    <p class="skill3-title"
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         {{ skill.skillName }}
 
                     </p>
-                    <p class="skill3-title" [style.backgroundColor]="selectedBackgroundColor"
-                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <p class="skill3-title"
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         {{ skill.efficiency }}
                     </p>
                 </div>
@@ -125,33 +173,49 @@
 
 
         <!-- Experience Record -->
-        <div class="experience3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
-            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+        <div class="experience3-mainContainer"
+        [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
             <h2 class="experience3-heading" *ngIf="resue.experience.length > 0"
-                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                 Experience Record
             </h2>
-            <div *ngFor="let exp of resue.experience" [style.backgroundColor]="selectedBackgroundColor"
-                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-                <div class="experience3-card" [style.backgroundColor]="selectedBackgroundColor"
-                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+            <div *ngFor="let exp of resue.experience"
+            [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+                <div class="experience3-card"
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                     <p class="experience3-title" style="min-width: 550px;"
-                        [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                        [style.font-family]="selectedFontFamily">
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         {{ exp.jobTitle }} - In : {{
                         exp.location }} </p>
-                    <p class="experience3-Role" [style.backgroundColor]="selectedBackgroundColor"
-                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <p class="experience3-Role"
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         Role : {{ exp.role }} </p>
-                    <p class="experience3-Description" [style.backgroundColor]="selectedBackgroundColor"
-                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <p class="experience3-Description"
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         Description : {{ exp.description }} </p>
-                    <p class="experience3-Technologies" [style.backgroundColor]="selectedBackgroundColor"
-                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <p class="experience3-Technologies"
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         Technologies : {{ exp.technologies }} </p>
-                    <p class="experience3-Year" [style.backgroundColor]="selectedBackgroundColor"
-                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <p class="experience3-Year"
+                    [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                         Experience : {{ exp.yearsOfExperience }} Years. </p>
                 </div>
             </div>
@@ -168,18 +232,24 @@
 
 
 
-        <div class="languages3-mainContainer" [style.backgroundColor]="selectedBackgroundColor"
-            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+        <div class="languages3-mainContainer"
+        [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
             <h2 class="languages3-heading" *ngIf="resue.languages.length > 0"
-                [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
                 Language Record </h2>
-            <div class="languages3" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                [style.font-family]="selectedFontFamily">
-                <div *ngFor="let laguage of resue.languages" [style.backgroundColor]="selectedBackgroundColor"
-                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
-                    <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-                        [style.font-family]="selectedFontFamily">
+            <div class="languages3"
+            [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+                <div *ngFor="let laguage of resue.languages"
+                [style.font-family]="selectedFontFamily"
+                [style.color]="selectedFontsColor"
+                [style.backgroundColor]="selectedBackgroundColor">
+                    <p>
                         {{ laguage.languageName }} </p>
                 </div>
             </div>
@@ -189,9 +259,8 @@
 
 
 
-    <div class="download-buttons" [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
-        [style.font-family]="selectedFontFamily">
-        <button  (click)="downloadPDF(i)"><i class="fa fa-download"></i>PDF</button>
+    <div class="download-buttons">
+        <button (click)="downloadPDF(i)"><i class="fa fa-download"></i>PDF</button>
         <button (click)="downloadPNG(i)"><i class="fa fa-download"></i>PNG </button>
     </div>
 </div>

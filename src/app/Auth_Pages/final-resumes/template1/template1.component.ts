@@ -1,24 +1,17 @@
 import { Component } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import { FinalResume } from '../../Models/final-resume';
-import { AuthService } from '../../Auth_Service/auth.service';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../../Auth_Service/auth.service';
+import { FinalResume } from '../../../Models/final-resume';
 import { CommonModule } from '@angular/common';
-import { PersonalRecordModel } from '../../Models/personal-record-model';
-import { Template4Component } from './template4/template4.component';
-import { Template3Component } from "./template3/template3.component";
-import { Template2Component } from "./template2/template2.component";
-import { Template1Component } from "./template1/template1.component";
-
 
 @Component({
-    selector: 'app-final-resumes',
-    imports: [CommonModule, RouterOutlet, RouterLink, Template4Component, Template3Component, Template2Component, Template1Component],
-    templateUrl: './final-resumes.component.html',
-    styleUrl: './final-resumes.component.css'
+  selector: 'app-template1',
+  imports: [CommonModule],
+  templateUrl: './template1.component.html',
+  styleUrl: './template1.component.css'
 })
-export class FinalResumesComponent {
+export class Template1Component {
   resumes: FinalResume[] = [];
   errorMessage: boolean = false;
 
@@ -307,7 +300,7 @@ export class FinalResumesComponent {
     paragraph20: {x: 0, y: 0},
     paragraph21: {x: 0, y: 0},
     paragraph22: {x: 0, y: 0},
-    paragraph23: {x : 0, y : 0},
+    paragraph23: {x: 0, y: 0},
     paragraph24: {x: 0, y: 0},
     paragraph25: {x: 0, y: 0},
     paragraph26: {x: 0, y: 0},
@@ -337,7 +330,8 @@ export class FinalResumesComponent {
     paragraph50: {x: 0, y: 0}, 
     paragraph51: {x: 0, y: 0}, 
     paragraph52: {x: 0, y: 0}, 
-    paragraph53: {x: 0, y: 0}, 
+    paragraph53: {x: 0, y: 0},
+    paragraph100:{x: 0, y: 0} 
   };
 
   // Triggered when the user clicks on a draggable item
@@ -373,5 +367,3 @@ export class FinalResumesComponent {
   }
 
 }
-
-

@@ -1,0 +1,231 @@
+<div class="background-picker" *ngIf="currentIndex !== 1 && currentIndex !== 2 && currentIndex !== 3">
+    <button ngClass="background-colorbutton" *ngFor="let color of backgroundColors" [style.backgroundColor]="color"
+        (click)="applyBackgroundColor(color)">
+    </button>
+
+    <!--  Fonts Color Button -->
+    <button *ngFor="let color of FontsColors" [style.color]="color" (click)="applyFontsColor(color)"
+        class="font-color-button">
+        Font
+    </button>
+
+    <button *ngFor="let fontfamily of FontFamily" (click)="applyFontFamily(fontfamily)" class="font-color-button">
+        {{ fontfamily }}
+    </button>
+</div>
+
+
+
+
+
+<div>
+    <div *ngFor="let resume of resumes; let i = index" class="resume-card"
+        [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+        [style.font-family]="selectedFontFamily"
+        (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()"
+        >
+        <div class="finalResume" [id]="'finalResume' + i" [style.backgroundColor]="selectedBackgroundColor"
+            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+
+
+            <!-- Personal Info Section -->
+            <div class="personal-info" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                <h2 class="personal-infoName" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                    (mousedown)="onMouseDown($event, 'paragraph1')"
+                    [style.transform]="'translate(' + positions['paragraph1'].x + 'px, ' + positions['paragraph1'].y + 'px)'">
+                    {{ resume.personalRecord.name }}</h2>
+                <p [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                    [style.font-family]="selectedFontFamily">
+                    {{ resume.personalRecord.intro }}</p>
+            </div>
+
+
+            <div class="MainExperience-SkillsContainer" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                <!--  Left Main Container -->
+                <div class="Main-left" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+
+                    <!-- Experience Section -->
+                    <div class="Experience-Container" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <h3 class="Experience-Header" *ngIf="resume.experience.length > 0"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            Experience</h3>
+                        <ul class="Experience-ContainerUl" *ngFor="let exp of resume.experience"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            <p class="Experience-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph100')"
+                                [style.transform]="'translate(' + positions['paragraph100'].x + 'px, ' + positions['paragraph100'].y + 'px)'">
+                                <strong>{{ exp.jobTitle }} </strong> -
+                                From : {{ exp.location
+                                }} - In : {{ exp.yearsOfExperience }}
+                            </p>
+                            <p class="Experience-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph2')"
+                                [style.transform]="'translate(' + positions['paragraph2'].x + 'px, ' + positions['paragraph2'].y + 'px)'">
+                                Role : {{ exp.role }} </p>
+                            <p class="Experience-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph3')"
+                                [style.transform]="'translate(' + positions['paragraph3'].x + 'px, ' + positions['paragraph3'].y + 'px)'">
+                                Description : {{ exp.description }} </p>
+                            <p class="Experience-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph4')"
+                                [style.transform]="'translate(' + positions['paragraph4'].x + 'px, ' + positions['paragraph4'].y + 'px)'">
+                                Technologies : {{ exp.technologies }} </p>
+                        </ul>
+                    </div>
+
+
+
+
+                    <!-- Education Section -->
+                    <div class="Education-Container" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <h3 class="Education-Header" *ngIf="resume.educations.length > 0"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            Education</h3>
+                        <ul class="Education-ContainerUl" *ngFor="let education of resume.educations"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            <p class="Education-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph5')"
+                                [style.transform]="'translate(' + positions['paragraph5'].x + 'px, ' + positions['paragraph5'].y + 'px)'">
+                                <strong> ◾ {{ education.degree }}</strong>
+                                - From : {{
+                                education.institute }} - In : {{
+                                education.yearOfCompletion }}
+                                (Grade/GPA): {{ education.gpa }}
+                            </p>
+                        </ul>
+                    </div>
+
+
+
+                    <!-- Extra Education Section -->
+                    <div class="ExEducation-Container" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <p class="EdEducation-Header" *ngIf="resume.extraEducations.length > 0"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            Extra Education
+                        </p>
+                        <ul class="ExEducation-ContainerUl"
+                            *ngFor="let extraEducation of resume.extraEducations"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            <p class="ExEducation-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph6')"
+                                [style.transform]="'translate(' + positions['paragraph6'].x + 'px, ' + positions['paragraph6'].y + 'px)'">
+                                <strong> ◾ {{ extraEducation.exEduDegree }} </strong> - From : {{
+                                extraEducation.exEduInstitute }}
+                                - In :{{ extraEducation.exEduYearOfCompletion }}
+                            </p>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Right Container -->
+                <div class="Main-right" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <div class="Personal-Container" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <p class="Personal-ContainerParagraph" [style.backgroundColor]="selectedBackgroundColor"
+                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                            (mousedown)="onMouseDown($event, 'paragraph7')"
+                            [style.transform]="'translate(' + positions['paragraph7'].x + 'px, ' + positions['paragraph7'].y + 'px)'">
+                            <i class="fa fa-envelope"></i> :
+                            {{ resume.personalRecord.email }}
+                        </p>
+                        <p class="Personal-ContainerParagraph" [style.backgroundColor]="selectedBackgroundColor"
+                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                            (mousedown)="onMouseDown($event, 'paragraph8')"
+                            [style.transform]="'translate(' + positions['paragraph8'].x + 'px, ' + positions['paragraph8'].y + 'px)'">
+                            <i class="fa fa-phone"></i> :
+                            {{ resume.personalRecord.phone }}
+                        </p>
+                        <p class="Personal-ContainerParagraph" [style.backgroundColor]="selectedBackgroundColor"
+                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                            (mousedown)="onMouseDown($event, 'paragraph9')"
+                            [style.transform]="'translate(' + positions['paragraph9'].x + 'px, ' + positions['paragraph9'].y + 'px)'">
+                            <i class="fa fa-address-card"></i> : {{ resume.personalRecord.address }}
+                        </p>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="Skill-Container" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <p class="Skill-Header" *ngIf="resume.skills.length > 0"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            Skills</p>
+                        <ul class="Skill-ContainerUl" *ngFor="let skill of resume.skills"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            <p class="Skill-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph10')"
+                                [style.transform]="'translate(' + positions['paragraph10'].x + 'px, ' + positions['paragraph10'].y + 'px)'">
+                                ◾ {{ skill.skillName }} : {{ skill.efficiency }}
+                            </p>
+                        </ul>
+                    </div>
+
+
+
+                    <!-- Languages Section -->
+                    <div class="Language-Container" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <p class="Language-Header" *ngIf="resume.languages.length > 0"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            Languages</p>
+                        <ul class="Language-ContainerUl" *ngFor="let language of resume.languages"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            <p class="Language-ContainerParagraph"
+                                [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                (mousedown)="onMouseDown($event, 'paragraph11')"
+                                [style.transform]="'translate(' + positions['paragraph11'].x + 'px, ' + positions['paragraph11'].y + 'px)'">
+                                ◾ {{ language.languageName }} </p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="download-buttons" [style.backgroundColor]="selectedBackgroundColor"
+            [style.color]="selectedFontsColor">
+            <button style="margin-right: 10px;" (click)="downloadPDF(i)">
+                <i class="fa fa-download"></i> PDF</button>
+            <button (click)="downloadPNG(i)"> <i class="fa fa-download"></i> PNG </button>
+            <!-- <button (click)="downloadWord(i)"> Download Word </button> -->
+        </div>
+    </div>
+
+</div>

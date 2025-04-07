@@ -4,7 +4,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 900px;
-    margin: 60px auto;
+    margin: 5px auto;
     padding: 0px 0px 10px 0px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
@@ -29,16 +29,23 @@
     margin-bottom: 10px;
     text-align: center;
     font-family: FontAwesome;
+    cursor: pointer;
     /* background-color:  rgb(140, 140, 167); */
 }
 
 .resume .finalResume .header p {
     text-align: center;
+    cursor: pointer;
+}
+
+.contact-info div .intro{
+    cursor: pointer;
 }
 
 
 .resume .finalResume .academic3-mainContainer {
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .resume .finalResume .academic3-mainContainer .academic3-heading {
@@ -50,11 +57,13 @@
     padding-top: 2px;
     font-family: FontAwesome;
     font-size: 26px;
+    cursor: pointer;
 }
 
 .resume .finalResume .academic3-mainContainer .academic3-title {
     color: black;
     padding-left: 20px;
+    cursor: pointer;
 }
 
 
@@ -69,16 +78,19 @@
     padding-top: 2px;
     font-family: FontAwesome;
     font-size: 26px;
+    cursor: pointer;
 }
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 {
     color: black;
     padding-left: 20px;
+    cursor: pointer;
 }
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 .otherEducation3-title {
     font-family: FontAwesome;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 .paragraph {
@@ -87,12 +99,14 @@
     justify-content: space-between;
     padding: 0px 15% 0px 50px;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .resume .finalResume .otherEducation3-mainContainer .otherEducation3 p {
     font-family: FontAwesome;
     /* padding-right: 0%; */
     font-size: 18px;
+    cursor: pointer;
 }
 
 
@@ -107,6 +121,7 @@
     padding-top: 2px;
     font-family: FontAwesome;
     font-size: 26px;
+    cursor: pointer;
 }
 .resume .finalResume .skill3-mainContainer .paragraph{
     color: black;
@@ -116,6 +131,7 @@
     padding: 0px 15% 0px 70px;
     font-family: FontAwesome;
     font-size: 18px;
+    cursor: pointer;
 }
 
 .resume .finalResume .skill3-mainContainer .skill3-title{
@@ -123,6 +139,7 @@
     /* padding-left: 90px; */
     font-family: FontAwesome;
     font-size: 18px;
+    cursor: pointer;
 }
 
 
@@ -139,12 +156,14 @@
     padding-top: 2px;
     font-family: FontAwesome;
     font-size: 26px;
+    cursor: pointer;
 }
 .resume .finalResume .experience3-mainContainer .experience3-card .experience3-title{
     color: black;
     padding: 20px 20px 0px 20px;
     font-size: 22px;
     font-weight: 600;
+    cursor: pointer;
 }
 .resume .finalResume .experience3-mainContainer .experience3-card .experience3-Role,
 .experience3-Description,
@@ -156,6 +175,7 @@
     text-align: justify;
     font-size: 18px;
     font-family: FontAwesome;
+    cursor: pointer;
 }
 
 
@@ -175,6 +195,7 @@
     padding-top: 2px;
     font-family: FontAwesome;
     font-size: 26px;
+    cursor: pointer;
 }
 
 
@@ -186,6 +207,7 @@
     padding: 0px 15% 0px 70px;
     font-family: FontAwesome;
     font-size: 18px;
+    cursor: pointer;
 }
 
 
@@ -220,3 +242,139 @@
     border: .2px dotted black;
     cursor: pointer;
 } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+button {
+    background-color: #cfcbcb;
+    color: rgb(15, 15, 15);
+    /* padding: 10px 40px; */
+    border: none;
+    border-radius: 50px;
+    box-shadow:
+      inset 0 -3em 3em rgb(0 200 0 / 30%),
+  
+      0.3em 0.3em 1em rgba(47, 200, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-family: FontAwesome;
+    font-weight: 500;
+  }
+  
+  button:hover {
+    background-color: blue;
+  }
+  
+  
+  /* No Resumes Available */
+  .no-resumes-message {
+    text-align: center;
+    align-items: center;
+    margin-top: -56px;
+    font-size: 1.1rem;
+    color: white;
+    font-style: italic;
+  }
+  
+  
+  
+  
+  /*  Download Buttons CSS */
+  .resume-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 800px;
+    margin: auto;
+    text-align: left;
+  }
+  
+  
+  
+  button:hover {
+    background-color: red;
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Click to change colors of fonts and background */
+.background-picker {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(204, 212, 125);
+    padding: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .background-colorbutton {
+    padding: 12px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0px 5px 0px 5px;
+    cursor: pointer;
+  }
+  
+  .font-color-button {
+    padding: 20px;
+    width: auto;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .font-color-button:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  

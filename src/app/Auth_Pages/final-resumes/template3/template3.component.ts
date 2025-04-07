@@ -1,19 +1,18 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../Auth_Service/auth.service';
-import { FinalResume } from '../../../Models/final-resume';
+import { Component } from '@angular/core';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { FinalResume } from '../../../Models/final-resume';
+import { AuthService } from '../../../Auth_Service/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-template4',
-  imports: [CommonModule,],
-  templateUrl: './template4.component.html',
-  styleUrl: './template4.component.css'
+  selector: 'app-template3',
+  imports: [CommonModule],
+  templateUrl: './template3.component.html',
+  styleUrl: './template3.component.css'
 })
-export class Template4Component implements OnInit {
-
-  constructor(private _authService: AuthService) { }
+export class Template3Component {
+constructor(private _authService: AuthService) { }
   ngOnInit(): void {
     this.getAllResumes();
   }
@@ -67,8 +66,6 @@ export class Template4Component implements OnInit {
       this.selectedFontsColor = "black";
     }
   }
-
-
 
 
 
@@ -138,16 +135,6 @@ export class Template4Component implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
-
-
   isDragging = false;
   activeItem: string | null = null;
   offset = { x: 0, y: 0 };
@@ -155,6 +142,58 @@ export class Template4Component implements OnInit {
   // Define positions for each draggable item
   positions: { [key: string]: { x: number; y: number } } = {
     paragraph1: { x: 0, y: 0 },
+    paragraph2: { x: 0, y: 0 },
+    paragraph3: { x: 0, y: 0 },
+    paragraph4: { x: 0, y: 0 },
+    paragraph5: { x: 0, y: 0 },
+    paragraph6: { x: 0, y: 0 },
+    paragraph7: { x: 0, y: 0 },
+    paragraph8: { x: 0, y: 0 },
+    paragraph9: { x: 0, y: 0 },
+    paragraph10: { x: 0, y: 0 },
+    paragraph11: { x: 0, y: 0 },
+    paragraph12: { x: 0, y: 0 },
+    paragraph13: { x: 0, y: 0 },
+    paragraph14: { x: 0, y: 0 },
+    paragraph15: { x: 0, y: 0 },
+    paragraph16: { x: 0, y: 0 },
+    paragraph17: {x: 0, y: 0},
+    paragraph18: {x: 0, y: 0},
+    paragraph19: {x: 0, y: 0},
+    paragraph20: {x: 0, y: 0},
+    paragraph21: {x: 0, y: 0},
+    paragraph22: {x: 0, y: 0},
+    paragraph23: {x : 0, y : 0},
+    paragraph24: {x: 0, y: 0},
+    paragraph25: {x: 0, y: 0},
+    paragraph26: {x: 0, y: 0},
+    paragraph27: {x: 0, y: 0},
+    paragraph28: {x: 0, y: 0},
+    paragraph29: {x: 0, y: 0},
+    paragraph30: {x: 0, y: 0},
+    paragraph31: {x: 0, y: 0},
+    paragraph32: {x: 0, y: 0},
+    paragraph33: {x: 0, y: 0},
+    paragraph34: {x: 0, y: 0},
+    paragraph35: {x: 0, y: 0},
+    paragraph36: {x: 0, y: 0},
+    paragraph37: {x: 0, y: 0}, 
+    paragraph38: {x: 0, y: 0}, 
+    paragraph39: {x: 0, y: 0}, 
+    paragraph40: {x: 0, y: 0}, 
+    paragraph41: {x: 0, y: 0}, 
+    paragraph42: {x: 0, y: 0}, 
+    paragraph43: {x: 0, y: 0}, 
+    paragraph44: {x: 0, y: 0}, 
+    paragraph45: {x: 0, y: 0}, 
+    paragraph46: {x: 0, y: 0}, 
+    paragraph47: {x: 0, y: 0}, 
+    paragraph48: {x: 0, y: 0}, 
+    paragraph49: {x: 0, y: 0}, 
+    paragraph50: {x: 0, y: 0}, 
+    paragraph51: {x: 0, y: 0}, 
+    paragraph52: {x: 0, y: 0}, 
+    paragraph53: {x: 0, y: 0}, 
   };
 
   // Triggered when the user clicks on a draggable item
@@ -188,5 +227,6 @@ export class Template4Component implements OnInit {
     this.isDragging = false;
     this.activeItem = null; // Reset the active item
   }
+
 
 }

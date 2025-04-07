@@ -1,0 +1,255 @@
+<div class="background-picker" *ngIf="currentIndex !== 2">
+    <button ngClass="background-colorbutton" *ngFor="let color of backgroundColors" [style.backgroundColor]="color"
+        (click)="applyBackgroundColor(color)">
+    </button>
+
+    <!--  Fonts Color Button -->
+    <button *ngFor="let color of FontsColors" [style.color]="color" (click)="applyFontsColor(color)"
+        class="font-color-button">
+        Font
+    </button>
+
+    <button *ngFor="let fontfamily of FontFamily" (click)="applyFontFamily(fontfamily)" class="font-color-button">
+        {{ fontfamily }}
+    </button>
+</div>
+
+
+
+
+
+
+<div *ngFor="let resue of resumes; let i = index" class="resume-item" id="resume-content" [id]="'resume-' + i"
+            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+            [style.font-family]="selectedFontFamily"
+            (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()"
+            >
+            <div class="finalResume" [id]="'finalResume' + i" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+
+                <header class="resume-header" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <div class="header-left" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <h1 style="color: black;" [style.backgroundColor]="selectedBackgroundColor"
+                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                            {{ resue.personalRecord.name }} </h1>
+                        <p class="heading-profile" [style.backgroundColor]="selectedBackgroundColor"
+                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                            (mousedown)="onMouseDown($event, 'paragraph16')"
+                            [style.transform]="'translate(' + positions['paragraph16'].x + 'px, ' + positions['paragraph16'].y + 'px)'">
+                            Profile </p>
+                        <p class="mainleft2-paragraph" style="margin-left: 20px; text-align: justify;"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily" (mousedown)="onMouseDown($event, 'paragraph17')"
+                            [style.transform]="'translate(' + positions['paragraph17'].x + 'px, ' + positions['paragraph17'].y + 'px)'">
+                            {{ resue.personalRecord.intro }}
+                        </p>
+                    </div>
+                </header>
+
+                <main class="resume-content" [style.backgroundColor]="selectedBackgroundColor"
+                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                    <section class="main-content" [style.backgroundColor]="selectedBackgroundColor"
+                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                        <div class="mainleft2-rightContainer" [style.backgroundColor]="selectedBackgroundColor"
+                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                            <div class="mainleft2" [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                <p class="mainleft2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph18')"
+                                    [style.transform]="'translate(' + positions['paragraph18'].x + 'px, ' + positions['paragraph18'].y + 'px)'">
+                                    <i class="fa fa-address-card"></i> :
+
+
+                                    {{ resue.personalRecord.address }}
+                                </p>
+                                <p class="mainleft2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph19')"
+                                    [style.transform]="'translate(' + positions['paragraph19'].x + 'px, ' + positions['paragraph19'].y + 'px)'">
+                                    <i class="fa fa-phone"></i> :
+
+                                    {{ resue.personalRecord.phone }}
+                                </p>
+                                <p class="mainleft2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                    [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph20')"
+                                    [style.transform]="'translate(' + positions['paragraph20'].x + 'px, ' + positions['paragraph20'].y + 'px)'">
+                                    <i class="fa fa-envelope"></i> :
+
+
+                                    {{ resue.personalRecord.email }}
+                                </p>
+
+
+                                <!--  Skills  -->
+                                <h2 class="Skill2-ContainerHeading" *ngIf="resue.skills.length > 0 "
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph21')"
+                                    [style.transform]="'translate(' + positions['paragraph21'].x + 'px, ' + positions['paragraph21'].y + 'px)'">
+                                    Skills </h2>
+                                <article *ngFor="let skill of resue.skills"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily">
+                                    <!-- <h2 *ngIf="resue.skills">Skills</h2> -->
+                                    <p class="mainleft2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph22')"
+                                        [style.transform]="'translate(' + positions['paragraph22'].x + 'px, ' + positions['paragraph22'].y + 'px)'">
+                                        ◾ {{ skill.skillName }} - {{ skill.efficiency }}
+                                    <p>
+                                </article>
+
+
+                                <!-- Languages  -->
+                                <h2 class="Language2-ContainerHeading" *ngIf="resue.languages.length > 0"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph23')"
+                                    [style.transform]="'translate(' + positions['paragraph23'].x + 'px, ' + positions['paragraph23'].y + 'px)'">
+
+                                    Languages
+                                </h2>
+                                <article *ngFor="let language of resue.languages"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily">
+                                    <p class="mainleft2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph24')"
+                                        [style.transform]="'translate(' + positions['paragraph24'].x + 'px, ' + positions['paragraph24'].y + 'px)'">
+
+                                        ◾ {{ language.languageName }} </p>
+                                </article>
+
+
+                            </div>
+
+                            <!--  Experience Section  -->
+                            <div class="mainright2" [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                <h2 *ngIf="resue.experience.length > 0"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph25')"
+                                    [style.transform]="'translate(' + positions['paragraph25'].x + 'px, ' + positions['paragraph25'].y + 'px)'">
+                                    Experience</h2>
+                                <article *ngFor="let exp of resue.experience"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily">
+                                    <p class="mainright2-title" [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph26')"
+                                        [style.transform]="'translate(' + positions['paragraph26'].x + 'px, ' + positions['paragraph26'].y + 'px)'">
+                                        {{ exp.jobTitle }} <span style="font-family: FontAwesome; font-weight: bold;">
+                                            - In </span> -
+
+                                        {{ exp.location }}
+                                    </p>
+                                    <p class="mainright2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph27')"
+                                        [style.transform]="'translate(' + positions['paragraph27'].x + 'px, ' + positions['paragraph27'].y + 'px)'">
+                                        <span style="font-weight: bold; font-family: FontAwesome;">Role :</span>
+
+                                        {{ exp.role }}
+                                    </p>
+                                    <p class="mainright2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph28')"
+                                        [style.transform]="'translate(' + positions['paragraph28'].x + 'px, ' + positions['paragraph28'].y + 'px)'">
+                                        <span style="font-weight: bold; font-family: FontAwesome;">Description :</span>
+                                        {{ exp.description }}
+                                    </p>
+                                    <p class="mainright2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph29')"
+                                        [style.transform]="'translate(' + positions['paragraph29'].x + 'px, ' + positions['paragraph29'].y + 'px)'">
+                                        <span style="font-weight: bold; font-family: FontAwesome;"> Technologies :
+                                        </span>{{exp.technologies }}
+                                    </p>
+                                    <p class="mainright2-paragraph" [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                        (mousedown)="onMouseDown($event, 'paragraph30')"
+                                        [style.transform]="'translate(' + positions['paragraph30'].x + 'px, ' + positions['paragraph30'].y + 'px)'">
+                                        <span style="font-weight: bold; font-family: FontAwesome;"> Experience :
+                                        </span>{{ exp.yearsOfExperience }}
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- Qualification  -->
+                        <div class="mainContainer2-EduAndExtraEducation"
+                            [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                            [style.font-family]="selectedFontFamily">
+                            <div class="Education2-Container" [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                <p class="Education2-ContainerHeading" *ngIf="resue.educations.length > 0"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph31')"
+                                    [style.transform]="'translate(' + positions['paragraph31'].x + 'px, ' + positions['paragraph31'].y + 'px)'">
+                                    Qualifications</p>
+                                <article class="OtherEducation-ContainerArticle"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily">
+                                    <ul class="Education2-ContainerUl" *ngFor="let edu of resue.educations"
+                                        [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                        <p class="Education2-ContainerParagraph"
+                                            [style.backgroundColor]="selectedBackgroundColor"
+                                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                            (mousedown)="onMouseDown($event, 'paragraph32')"
+                                            [style.transform]="'translate(' + positions['paragraph32'].x + 'px, ' + positions['paragraph32'].y + 'px)'">
+                                            ▫ {{ edu.degree }} - From : {{
+                                            edu.institute }} - In : {{ edu.yearOfCompletion }} - <span>(Grade/GPA):
+                                            </span> {{ edu.gpa }} </p>
+                                    </ul>
+                                </article>
+                            </div>
+
+
+                            <!-- Other Education  -->
+                            <div class="OtherEducation-Container" [style.backgroundColor]="selectedBackgroundColor"
+                                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                <p class="OtherEducation-ContainerHeading" *ngIf="resue.extraEducations.length > 0"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily"
+                                    (mousedown)="onMouseDown($event, 'paragraph33')"
+                                    [style.transform]="'translate(' + positions['paragraph33'].x + 'px, ' + positions['paragraph33'].y + 'px)'">
+                                    Other Education</p>
+                                <article class="OtherEducation-ContainerArticle"
+                                    [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
+                                    [style.font-family]="selectedFontFamily">
+                                    <ul class="OtherEducation-ContainerUl" *ngFor="let extra of resue.extraEducations"
+                                        [style.backgroundColor]="selectedBackgroundColor"
+                                        [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+                                        <p class="OtherEducation-ContainerParagraph"
+                                            [style.backgroundColor]="selectedBackgroundColor"
+                                            [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily"
+                                            (mousedown)="onMouseDown($event, 'paragraph34')"
+                                            [style.transform]="'translate(' + positions['paragraph34'].x + 'px, ' + positions['paragraph34'].y + 'px)'">
+                                            ▫ {{ extra.exEduDegree }} - From :
+                                            {{ extra.exEduInstitute }} - In : {{ extra.exEduYearOfCompletion }} </p>
+                                    </ul>
+                                </article>
+                            </div>
+
+                        </div>
+                    </section>
+                </main>
+            </div>
+
+            <div class="download-buttons" [style.backgroundColor]="selectedBackgroundColor"
+                [style.color]="selectedFontsColor" [style.font-family]="selectedFontFamily">
+
+                <button style="margin-right: 10px;" (click)="downloadPDF(i)"><i class="fa fa-download"></i>PDF</button>
+
+                <button (click)="downloadPNG(i)"> <i class="fa fa-download"></i>PNG </button>
+
+            </div>
+
+        </div>
