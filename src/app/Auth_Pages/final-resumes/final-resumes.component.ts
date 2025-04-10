@@ -10,23 +10,24 @@ import { Template4Component } from './template4/template4.component';
 import { Template3Component } from "./template3/template3.component";
 import { Template2Component } from "./template2/template2.component";
 import { Template1Component } from "./template1/template1.component";
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
     selector: 'app-final-resumes',
-    imports: [CommonModule, RouterOutlet, RouterLink, Template4Component, Template3Component, Template2Component, Template1Component],
+    imports: [CommonModule, RouterOutlet,FormsModule, RouterLink, Template4Component, Template3Component, Template2Component, Template1Component],
     templateUrl: './final-resumes.component.html',
     styleUrl: './final-resumes.component.css'
 })
 export class FinalResumesComponent {
-  resumes: FinalResume[] = [];
+
   errorMessage: boolean = false;
 
   isSidebarOpen: boolean = false;
 
   constructor(private _authService: AuthService) { }
   ngOnInit(): void {
-    this.getAllResumes();
+    // this.getAllResumes();
   }
 
 
@@ -69,30 +70,37 @@ export class FinalResumesComponent {
 
 
 
-  format = [
-    { label: 'Education', value: 'Education' },
-    { label: 'Professional', value: 'Professional' }
-  ];
-  selectedFormat: string = 'Professional';
+  // format = [
+  //   { label: 'Education', value: 'Education' },
+  //   { label: 'Professional', value: 'Professional' }
+  // ];
+  // selectedFormat: string = 'Professional';
 
-  onChangeFormat() {
-    this.selectedFormat;
-  }
+  // onChangeFormat() {
+  //   this.selectedFormat;
+  // }
 
 
 
-  currentIndex: number = 0;
-  totalResumes: number = 4;
-  scrollLeft() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
-  scrollRight() {
-    if (this.currentIndex < this.totalResumes - 1) {
-      this.currentIndex++;
-    }
-  }
+  // currentIndex: number = 0;
+  // totalResumes: number = 4;
+  // scrollLeft() {
+  //   if (this.currentIndex > 0) {
+  //     this.currentIndex--;
+  //   }
+  // }
+  // scrollRight() {
+  //   if (this.currentIndex < this.totalResumes - 1) {
+  //     this.currentIndex++;
+  //   }
+  // }
+
+
+
+
+
+  selectedFormat = 'Doctor';
+  dropDownFormat : string[] = ['Education', 'Doctor', 'Student', 'Advocate'];
 
 
 
@@ -103,36 +111,51 @@ export class FinalResumesComponent {
 
 
 
-  getAllResumes(): void {
-    this._authService.getAllResumes().subscribe(
-      (data) => {
-        this.resumes = data;
-        console.log("dta fetched", data);
-      },
-      (error) => {
-        if (error.status === 401) {
-          console.error('Unauthorized access - redirecting to login.');
-          this._authService.logout();
-          alert('Session expired. Please log in again.');
-        } else {
-          console.error('Error while fetching resumes:', error);
-        }
-      }
-    );
-  }
 
 
-  deleteResumes(personalRecordid: number) {
-    if (confirm("Are you sure you want to delete this resume")) {
-      this._authService.deleteResume(personalRecordid).subscribe(() => {
-        console.log("Record Deleted Successfully");
-        this.getAllResumes();
-      }, error => {
-        console.log("Error Occured during Delete API Fetching", error);
-        alert("Error Occured during Delete API Fetching");
-      })
-    }
-  }
+
+
+// To Get Resumes 
+
+
+  // resumes: FinalResume[] = [];
+
+
+
+  // getAllResumes(): void {
+  //   this._authService.getAllResumes().subscribe(
+  //     (data) => {
+  //       this.resumes = data;
+  //       console.log("dta fetched", data);
+  //       this.updatedPaginated();
+  //     },
+  //     (error) => {
+  //       if (error.status === 401) {
+  //         console.error('Unauthorized access - redirecting to login.');
+  //         this._authService.logout();
+  //         alert('Session expired. Please log in again.');
+  //       } else {
+  //         console.error('Error while fetching resumes:', error);
+  //       }
+  //     }
+  //   );
+  // }
+
+
+
+
+
+  // deleteResumes(personalRecordid: number) {
+  //   if (confirm("Are you sure you want to delete this resume")) {
+  //     this._authService.deleteResume(personalRecordid).subscribe(() => {
+  //       console.log("Record Deleted Successfully");
+  //       this.getAllResumes();
+  //     }, error => {
+  //       console.log("Error Occured during Delete API Fetching", error);
+  //       alert("Error Occured during Delete API Fetching");
+  //     })
+  //   }
+  // }
 
 
 
@@ -185,22 +208,22 @@ export class FinalResumesComponent {
 
 
 
-  // Download PDF
+  // // Download PDF
   // Method to download as PDF
-  async downloadPDF(index: number) {
-    const content = document.getElementById(`finalResume${index}`); // Use specific resume ID
-    if (content) {
-      const canvas = await html2canvas(content);
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`finalResume${index + 1}.pdf`); // Dynamic file name
-    } else {
-      console.error('Resume content not found!');
-    }
-  }
+  // async downloadPDF(index: number) {
+  //   const content = document.getElementById(`finalResume${index}`); // Use specific resume ID
+  //   if (content) {
+  //     const canvas = await html2canvas(content);
+  //     const imgData = canvas.toDataURL('image/png');
+  //     const pdf = new jsPDF('p', 'mm', 'a4');
+  //     const pdfWidth = pdf.internal.pageSize.getWidth();
+  //     const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  //     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+  //     pdf.save(`finalResume${index + 1}.pdf`); // Dynamic file name
+  //   } else {
+  //     console.error('Resume content not found!');
+  //   }
+  // }
 
 
 
@@ -208,22 +231,22 @@ export class FinalResumesComponent {
 
 
 
-  // Method to download as PNG
-  async downloadPNG(index: number) {
-    const content = document.getElementById(`finalResume${index}`); // Use specific resume ID
-    if (content) {
-      const canvas = await html2canvas(content);
-      const imgData = canvas.toDataURL('image/png');
+  // // Method to download as PNG
+  // async downloadPNG(index: number) {
+  //   const content = document.getElementById(`finalResume${index}`); // Use specific resume ID
+  //   if (content) {
+  //     const canvas = await html2canvas(content);
+  //     const imgData = canvas.toDataURL('image/png');
 
-      // Create a link element for downloading
-      const link = document.createElement('a');
-      link.href = imgData;
-      link.download = `finalResume${index + 1}.png`; // Dynamic file name
-      link.click();
-    } else {
-      console.error('Resume content not found!');
-    }
-  }
+  //     // Create a link element for downloading
+  //     const link = document.createElement('a');
+  //     link.href = imgData;
+  //     link.download = `finalResume${index + 1}.png`; // Dynamic file name
+  //     link.click();
+  //   } else {
+  //     console.error('Resume content not found!');
+  //   }
+  // }
 
 
 
@@ -279,98 +302,98 @@ export class FinalResumesComponent {
 
 
 
-  isDragging = false;
-  activeItem: string | null = null;
-  offset = { x: 0, y: 0 };
+  // isDragging = false;
+  // activeItem: string | null = null;
+  // offset = { x: 0, y: 0 };
 
-  // Define positions for each draggable item
-  positions: { [key: string]: { x: number; y: number } } = {
-    paragraph1: { x: 0, y: 0 },
-    paragraph2: { x: 0, y: 0 },
-    paragraph3: { x: 0, y: 0 },
-    paragraph4: { x: 0, y: 0 },
-    paragraph5: { x: 0, y: 0 },
-    paragraph6: { x: 0, y: 0 },
-    paragraph7: { x: 0, y: 0 },
-    paragraph8: { x: 0, y: 0 },
-    paragraph9: { x: 0, y: 0 },
-    paragraph10: { x: 0, y: 0 },
-    paragraph11: { x: 0, y: 0 },
-    paragraph12: { x: 0, y: 0 },
-    paragraph13: { x: 0, y: 0 },
-    paragraph14: { x: 0, y: 0 },
-    paragraph15: { x: 0, y: 0 },
-    paragraph16: { x: 0, y: 0 },
-    paragraph17: {x: 0, y: 0},
-    paragraph18: {x: 0, y: 0},
-    paragraph19: {x: 0, y: 0},
-    paragraph20: {x: 0, y: 0},
-    paragraph21: {x: 0, y: 0},
-    paragraph22: {x: 0, y: 0},
-    paragraph23: {x : 0, y : 0},
-    paragraph24: {x: 0, y: 0},
-    paragraph25: {x: 0, y: 0},
-    paragraph26: {x: 0, y: 0},
-    paragraph27: {x: 0, y: 0},
-    paragraph28: {x: 0, y: 0},
-    paragraph29: {x: 0, y: 0},
-    paragraph30: {x: 0, y: 0},
-    paragraph31: {x: 0, y: 0},
-    paragraph32: {x: 0, y: 0},
-    paragraph33: {x: 0, y: 0},
-    paragraph34: {x: 0, y: 0},
-    paragraph35: {x: 0, y: 0},
-    paragraph36: {x: 0, y: 0},
-    paragraph37: {x: 0, y: 0}, 
-    paragraph38: {x: 0, y: 0}, 
-    paragraph39: {x: 0, y: 0}, 
-    paragraph40: {x: 0, y: 0}, 
-    paragraph41: {x: 0, y: 0}, 
-    paragraph42: {x: 0, y: 0}, 
-    paragraph43: {x: 0, y: 0}, 
-    paragraph44: {x: 0, y: 0}, 
-    paragraph45: {x: 0, y: 0}, 
-    paragraph46: {x: 0, y: 0}, 
-    paragraph47: {x: 0, y: 0}, 
-    paragraph48: {x: 0, y: 0}, 
-    paragraph49: {x: 0, y: 0}, 
-    paragraph50: {x: 0, y: 0}, 
-    paragraph51: {x: 0, y: 0}, 
-    paragraph52: {x: 0, y: 0}, 
-    paragraph53: {x: 0, y: 0}, 
-  };
-
-  // Triggered when the user clicks on a draggable item
-  onMouseDown(event: MouseEvent, item: string): void {
-    this.isDragging = true;
-    this.activeItem = item;
+  // // Define positions for each draggable item
+  // positions: { [key: string]: { x: number; y: number } } = {
+  //   paragraph1: { x: 0, y: 0 },
+  //   paragraph2: { x: 0, y: 0 },
+  //   paragraph3: { x: 0, y: 0 },
+  //   paragraph4: { x: 0, y: 0 },
+  //   paragraph5: { x: 0, y: 0 },
+  //   paragraph6: { x: 0, y: 0 },
+  //   paragraph7: { x: 0, y: 0 },
+  //   paragraph8: { x: 0, y: 0 },
+  //   paragraph9: { x: 0, y: 0 },
+  //   paragraph10: { x: 0, y: 0 },
+  //   paragraph11: { x: 0, y: 0 },
+  //   paragraph12: { x: 0, y: 0 },
+  //   paragraph13: { x: 0, y: 0 },
+  //   paragraph14: { x: 0, y: 0 },
+  //   paragraph15: { x: 0, y: 0 },
+  //   paragraph16: { x: 0, y: 0 },
+  //   paragraph17: {x: 0, y: 0},
+  //   paragraph18: {x: 0, y: 0},
+  //   paragraph19: {x: 0, y: 0},
+  //   paragraph20: {x: 0, y: 0},
+  //   paragraph21: {x: 0, y: 0},
+  //   paragraph22: {x: 0, y: 0},
+  //   paragraph23: {x : 0, y : 0},
+  //   paragraph24: {x: 0, y: 0},
+  //   paragraph25: {x: 0, y: 0},
+  //   paragraph26: {x: 0, y: 0},
+  //   paragraph27: {x: 0, y: 0},
+  //   paragraph28: {x: 0, y: 0},
+  //   paragraph29: {x: 0, y: 0},
+  //   paragraph30: {x: 0, y: 0},
+  //   paragraph31: {x: 0, y: 0},
+  //   paragraph32: {x: 0, y: 0},
+  //   paragraph33: {x: 0, y: 0},
+  //   paragraph34: {x: 0, y: 0},
+  //   paragraph35: {x: 0, y: 0},
+  //   paragraph36: {x: 0, y: 0},
+  //   paragraph37: {x: 0, y: 0}, 
+  //   paragraph38: {x: 0, y: 0}, 
+  //   paragraph39: {x: 0, y: 0}, 
+  //   paragraph40: {x: 0, y: 0}, 
+  //   paragraph41: {x: 0, y: 0}, 
+  //   paragraph42: {x: 0, y: 0}, 
+  //   paragraph43: {x: 0, y: 0}, 
+  //   paragraph44: {x: 0, y: 0}, 
+  //   paragraph45: {x: 0, y: 0}, 
+  //   paragraph46: {x: 0, y: 0}, 
+  //   paragraph47: {x: 0, y: 0}, 
+  //   paragraph48: {x: 0, y: 0}, 
+  //   paragraph49: {x: 0, y: 0}, 
+  //   paragraph50: {x: 0, y: 0}, 
+  //   paragraph51: {x: 0, y: 0}, 
+  //   paragraph52: {x: 0, y: 0}, 
+  //   paragraph53: {x: 0, y: 0}, 
+  // };
+
+  // // Triggered when the user clicks on a draggable item
+  // onMouseDown(event: MouseEvent, item: string): void {
+  //   this.isDragging = true;
+  //   this.activeItem = item;
   
-    // Get the bounding rectangle of the clicked element
-    const rect = (event.target as HTMLElement).getBoundingClientRect();
+  //   // Get the bounding rectangle of the clicked element
+  //   const rect = (event.target as HTMLElement).getBoundingClientRect();
   
-    // Calculate the offset relative to the clicked position
-    this.offset.x = event.clientX;
-    this.offset.y = event.clientY;
-  }
-  
-
-  // Triggered when the user moves the mouse
-  onMouseMove(event: MouseEvent): void {
-    if (this.isDragging && this.activeItem) {
-      const itemPosition = this.positions[this.activeItem];
-      if (itemPosition) {
-        itemPosition.x = event.clientX - this.offset.x;
-        itemPosition.y = event.clientY - this.offset.y;
-      }
-    }
-  }
+  //   // Calculate the offset relative to the clicked position
+  //   this.offset.x = event.clientX;
+  //   this.offset.y = event.clientY;
+  // }
   
 
-  // Triggered when the user releases the mouse button
-  onMouseUp(): void {
-    this.isDragging = false;
-    this.activeItem = null; // Reset the active item
-  }
+  // // Triggered when the user moves the mouse
+  // onMouseMove(event: MouseEvent): void {
+  //   if (this.isDragging && this.activeItem) {
+  //     const itemPosition = this.positions[this.activeItem];
+  //     if (itemPosition) {
+  //       itemPosition.x = event.clientX - this.offset.x;
+  //       itemPosition.y = event.clientY - this.offset.y;
+  //     }
+  //   }
+  // }
+  
+
+  // // Triggered when the user releases the mouse button
+  // onMouseUp(): void {
+  //   this.isDragging = false;
+  //   this.activeItem = null; // Reset the active item
+  // }
 
 }
 

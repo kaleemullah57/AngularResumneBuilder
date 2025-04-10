@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './template1.component.css'
 })
 export class Template1Component {
-  resumes: FinalResume[] = [];
+
+
   errorMessage: boolean = false;
 
   isSidebarOpen: boolean = false;
@@ -23,14 +24,14 @@ export class Template1Component {
   }
 
 
-// Change Background Color
-  backgroundColors: string[] = ['#ecf0f1', '#f5e6ca', '#e3f2fd', 'black'   ];
+  // Change Background Color
+  backgroundColors: string[] = ['#ecf0f1', '#f5e6ca', '#e3f2fd', 'black'];
   selectedBackgroundColor: string = '';
   applyBackgroundColor(color: string) {
     this.selectedBackgroundColor = color;
-    if(color === "black"){
+    if (color === "black") {
       this.selectedFontsColor = "white";
-    }else if(color == '#e3f2fd' ){
+    } else if (color == '#e3f2fd') {
       this.selectedFontsColor = "black";
     }
   }
@@ -46,8 +47,8 @@ export class Template1Component {
 
 
   // Change Font Family
-  FontFamily : string[] = ['Futura','Georgia', 'monospace']
-  selectedFontFamily : string = '';
+  FontFamily: string[] = ['Futura', 'Georgia', 'monospace']
+  selectedFontFamily: string = '';
   applyFontFamily(fontFamily: string) {
     this.selectedFontFamily = fontFamily;
   }
@@ -62,45 +63,55 @@ export class Template1Component {
 
 
 
-  format = [
-    { label: 'Education', value: 'Education' },
-    { label: 'Professional', value: 'Professional' }
-  ];
-  selectedFormat: string = 'Professional';
+  // format = [
+  //   { label: 'Education', value: 'Education' },
+  //   { label: 'Professional', value: 'Professional' }
+  // ];
+  // selectedFormat: string = 'Professional';
 
-  onChangeFormat() {
-    this.selectedFormat;
-  }
-
-
-
-  currentIndex: number = 0;
-  totalResumes: number = 4;
-  scrollLeft() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
-  scrollRight() {
-    if (this.currentIndex < this.totalResumes - 1) {
-      this.currentIndex++;
-    }
-  }
+  // onChangeFormat() {
+  //   this.selectedFormat;
+  // }
 
 
 
-  // Toggle Sidebar 
-  toggleSidebar(): void {
-    this.isSidebarOpen = !this.isSidebarOpen;
-  }
+  // currentIndex: number = 0;
+  // totalResumes: number = 4;
+  // scrollLeft() {
+  //   if (this.currentIndex > 0) {
+  //     this.currentIndex--;
+  //   }
+  // }
+  // scrollRight() {
+  //   if (this.currentIndex < this.totalResumes - 1) {
+  //     this.currentIndex++;
+  //   }
+  // }
 
 
+
+  // // Toggle Sidebar 
+  // toggleSidebar(): void {
+  //   this.isSidebarOpen = !this.isSidebarOpen;
+  // }
+
+
+
+
+
+
+  resumes: FinalResume[] = [];
+  // Pagination 
+  currentPage: number = 0;
+  pageSize: number = 1;
+  paginatedPage: FinalResume[] = [];
 
   getAllResumes(): void {
     this._authService.getAllResumes().subscribe(
       (data) => {
         this.resumes = data;
         console.log("dta fetched", data);
+        this.updatePagination();
       },
       (error) => {
         if (error.status === 401) {
@@ -115,17 +126,43 @@ export class Template1Component {
   }
 
 
-  deleteResumes(personalRecordid: number) {
-    if (confirm("Are you sure you want to delete this resume")) {
-      this._authService.deleteResume(personalRecordid).subscribe(() => {
-        console.log("Record Deleted Successfully");
-        this.getAllResumes();
-      }, error => {
-        console.log("Error Occured during Delete API Fetching", error);
-        alert("Error Occured during Delete API Fetching");
-      })
+
+  updatePagination(): void {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    this.paginatedPage = this.resumes.slice(start, end);
+  }
+
+  nextPage(): void {
+    if ((this.currentPage + 1) * this.pageSize <= this.resumes.length) {
+      this.currentPage++;
+      this.updatePagination();
     }
   }
+
+  previousPage(): void {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.updatePagination();
+    }
+  }
+
+
+
+
+
+
+  // deleteResumes(personalRecordid: number) {
+  //   if (confirm("Are you sure you want to delete this resume")) {
+  //     this._authService.deleteResume(personalRecordid).subscribe(() => {
+  //       console.log("Record Deleted Successfully");
+  //       this.getAllResumes();
+  //     }, error => {
+  //       console.log("Error Occured during Delete API Fetching", error);
+  //       alert("Error Occured during Delete API Fetching");
+  //     })
+  //   }
+  // }
 
 
 
@@ -289,64 +326,23 @@ export class Template1Component {
     paragraph9: { x: 0, y: 0 },
     paragraph10: { x: 0, y: 0 },
     paragraph11: { x: 0, y: 0 },
-    paragraph12: { x: 0, y: 0 },
-    paragraph13: { x: 0, y: 0 },
-    paragraph14: { x: 0, y: 0 },
-    paragraph15: { x: 0, y: 0 },
-    paragraph16: { x: 0, y: 0 },
-    paragraph17: {x: 0, y: 0},
-    paragraph18: {x: 0, y: 0},
-    paragraph19: {x: 0, y: 0},
-    paragraph20: {x: 0, y: 0},
-    paragraph21: {x: 0, y: 0},
-    paragraph22: {x: 0, y: 0},
-    paragraph23: {x: 0, y: 0},
-    paragraph24: {x: 0, y: 0},
-    paragraph25: {x: 0, y: 0},
-    paragraph26: {x: 0, y: 0},
-    paragraph27: {x: 0, y: 0},
-    paragraph28: {x: 0, y: 0},
-    paragraph29: {x: 0, y: 0},
-    paragraph30: {x: 0, y: 0},
-    paragraph31: {x: 0, y: 0},
-    paragraph32: {x: 0, y: 0},
-    paragraph33: {x: 0, y: 0},
-    paragraph34: {x: 0, y: 0},
-    paragraph35: {x: 0, y: 0},
-    paragraph36: {x: 0, y: 0},
-    paragraph37: {x: 0, y: 0}, 
-    paragraph38: {x: 0, y: 0}, 
-    paragraph39: {x: 0, y: 0}, 
-    paragraph40: {x: 0, y: 0}, 
-    paragraph41: {x: 0, y: 0}, 
-    paragraph42: {x: 0, y: 0}, 
-    paragraph43: {x: 0, y: 0}, 
-    paragraph44: {x: 0, y: 0}, 
-    paragraph45: {x: 0, y: 0}, 
-    paragraph46: {x: 0, y: 0}, 
-    paragraph47: {x: 0, y: 0}, 
-    paragraph48: {x: 0, y: 0}, 
-    paragraph49: {x: 0, y: 0}, 
-    paragraph50: {x: 0, y: 0}, 
-    paragraph51: {x: 0, y: 0}, 
-    paragraph52: {x: 0, y: 0}, 
-    paragraph53: {x: 0, y: 0},
-    paragraph100:{x: 0, y: 0} 
+    paragraph100: { x: 0, y: 0 },
+
   };
 
   // Triggered when the user clicks on a draggable item
   onMouseDown(event: MouseEvent, item: string): void {
     this.isDragging = true;
     this.activeItem = item;
-  
+
     // Get the bounding rectangle of the clicked element
     const rect = (event.target as HTMLElement).getBoundingClientRect();
-  
+
     // Calculate the offset relative to the clicked position
     this.offset.x = event.clientX;
     this.offset.y = event.clientY;
   }
-  
+
 
   // Triggered when the user moves the mouse
   onMouseMove(event: MouseEvent): void {
@@ -358,7 +354,7 @@ export class Template1Component {
       }
     }
   }
-  
+
 
   // Triggered when the user releases the mouse button
   onMouseUp(): void {

@@ -1,4 +1,4 @@
-<div class="background-picker" *ngIf="currentIndex !== 1 && currentIndex !== 2 && currentIndex !== 3">
+<div class="background-picker" >
     <button ngClass="background-colorbutton" *ngFor="let color of backgroundColors" [style.backgroundColor]="color"
         (click)="applyBackgroundColor(color)">
     </button>
@@ -15,11 +15,14 @@
 </div>
 
 
-
-
+<!--  Pagination  -->
+<div class="paginatedDiv">
+    <button (click)="previousPage()" [disabled]="currentPage === 0"> Prev </button>
+    <button (click)="nextPage()" [disabled]="(currentPage + 1) * pageSize >= this.resumes.length"> Next </button>
+</div>
 
 <div>
-    <div *ngFor="let resume of resumes; let i = index" class="resume-card"
+    <div *ngFor="let resume of paginatedPage; let i = index" class="resume-card"
         [style.backgroundColor]="selectedBackgroundColor" [style.color]="selectedFontsColor"
         [style.font-family]="selectedFontFamily"
         (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()"
@@ -227,5 +230,11 @@
             <!-- <button (click)="downloadWord(i)"> Download Word </button> -->
         </div>
     </div>
+
+
+
+
+
+
 
 </div>

@@ -13,15 +13,23 @@
 </div>
 
 
-<!-- Dropdown Section -->
-<!-- <div class="dropdown-container">
-    <h1>Your Resumes</h1>
-    <p>Manage and view all of your resumes in one place.</p>
-    <label for="cvFormat" class="dropdown-label">Select CV Format:</label>
-    <select id="cvFormat" [(ngModel)]="selectedFormat" (change)="onChangeFormat()" class="dropdown-select">
-      <option *ngFor="let format of format" [value]="format.value">{{ format.label }}</option>
+
+
+
+
+
+
+<!-- Drop Down To Select Templates For User   -->
+  <div class="drop-down">
+    <label class="block mb-2 text-lg font-semibold">Select Resume Template : </label>
+    <select [(ngModel)]="selectedFormat" class="border rounded p-2 w-full">
+        <option value="" disabled>Select Section</option>
+        <option *ngFor="let section of dropDownFormat" [value]="section">{{ section }}</option>
     </select>
-  </div> -->
+</div>
+
+
+
 
 
 
@@ -33,35 +41,21 @@
 
 
 <!-- Resumes Section -->
-<div class="formats-of-resumes" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()">
-    <!-- <button class="button" (click)="scrollLeft()">&lt;</button> -->
+<div class="formats-of-resumes">
 
-    <div class="Template-1" *ngIf="currentIndex === 0" id="resume-content">
+    <div class="Template-1"  id="resume-content" *ngIf="selectedFormat === 'Education'">
         <div class="buttons-div">
-            <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
-            <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
             <app-template1></app-template1>
         </div>
     </div>
-    <!-- No Resumes Available Message -->
+
+
+
+
+    <!-- No Resumes Available Message
     <div *ngIf="resumes.length === 0" class="no-resumes-message">
         No resumes available.
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div> -->
 
 
 
@@ -69,28 +63,9 @@
 
 
     <!--  Simple  Resume Template  -->
-    <div class="Template-2" *ngIf="currentIndex === 1">
-        <!-- <div *ngIf="resumes.length > 0" class="resume-container"> -->
-
-        <div class="buttons-div">
-            <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
-            <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
-            <app-template2></app-template2>
-        </div>
+    <div class="Template-2" *ngIf="selectedFormat === 'Doctor'">
+        <app-template2></app-template2>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -100,10 +75,8 @@
 
     <!-- Resume 3 Template  -->
 
-    <div class="Template-3" *ngIf="currentIndex === 2">
+    <div class="Template-3" *ngIf="selectedFormat === 'Student'">
         <div class="buttons-div">
-            <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
-            <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
             <app-template3></app-template3>
         </div>
     </div>
@@ -113,81 +86,22 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Resume 4 Template  -->
 
-    <div class="Template-4" *ngIf="currentIndex === 3">
+    <div class="Template-4" *ngIf="selectedFormat === 'Advocate'">
         <div class="buttons-div">
-            <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
-            <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
+            <app-template4> </app-template4>
         </div>
-        <app-template4> </app-template4>
-
     </div>
 
 </div>
-<!-- No Resumes Available Message -->
+
+<!-- No Resumes Available Message
 <div *ngIf="resumes.length === 0" class="no-resumes-message">
 
     No resumes available.
 
-</div>
+</div> -->
 
 
 <router-outlet></router-outlet>

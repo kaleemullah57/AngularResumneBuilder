@@ -1,7 +1,7 @@
 /* General Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Space Grotesk
 }
 
 
@@ -94,18 +94,17 @@ body {
 }
 
 .nav-links li a {
-  
   text-decoration: none;
-  /* color: rgb(255, 255, 255); */
-  font-size: 18px;
-  transition: color 0.3s;
   color: black;
+  font-size: 22px;
   font-weight: 500;
-  /* font-family: ; */
+  transition: color 0.3s;
+  font-family: Space Grotesk
 }
 
 .nav-links li a:hover {
   color: rgb(41, 41, 233);
+  font-family: Space Grotesk
 }
 
 /* Hide the navigation links on small screens */

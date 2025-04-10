@@ -19,12 +19,23 @@ export class Template2Component {
   }
 
 
+
+  
   resumes: FinalResume[] = [];
+  // Pagination 
+  currentPage: number = 0;
+  pageSize: number = 1;
+  paginatedPage: FinalResume[] = [];
+
+
+
+
   getAllResumes(): void {
     this._authService.getAllResumes().subscribe(
       (data) => {
         this.resumes = data;
         console.log("dta fetched", data);
+        this.updatePagination();
       },
       (error) => {
         if (error.status === 401) {
@@ -37,6 +48,38 @@ export class Template2Component {
       }
     );
   }
+
+
+
+  updatePagination(): void {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    this.paginatedPage = this.resumes.slice(start, end);
+  }
+
+  nextPage(): void {
+    if ((this.currentPage + 1) * this.pageSize <= this.resumes.length) {
+      this.currentPage++;
+      this.updatePagination();
+    }
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.updatePagination();
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 
 
   FontsColors: string[] = ['#FFFFFF', '#000000'];
@@ -68,21 +111,6 @@ export class Template2Component {
     }
   }
 
-
-
-
-  currentIndex: number = 0;
-  totalResumes: number = 4;
-  scrollLeft() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
-  scrollRight() {
-    if (this.currentIndex < this.totalResumes - 1) {
-      this.currentIndex++;
-    }
-  }
 
 
 
@@ -142,20 +170,6 @@ export class Template2Component {
 
   // Define positions for each draggable item
   positions: { [key: string]: { x: number; y: number } } = {
-    paragraph1: { x: 0, y: 0 },
-    paragraph2: { x: 0, y: 0 },
-    paragraph3: { x: 0, y: 0 },
-    paragraph4: { x: 0, y: 0 },
-    paragraph5: { x: 0, y: 0 },
-    paragraph6: { x: 0, y: 0 },
-    paragraph7: { x: 0, y: 0 },
-    paragraph8: { x: 0, y: 0 },
-    paragraph9: { x: 0, y: 0 },
-    paragraph10: { x: 0, y: 0 },
-    paragraph11: { x: 0, y: 0 },
-    paragraph12: { x: 0, y: 0 },
-    paragraph13: { x: 0, y: 0 },
-    paragraph14: { x: 0, y: 0 },
     paragraph15: { x: 0, y: 0 },
     paragraph16: { x: 0, y: 0 },
     paragraph17: {x: 0, y: 0},
@@ -177,24 +191,6 @@ export class Template2Component {
     paragraph33: {x: 0, y: 0},
     paragraph34: {x: 0, y: 0},
     paragraph35: {x: 0, y: 0},
-    paragraph36: {x: 0, y: 0},
-    paragraph37: {x: 0, y: 0}, 
-    paragraph38: {x: 0, y: 0}, 
-    paragraph39: {x: 0, y: 0}, 
-    paragraph40: {x: 0, y: 0}, 
-    paragraph41: {x: 0, y: 0}, 
-    paragraph42: {x: 0, y: 0}, 
-    paragraph43: {x: 0, y: 0}, 
-    paragraph44: {x: 0, y: 0}, 
-    paragraph45: {x: 0, y: 0}, 
-    paragraph46: {x: 0, y: 0}, 
-    paragraph47: {x: 0, y: 0}, 
-    paragraph48: {x: 0, y: 0}, 
-    paragraph49: {x: 0, y: 0}, 
-    paragraph50: {x: 0, y: 0}, 
-    paragraph51: {x: 0, y: 0}, 
-    paragraph52: {x: 0, y: 0}, 
-    paragraph53: {x: 0, y: 0}, 
   };
 
   // Triggered when the user clicks on a draggable item

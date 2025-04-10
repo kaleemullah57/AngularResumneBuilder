@@ -20,11 +20,20 @@ export class Template4Component implements OnInit {
 
 
   resumes: FinalResume[] = [];
+  // Pagination 
+  currentPage: number = 0;
+  pageSize: number = 1;
+  paginatedPage: FinalResume[] = [];
+
+
+
+
   getAllResumes(): void {
     this._authService.getAllResumes().subscribe(
       (data) => {
         this.resumes = data;
         console.log("dta fetched", data);
+        this.updatePagination();
       },
       (error) => {
         if (error.status === 401) {
@@ -38,6 +47,37 @@ export class Template4Component implements OnInit {
     );
   }
 
+
+
+  updatePagination(): void {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    this.paginatedPage = this.resumes.slice(start, end);
+  }
+
+  nextPage(): void {
+    if ((this.currentPage + 1) * this.pageSize <= this.resumes.length) {
+      this.currentPage++;
+      this.updatePagination();
+    }
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.updatePagination();
+    }
+  }
+
+
+
+
+
+
+
+
+
+// Fonts Colors Picker Section
 
   FontsColors: string[] = ['#FFFFFF', '#000000'];
   selectedFontsColor: string = '';
@@ -73,18 +113,18 @@ export class Template4Component implements OnInit {
 
 
 
-  currentIndex: number = 0;
-  totalResumes: number = 4;
-  scrollLeft() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
-  scrollRight() {
-    if (this.currentIndex < this.totalResumes - 1) {
-      this.currentIndex++;
-    }
-  }
+  // currentIndex: number = 0;
+  // totalResumes: number = 4;
+  // scrollLeft() {
+  //   if (this.currentIndex > 0) {
+  //     this.currentIndex--;
+  //   }
+  // }
+  // scrollRight() {
+  //   if (this.currentIndex < this.totalResumes - 1) {
+  //     this.currentIndex++;
+  //   }
+  // }
 
 
 

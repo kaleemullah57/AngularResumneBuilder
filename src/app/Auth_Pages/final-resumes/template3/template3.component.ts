@@ -18,12 +18,23 @@ constructor(private _authService: AuthService) { }
   }
 
 
+ 
+
   resumes: FinalResume[] = [];
+  // Pagination 
+  currentPage: number = 0;
+  pageSize: number = 1;
+  paginatedPage: FinalResume[] = [];
+
+
+
+
   getAllResumes(): void {
     this._authService.getAllResumes().subscribe(
       (data) => {
         this.resumes = data;
         console.log("dta fetched", data);
+        this.updatePagination();
       },
       (error) => {
         if (error.status === 401) {
@@ -36,6 +47,38 @@ constructor(private _authService: AuthService) { }
       }
     );
   }
+
+
+
+  updatePagination(): void {
+    const start = this.currentPage * this.pageSize;
+    const end = start + this.pageSize;
+    this.paginatedPage = this.resumes.slice(start, end);
+  }
+
+  nextPage(): void {
+    if ((this.currentPage + 1) * this.pageSize <= this.resumes.length) {
+      this.currentPage++;
+      this.updatePagination();
+    }
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.updatePagination();
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 
 
   FontsColors: string[] = ['#FFFFFF', '#000000'];
@@ -70,18 +113,18 @@ constructor(private _authService: AuthService) { }
 
 
 
-  currentIndex: number = 0;
-  totalResumes: number = 4;
-  scrollLeft() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
-  scrollRight() {
-    if (this.currentIndex < this.totalResumes - 1) {
-      this.currentIndex++;
-    }
-  }
+  // currentIndex: number = 0;
+  // totalResumes: number = 4;
+  // scrollLeft() {
+  //   if (this.currentIndex > 0) {
+  //     this.currentIndex--;
+  //   }
+  // }
+  // scrollRight() {
+  //   if (this.currentIndex < this.totalResumes - 1) {
+  //     this.currentIndex++;
+  //   }
+  // }
 
 
 
@@ -141,39 +184,6 @@ constructor(private _authService: AuthService) { }
 
   // Define positions for each draggable item
   positions: { [key: string]: { x: number; y: number } } = {
-    paragraph1: { x: 0, y: 0 },
-    paragraph2: { x: 0, y: 0 },
-    paragraph3: { x: 0, y: 0 },
-    paragraph4: { x: 0, y: 0 },
-    paragraph5: { x: 0, y: 0 },
-    paragraph6: { x: 0, y: 0 },
-    paragraph7: { x: 0, y: 0 },
-    paragraph8: { x: 0, y: 0 },
-    paragraph9: { x: 0, y: 0 },
-    paragraph10: { x: 0, y: 0 },
-    paragraph11: { x: 0, y: 0 },
-    paragraph12: { x: 0, y: 0 },
-    paragraph13: { x: 0, y: 0 },
-    paragraph14: { x: 0, y: 0 },
-    paragraph15: { x: 0, y: 0 },
-    paragraph16: { x: 0, y: 0 },
-    paragraph17: {x: 0, y: 0},
-    paragraph18: {x: 0, y: 0},
-    paragraph19: {x: 0, y: 0},
-    paragraph20: {x: 0, y: 0},
-    paragraph21: {x: 0, y: 0},
-    paragraph22: {x: 0, y: 0},
-    paragraph23: {x : 0, y : 0},
-    paragraph24: {x: 0, y: 0},
-    paragraph25: {x: 0, y: 0},
-    paragraph26: {x: 0, y: 0},
-    paragraph27: {x: 0, y: 0},
-    paragraph28: {x: 0, y: 0},
-    paragraph29: {x: 0, y: 0},
-    paragraph30: {x: 0, y: 0},
-    paragraph31: {x: 0, y: 0},
-    paragraph32: {x: 0, y: 0},
-    paragraph33: {x: 0, y: 0},
     paragraph34: {x: 0, y: 0},
     paragraph35: {x: 0, y: 0},
     paragraph36: {x: 0, y: 0},

@@ -14,7 +14,30 @@
     </button>
 </div>
 
-<div class="resume" *ngFor="let resue of resumes; let i = index" [id]="'resume-' + i" [style.color]="selectedFontsColor"
+
+
+
+
+
+
+<!--  Pagination  -->
+<div class="paginatedDiv">
+    <button (click)="previousPage()" [disabled]="currentPage === 0"> Prev </button>
+    <button (click)="nextPage()" [disabled]="(currentPage + 1) * pageSize >= this.resumes.length"> Next </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="resume" *ngFor="let resue of paginatedPage; let i = index" [id]="'resume-' + i" [style.color]="selectedFontsColor"
     [style.backgroundColor]="selectedBackgroundColor" [style.font-family]="selectedFontFamily"
     (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp()"
     >

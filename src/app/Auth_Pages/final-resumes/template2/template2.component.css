@@ -10,7 +10,7 @@
   overflow: hidden;
   padding: 20px;
   margin-bottom: 20px;
-  font-family: sans-serif;
+  font-family: Space Grotesk;
 }
 
 .resume-item {
@@ -49,7 +49,7 @@
   font-size: 1.8rem;
   margin: 0;
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 600;
   text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
@@ -57,7 +57,7 @@
 
 .header-left .heading-profile {
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 700;
   font-size: 24px;
   background-color: white;
@@ -136,7 +136,7 @@
 
 .mainleft2 .Skill2-ContainerHeading {
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 700;
   font-size: 24px;
   background-color: white;
@@ -148,7 +148,7 @@
 
 .mainleft2 .Language2-ContainerHeading {
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 700;
   font-size: 24px;
   background-color: white;
@@ -159,7 +159,7 @@
 }
 
 .mainleft2-paragraph {
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-size: 16px;
   font-weight: 500;
   color: gray;
@@ -176,7 +176,7 @@
 
 .mainright2 h2 {
   font-size: 24px;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 700;
   font-style: normal;
   color: black;
@@ -185,7 +185,7 @@
 
 .mainright2 .mainright2-title {
   font-size: 22px;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 700;
   font-style: normal;
   color: black;
@@ -193,7 +193,7 @@
 }
 
 .mainright2-paragraph {
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-size: 16px;
   font-weight: 500;
   color: gray;
@@ -207,13 +207,13 @@
   width: 100%;
   background-color: white;
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   margin: 40px 0px 30px 0px
 }
 
 .mainContainer2-EduAndExtraEducation .Education2-Container {
   color: rgb(0, 0, 0);
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 600;
   width: 100%;
   display: flex;
@@ -228,7 +228,7 @@
 
 .mainContainer2-EduAndExtraEducation .Education2-ContainerHeading {
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 700;
   font-size: 24px;
   margin-left: 20px;
@@ -247,7 +247,7 @@
 }
 
 .mainContainer2-EduAndExtraEducation .Education2-Container .Education2-ContainerUl .Education2-ContainerParagraph {
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-size: 16px;
   font-weight: 500;
   color: gray;
@@ -264,7 +264,7 @@
   width: 100%;
   background-color: white;
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -275,7 +275,7 @@
 
 .OtherEducation-Container .OtherEducation-ContainerHeading {
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-size: 24px;
   font-weight: 700;
   margin-left: 48px;
@@ -289,7 +289,7 @@
 .OtherEducation-Container .OtherEducation-ContainerArticle {
   width: 100%;
   color: black;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   margin-left: 40px;
   background-color: white;
   align-items: baseline;
@@ -304,7 +304,7 @@
 }
 
 .OtherEducation-Container .OtherEducation-ContainerArticle .OtherEducation-ContainerUl .OtherEducation-ContainerParagraph {
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-size: 16px;
   font-weight: 500;
   color: gray;
@@ -399,6 +399,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px 8px 0px 0px;
 
 }
 
@@ -457,7 +458,7 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-size: 14px;
-  font-family: FontAwesome;
+  font-family: Space Grotesk;
   font-weight: 500;
 }
 
@@ -521,3 +522,13 @@ button:hover {
 
 
 
+/* Pagination Next and Previous Buttons CSS */
+.paginatedDiv{
+  width: 100%;
+  height: 60px;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(204, 212, 125);
+}

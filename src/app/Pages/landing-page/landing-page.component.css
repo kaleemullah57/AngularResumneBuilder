@@ -4,15 +4,11 @@
   justify-content: center;
   align-items: center;
   height: 10vh;
-  font-family: Arial, sans-serif;
-  /* background: linear-gradient(135deg, #1f393a, #0a191b, #2c5355, #196265); */
-
+  line-height: 100%;
+  font-family: Space Grotesk;
   background-size: 300% 300%;
-  /* color: rgb(255, 255, 255); */
-
-  font-size: 2rem;
+  font-size: 30px;
   animation: gradientAnimation 8s ease infinite;
-  /* box-shadow: 2px 2px 2px black; */
 }
 .counter-container h1{
   color: black;
@@ -50,6 +46,48 @@
   }
 }
 
+
+
+
+/*  Drop Down CSS */
+.counter-container .drop-down{
+  width: 600px;
+  height: auto;
+  color: black;
+  margin: 0px 0px 0px 40px;
+}
+.counter-container .drop-down .block{
+  font-size: 30px;
+  color: black;
+  justify-content: center;
+  line-height: normal;
+  font-family: Space Grotesk;
+  margin: 0px 20px 0px 0px;
+}
+
+.counter-container .drop-down .border{
+  width: 250px;
+  height: auto;
+  font-size: 18px;
+  background-color: transparent;
+  font-size: 25px;
+  font-family: Space Grotesk;
+}
+
+.counter-container .drop-down .border option{
+  font-size: 22px;
+  border-radius: 18px;
+  font-family: Space Grotesk;
+}
+
+
+
+
+
+
+
+
+
 .formats-of-resumes {
   width: 100%;
   max-width: 100%;
@@ -76,7 +114,6 @@
 
 .button-left {
   background-color: rgb(86, 86, 146);
-  /* margin-left: 92%; */
   background-color: #c2fbd7;
   border-radius: 100px;
   box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
@@ -196,7 +233,6 @@
   text-transform: capitalize;
   color: black;
   text-align: justify;
-  /* letter-spacing: 1.5px; */
 
     /* Animation */
     opacity: 0;
@@ -327,7 +363,6 @@ button:hover {
   font-family: FontAwesome;
   margin-left: 30px;
   list-style: .5;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 
         /* Animation */
         opacity: 0;
@@ -374,8 +409,6 @@ button:hover {
   font-family: FontAwesome;
   margin-left: 30px;
   list-style: .5;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
-
         /* Animation */
         opacity: 0;
         transform: translateX(-100%);
@@ -416,12 +449,10 @@ button:hover {
 .MainExperience-SkillsContainer .Main-left .ExEducation-Container .ExEducation-ContainerUl .ExEducation-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
-  /* font-style: italic; */
   color: gray;
   font-family: FontAwesome;
   margin-left: 30px;
   list-style: .5;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
 
         /* Animation */
@@ -444,12 +475,10 @@ button:hover {
 .MainExperience-SkillsContainer .Main-right .Personal-Container .Personal-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
-  /* font-style: italic; */
   color: gray;
   font-family: FontAwesome;
   margin-left: 30px;
   list-style: .5;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
 
         /* Animation */
@@ -492,12 +521,10 @@ button:hover {
 .MainExperience-SkillsContainer .Main-right .Skill-Container .Skill-ContainerUl .Skill-ContainerParagraph {
   font-size: 16px;
   font-weight: 500;
-  /* font-style: italic; */
   color: gray;
   font-family: FontAwesome;
   margin-left: 30px;
   list-style: .5;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
 
         /* Animation */
@@ -548,10 +575,8 @@ button:hover {
   font-family: FontAwesome;
   margin-left: 30px;
   list-style: .5;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   font-style: italic;
 
-  
         /* Animation */
         opacity: 0;
         transform: translateX(100%);
@@ -633,8 +658,6 @@ button:hover {
   margin: 0px auto;
   padding: 20px;
   background-color: #f9f9f9;
-  /* border: 1px solid #ddd; */
-  /* border-radius: 8px; */
 }
 
 /* Second Resume CSS Section  */
@@ -647,7 +670,6 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  /* padding: 20px; */
   margin-bottom: 20px;
   font-family: sans-serif;
 }
@@ -725,7 +747,6 @@ button:hover {
 }
 
 .header-left {
-  /* background-color: gray; */
   max-width: 98%;
 }
 
@@ -859,7 +880,6 @@ button:hover {
 
   align-content: center;
   flex-wrap: nowrap;
-  /* align-content: normal; */
   justify-content: space-evenly;
   align-items: baseline;
 }
@@ -945,7 +965,6 @@ button:hover {
   color: gray;
   font-style: italic;
   margin-left: 22%;
-  /* background-color: black; */
 }
 
 
@@ -988,7 +1007,6 @@ button:hover {
 
   .sidebar {
     margin-top: 20px;
-    /* margin-left: 142px; */
   }
 
   .sidebar .toggle-btn {
@@ -1051,28 +1069,20 @@ button:hover {
 /* Resume 3 FUll Details  */
 .resume {
   background: white;
-  /* background-color: red; */
-  /* padding: 20px; */
   border: 1px solid #ddd;
   border-radius: 8px;
   width: 900px;
   margin: 60px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  /* padding-top: 50px; */
-  /* margin-top: 60px; */
-  /* padding: 20px 40px; */
-
 }
 
 .resume h2 {
   padding-left: 45px;
   margin-bottom: 10px;
-  /* background-color:  rgb(140, 140, 167); */
 }
 
 .resume .left-button {
   background-color: rgb(86, 86, 146);
-  /* margin-left: 92%; */
 }
 
 .resume .right-button {
@@ -1239,7 +1249,6 @@ button:hover {
   font-family: FontAwesome;
   text-transform: capitalize;
   margin: 0px 0px 0px 67px;
-  /* margin-left: 67px; */
 }
 
 .academic3-title {
@@ -1268,7 +1277,6 @@ button:hover {
 
 
 .otherEducation3-mainContainer {
-
   font-family: FontAwesome;
   max-width: 527px;
 }
@@ -1327,15 +1335,12 @@ button:hover {
 .languages3 {
   display: flex;
   flex-wrap: wrap;
-  /* Allows wrapping if needed */
   justify-content: flex-start;
-  /* Align items to the start of the row */
   font-size: 16px;
   font-family: sans-serif;
   font-weight: 500;
   color: black;
   gap: 20px;
-  /* Add spacing between items */
 }
 
 .languages3-heading {
@@ -1371,7 +1376,34 @@ button:hover {
 }
 
 .download-buttons {
-  /* background-color: red; */
   text-align: right;
   padding: 20px 60px 20px 50px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

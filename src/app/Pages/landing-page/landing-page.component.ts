@@ -9,18 +9,18 @@ import { CustomersComponent } from "../smallComponents/LandingComponents/custome
 
 @Component({
     selector: 'app-landing-page',
-    imports: [RouterOutlet, CommonModule, CustomersComponent],
+    imports: [RouterOutlet, CommonModule, CustomersComponent, FormsModule],
     templateUrl: './landing-page.component.html',
     styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent implements OnInit {
 
   // count users. 
-  registeredUsers: number = 0
+  // registeredUsers: number = 0
 
 
   // Left Right Moving
-  currentIndex: number = 0;
+  // currentIndex: number = 0;
 
   currentIndexForNumbers: number = 0;
 
@@ -30,7 +30,7 @@ export class LandingPageComponent implements OnInit {
 
 
     this.startCounting();
-    this.getRegisteredUsers();
+    // this.getRegisteredUsers();
   }
 
   startCounting(): void {
@@ -48,34 +48,40 @@ export class LandingPageComponent implements OnInit {
     }, interval);
   }
 
-  
-  resumeFormats: string[] = ['format1', 'format2', 'format3'];
-  scrollLeft(): void {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  }
 
-  scrollRight(): void {
-    if (this.currentIndex < this.resumeFormats.length - 1) {
-      this.currentIndex++;
-    }
-  }
+
+selectedFormat = 'Doctor';
+dropDownFormat : string[] = ['Education', 'Doctor', 'Students'];
+
+
+  
+  // resumeFormats: string[] = ['format1', 'format2', 'format3'];
+  // scrollLeft(): void {
+  //   if (this.currentIndex > 0) {
+  //     this.currentIndex--;
+  //   }
+  // }
+
+  // scrollRight(): void {
+  //   if (this.currentIndex < this.resumeFormats.length - 1) {
+  //     this.currentIndex++;
+  //   }
+  // }
 
 
   // Total Registered Users 
-  getRegisteredUsers(): void {
-    this._authService.getAllRegisteredUsers().subscribe({
-      next: (number) => {
-        this.registeredUsers = number;
-        // alert("Data is Fetched Successfully");
-      },
-      error(err) {
-        // alert("Something is going wrong in the get all registerd Users");
-        console.log("Error Occured during Getting All Users", err);
-      },
-    })
-  }
+  // getRegisteredUsers(): void {
+  //   this._authService.getAllRegisteredUsers().subscribe({
+  //     next: (number) => {
+  //       this.registeredUsers = number;
+  //       // alert("Data is Fetched Successfully");
+  //     },
+  //     error(err) {
+  //       // alert("Something is going wrong in the get all registerd Users");
+  //       console.log("Error Occured during Getting All Users", err);
+  //     },
+  //   })
+  // }
 
   // scrollLeft(): void{
   //   const container = document.querySelector('.formats-of-resumes') as HTMLElement;

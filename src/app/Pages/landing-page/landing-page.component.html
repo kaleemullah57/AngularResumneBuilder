@@ -12,16 +12,27 @@
 
 <div class="counter-container">
     <h1> Resume Templates : {{ currentIndexForNumbers }}</h1>
+
+
+    <div class="drop-down">
+        <label class="block mb-2 text-lg font-semibold">Select Resume Template : </label>
+        <select [(ngModel)]="selectedFormat" class="border rounded p-2 w-full">
+            <option value="" disabled>Select Section</option>
+            <option *ngFor="let section of dropDownFormat" [value]="section">{{ section }}</option>
+        </select>
+
+    </div>
+
 </div>
+
+
+
 
 <!-- Format: Education -->
 <div class="formats-of-resumes">
-    <div *ngIf="currentIndex === 0" class="education">
+    <div *ngIf=" selectedFormat === 'Doctor'" class="education">
         <div class="resume-container">
-            <div class="buttons-div">
-                <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
-                <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
-            </div>
+
             <div class="finalResume">
                 <!-- Personal Info Section -->
                 <div class="personal-info">
@@ -130,13 +141,13 @@
                             <p class="Skill-Header"> Skills</p>
                             <ul class="Skill-ContainerUl">
                                 <p class="Skill-ContainerParagraph">
-                                    ◾  💔 Heart Surgery : 100%
+                                    ◾ 💔 Heart Surgery : 100%
                                 </p>
                                 <p class="Skill-ContainerParagraph">
-                                    ◾  🧠 Brain Surgery : 100%
+                                    ◾ 🧠 Brain Surgery : 100%
                                 </p>
                                 <p class="Skill-ContainerParagraph">
-                                    ◾  🦴 Arthopadic Surgery : 100%
+                                    ◾ 🦴 Arthopadic Surgery : 100%
                                 </p>
                             </ul>
                         </div>
@@ -147,22 +158,22 @@
                                 Languages</p>
                             <ul class="Language-ContainerUl">
                                 <p class="Language-ContainerParagraph">
-                                    ◾  Pushto
+                                    ◾ Pushto
                                 </p>
                                 <p class="Language-ContainerParagraph">
-                                    ◾  Urdu
+                                    ◾ Urdu
                                 </p>
                                 <p class="Language-ContainerParagraph">
-                                    ◾  English
+                                    ◾ English
                                 </p>
                                 <p class="Language-ContainerParagraph">
-                                    ◾  Chinees
+                                    ◾ Chinees
                                 </p>
                                 <p class="Language-ContainerParagraph">
-                                    ◾  Parshi
+                                    ◾ Parshi
                                 </p>
                                 <p class="Language-ContainerParagraph">
-                                    ◾  Hindko
+                                    ◾ Hindko
                                 </p>
                             </ul>
                         </div>
@@ -188,21 +199,18 @@
 
 
     <!-- <div *ngIf="selectedFormat === 'format2'" class="simple"> -->
-    <div class="resume-container" *ngIf="currentIndex === 1">
-        <div class="buttons-div">
-            <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
-            <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
-        </div>
+    <div class="resume-container" *ngIf=" selectedFormat === 'Education'">
         <div class="finalResume">
 
             <header class="resume-header">
                 <div class="header-left">
                     <h1 style="color: black;">
-                        resue.personalRecord.name </h1>
+                        Rashid Fareed
+                     </h1>
                     <p class="heading-profile">
                         Profile </p>
                     <p class="mainleft2-paragraph" style="margin-left: 20px; text-align: justify;">
-                        resue.personalRecord.intro
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi cumque laudantium at architecto nemo, atque ut modi quod eum qui tenetur dolore beatae, unde maxime eligendi, distinctio quos impedit? Iusto saepe doloribus natus tenetur cum quia! Officia libero inventore aliquam! Veritatis expedita iusto quod corporis eligendi sed autem delectus natus, nobis minima, libero quisquam? Consectetur, voluptates tenetur! Facere, dolorum suscipit?
                     </p>
                 </div>
             </header>
@@ -325,16 +333,9 @@
 
 
 
-    <div *ngIf="currentIndex === 2" class="education">
+    <div *ngIf=" selectedFormat === 'Students'" class="education">
 
         <div class="resume-container">
-            <!-- <button class="arrow prev" (click)="scrollLeft()">&lt;</button>
-            <button class="arrow next" (click)="scrollRight()">&gt;</button> -->
-
-            <div class="buttons-div">
-                <button class="button-left" role="button" (click)="scrollLeft()">&lt;</button>
-                <button class="button-right" role="button" (click)="scrollRight()"> &gt;</button>
-            </div>
             <div class="finalResume">
                 <div class="header">
                     <h1 style="margin-bottom: 10px;"> Dr.Shehzad Khan </h1>
@@ -421,7 +422,11 @@
 
 
 
-    <app-customers></app-customers>
+    <div class="customers-review">
+        <app-customers></app-customers>
+    </div>
+
+
 </div>
 
 

@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 8px 8px 0px 0px;
 }
 
 .background-colorbutton {
@@ -51,7 +52,6 @@ body {
   left: 0;
   height: 100%;
   width: 250px;
-  /* Default width for PC */
   background-color: #2c3e50;
   color: white;
   padding: 20px;
@@ -152,7 +152,6 @@ body {
   content: "";
   height: 50%;
   left: 4%;
-
   opacity: .5;
   position: absolute;
   top: 0;
@@ -182,7 +181,6 @@ body {
 @media screen and (max-width: 768px) {
   .sidebar {
     width: 200px;
-    /* Reduce width for tablets */
   }
 
   .sidebar .toggle-btn {
@@ -191,16 +189,13 @@ body {
 
   .sidebar.open+.main-content {
     margin-left: 200px;
-    /* Adjust margin for tablets */
   }
 }
 
 @media screen and (max-width: 480px) {
   .sidebar {
     width: 100%;
-    /* Full-width for mobile */
     height: auto;
-    /* Adjust for dropdown menu */
     transform: translateY(-100%);
     transition: transform 0.3s ease-in-out;
   }
@@ -212,21 +207,18 @@ body {
   .sidebar .toggle-btn {
     top: auto;
     bottom: -50px;
-    /* Place toggle at the bottom for mobile */
     left: 50%;
     transform: translateX(-50%);
   }
 
   .main-content {
     margin-left: 0;
-    /* No margin for mobile */
     padding: 10px;
   }
 
   .sidebar .sidebar-content button {
     padding: 10px;
     font-size: 12px;
-    /* Smaller buttons for mobile */
   }
 }
 
@@ -255,6 +247,77 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  Drop Down CSS */
+.drop-down {
+  width: 100%;
+  height: auto;
+  color: black;
+  margin: 0px 0px 0px 40px;
+  /* background-color: blue; */
+  text-align: center;
+}
+
+.drop-down .block {
+  font-size: 30px;
+  color: black;
+  justify-content: center;
+  line-height: normal;
+  font-family: Space Grotesk;
+  margin: 0px 20px 0px 0px;
+}
+
+.drop-down .border {
+  width: 250px;
+  height: auto;
+  font-size: 18px;
+  background-color: transparent;
+  font-size: 25px;
+  font-family: Space Grotesk;
+}
+
+.drop-down .border option {
+  font-size: 22px;
+  border-radius: 18px;
+  font-family: Space Grotesk;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .formats-of-resumes {
   width: 100%;
   height: 68px;
@@ -265,7 +328,6 @@ body {
 }
 
 .formats-of-resumes .resume-card {
-  /* background: white; */
   padding: 20px 0px 40px 0px;
   border: 1px solid #ddd;
   border-radius: 8px;
